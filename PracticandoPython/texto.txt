@@ -19,3 +19,9 @@ gcc -c arch.c -o arch.o ------> Genera el codigo objeto "-C"
 clang -c arch.c -o arch.o ------> Genera el codigo objeto "-C"
 
 ANTLR ----> Compilador de Compiladores
+
+
+control + shift + p ------> maven ----> Para crear el proyecto maven
+Github del profe "repositorio" ---> BaseCompiladores
+
+sudo apt install python3-antlr4

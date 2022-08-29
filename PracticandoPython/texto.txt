@@ -5,3 +5,17 @@ Analizador sintactico: Verifica que las palabras esten en orden
 Anaizardor semantico: Verifica que la horacion tenga sentido
 
 Gestor de la tabla de simbolos: Es en donde se guardan los nombres de las variables y las funciones que fueron creadas
+
+
+Para comparar dos textos con el comando "meld"
+
+gcc -E arch.c -o arch.i ------> El pre procesado "-E"
+clang -E arch.c -o arch.i ------> El pre procesado "-E"
+
+gcc -S arch.c -o arch.s ------> Muestra el assembler "-S"
+clang -S arch.c -o arch.s ------> Muestra el assembler  "-S"
+
+gcc -c arch.c -o arch.o ------> Genera el codigo objeto "-C"
+clang -c arch.c -o arch.o ------> Genera el codigo objeto "-C"
+
+ANTLR ----> Compilador de Compiladores

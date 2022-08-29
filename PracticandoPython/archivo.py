@@ -28,10 +28,12 @@ else:
 '''
 while i < n:
     a += 1;
-
+'''
+'''
 for nombre in ['Pepe', 'Ana', 'Juan']:
     print('Hola, {0}.'.format(nombre))
-
+'''
+'''
 for i in range(0,5):
     sumatorio += i
 
@@ -107,3 +109,47 @@ print(conjunto)
 a.split()
 a.join()
 '''
+
+#Funciones
+# 4**2 = 4 al cuadrado = 16
+'''
+def cuadrado(x):
+    return x**2
+
+print(cuadrado(4))
+'''
+#Funcion multireturn
+'''
+
+def multireturn():
+    return 'pepe', 'pepo'
+
+a , b = multireturn()
+
+print(a)
+print(b)
+'''
+# Variable global usada en funciones
+
+'''
+def multireturn():
+    global a
+    b = a
+    a = b + 34
+
+a = 5
+
+multireturn()
+
+print(a)
+'''
+
+#Leer archivo
+
+archivo = open('texto.txt','r')
+
+data = archivo.read()
+lineas = data.split("\n")
+
+print(lineas)
+print(archivo.readlines())

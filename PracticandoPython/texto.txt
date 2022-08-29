@@ -1,0 +1,7 @@
+Compiladores: GCC y Clang/LLVM, me permiten compilar diferentes lenguajes en diferentes arquitecturas
+
+Anaizardor lexico: Verifica que las palabras pertenezcan al lenguaje
+Analizador sintactico: Verifica que las palabras esten en orden
+Anaizardor semantico: Verifica que la horacion tenga sentido
+
+Gestor de la tabla de simbolos: Es en donde se guardan los nombres de las variables y las funciones que fueron creadas

@@ -1,2 +1,10 @@
 probando 123 probando
+g
 3 palabras
+192.168.1.1
+meschoyez@iua.edu.ar
+;
+.
+{}
+[]
+0x48844ffaa

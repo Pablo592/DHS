@@ -24,4 +24,7 @@ ANTLR ----> Compilador de Compiladores
 control + shift + p ------> maven ----> Para crear el proyecto maven
 Github del profe "repositorio" ---> BaseCompiladores
 
+
+sudo apt-get update
+sudo apt-get install antlr4
 sudo apt install python3-antlr4

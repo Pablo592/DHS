@@ -12,8 +12,13 @@ CORCHETEABRE : '[';
 CORCHETECIERRA : ']';
 PARENTESISCIERRA : ')';
 PARENTESISABRE : '(';
-OP : [-+*/];
-OPREL : [=<>];
+MAS: '+';
+MENOS: '-';
+PRODUCTO: '*';
+DIVISION: '/';
+IGUAL : '=';
+MENOR : '<';
+MAYOR : '>';
 IGUALDAD: '==';
 NEGACION : '!=';
 IF : 'if';
@@ -22,19 +27,31 @@ WHILE : 'while';
 DO : 'do';
 FLOTANTES : DIGITO PUNTO DIGITO;
 FLOTANTESNEGATIVOS : '-' DIGITO PUNTO DIGITO;
-HEXADECIMALES : '0''x' ([a-f]|[A-Z]|DIGITO)*;
+HEXADECIMALES : '0''x' ([a-f]|[A-Z]|DIGITO)+;
 NUMERO : DIGITO+ ;
 PALABRA : LETRA+;
-IP : NUMERO PUNTO NUMERO PUNTO NUMERO PUNTO NUMERO;
+BYTE : DIGITO | DIGITO DIGITO | '1' ? DIGITO DIGITO | '2' ([0-5] [0-5]);
+IP : BYTE PUNTO BYTE PUNTO BYTE PUNTO BYTE;
 CORREO: PALABRA '@' (PALABRA PUNTO PALABRA)+;
 DOMINIO : PALABRA PUNTO PALABRA*;
+WS : [ \t\n\r] -> skip;
 OTRO : . ;
 
 ID : (LETRA | '_')(LETRA | DIGITO | '_')+ ;
 
 
+//Verifico que todos los parentesis se abran y se cierren fragment
+//Arbol sintactico descendente
 
+si : s EOF;
 
+s : PARENTESISABRE s PARENTESISCIERRA s
+ | CORCHETEABRE s CORCHETECIERRA s
+ | LLAVEABRE s LLAVECIERRA s
+ |
+ ;
+
+/* 
 s : 
   | NUMERO {print("NUMERO ->" + $NUMERO.text + "<--") } s
   | PUNTOYCOMA {print("PUNTOYCOMA ->" + $PUNTOYCOMA.text + "<--") } s
@@ -46,8 +63,13 @@ s :
   | CORCHETECIERRA {print("CORCHETECIERRA ->" + $CORCHETECIERRA.text + "<--") } s
   | PARENTESISCIERRA {print("PARENTESISCIERRA ->" + $PARENTESISCIERRA.text + "<--") } s
   | PARENTESISABRE {print("PARENTESISABRE ->" + $PARENTESISABRE.text + "<--") } s
-  | OP {print("OP ->" + $OP.text + "<--") } s
-  | OPREL {print("OPREL ->" + $OPREL.text + "<--") } s
+  | MAS {print("MAS ->" + $MAS.text + "<--") } s
+  | MENOS {print("MENOS ->" + $MENOS.text + "<--") } s
+  | PRODUCTO {print("PRODUCTO ->" + $PRODUCTO.text + "<--") } s
+  | DIVISION {print("DIVISION ->" + $DIVISION.text + "<--") } s
+  | IGUAL {print("IGUAL ->" + $IGUAL.text + "<--") } s
+  | MENOR {print("MENOR ->" + $MENOR.text + "<--") } s
+  | MAYOR {print("MAYOR ->" + $MAYOR.text + "<--") } s
   | IGUALDAD {print("IGUALDAD ->" + $IGUALDAD.text + "<--") } s
   | NEGACION {print("NEGACION ->" + $NEGACION.text + "<--") } s
   | IF {print("IF ->" + $IF.text + "<--") } s
@@ -66,3 +88,4 @@ s :
   | OTRO   {print("Otro ->" + $OTRO.text + "<--") }     s
   | EOF
   ;
+  */

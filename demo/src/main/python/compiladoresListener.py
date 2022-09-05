@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by compiladoresParser.
 class compiladoresListener(ParseTreeListener):
 
+    # Enter a parse tree produced by compiladoresParser#si.
+    def enterSi(self, ctx:compiladoresParser.SiContext):
+        pass
+
+    # Exit a parse tree produced by compiladoresParser#si.
+    def exitSi(self, ctx:compiladoresParser.SiContext):
+        pass
+
+
     # Enter a parse tree produced by compiladoresParser#s.
     def enterS(self, ctx:compiladoresParser.SContext):
         pass

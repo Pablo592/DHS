@@ -9,6 +9,11 @@ else:
 
 class compiladoresVisitor(ParseTreeVisitor):
 
+    # Visit a parse tree produced by compiladoresParser#si.
+    def visitSi(self, ctx:compiladoresParser.SiContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by compiladoresParser#s.
     def visitS(self, ctx:compiladoresParser.SContext):
         return self.visitChildren(ctx)

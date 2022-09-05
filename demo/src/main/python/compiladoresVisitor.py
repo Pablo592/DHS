@@ -1,4 +1,4 @@
-# Generated from /home/pablo/Escritorio/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
+# Generated from /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .compiladoresParser import compiladoresParser

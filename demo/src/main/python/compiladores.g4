@@ -5,6 +5,7 @@ fragment DIGITO : [0-9] ;
 PUNTOYCOMA : ';';
 COMA : ',';
 PUNTO : '.';
+ESPACIO : ' ';
 LLAVEABRE : '{';
 LLAVECIERRA : '}';
 CORCHETEABRE : '[';
@@ -25,8 +26,8 @@ HEXADECIMALES : '0''x' ([a-f]|[A-Z]|DIGITO)*;
 NUMERO : DIGITO+ ;
 PALABRA : LETRA+;
 IP : NUMERO PUNTO NUMERO PUNTO NUMERO PUNTO NUMERO;
-DOMINIO : PALABRA PUNTO PALABRA*;
 CORREO: PALABRA '@' (PALABRA PUNTO PALABRA)+;
+DOMINIO : PALABRA PUNTO PALABRA*;
 OTRO : . ;
 
 ID : (LETRA | '_')(LETRA | DIGITO | '_')+ ;
@@ -60,6 +61,7 @@ s :
   | IP {print("IP ->" + $IP.text + "<--") } s
   | DOMINIO {print("DOMINIO ->" + $DOMINIO.text + "<--") } s
   | CORREO {print("CORREO ->" + $CORREO.text + "<--") } s
+  | ESPACIO {print("ESPACIO ->" + $ESPACIO.text + "<--") } s
   | ID     {print("ID ->" + $ID.text + "<--") }         s
   | OTRO   {print("Otro ->" + $OTRO.text + "<--") }     s
   | EOF

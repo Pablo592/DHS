@@ -1,4 +1,4 @@
-# Generated from /home/pablo/Escritorio/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
+# Generated from /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -11,38 +11,39 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\35")
-        buf.write("Z\4\2\t\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\36")
+        buf.write("]\4\2\t\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2")
         buf.write("\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3")
         buf.write("\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2")
         buf.write("\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3")
         buf.write("\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2")
         buf.write("\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3")
-        buf.write("\2\3\2\3\2\3\2\3\2\5\2X\n\2\3\2\2\2\3\2\2\2\2t\2W\3\2")
-        buf.write("\2\2\4X\3\2\2\2\5\6\7\27\2\2\6\7\b\2\1\2\7X\5\2\2\2\b")
-        buf.write("\t\7\3\2\2\t\n\b\2\1\2\nX\5\2\2\2\13\f\7\4\2\2\f\r\b\2")
-        buf.write("\1\2\rX\5\2\2\2\16\17\7\5\2\2\17\20\b\2\1\2\20X\5\2\2")
-        buf.write("\2\21\22\7\6\2\2\22\23\b\2\1\2\23X\5\2\2\2\24\25\7\7\2")
-        buf.write("\2\25\26\b\2\1\2\26X\5\2\2\2\27\30\7\b\2\2\30\31\b\2\1")
-        buf.write("\2\31X\5\2\2\2\32\33\7\t\2\2\33\34\b\2\1\2\34X\5\2\2\2")
-        buf.write("\35\36\7\n\2\2\36\37\b\2\1\2\37X\5\2\2\2 !\7\13\2\2!\"")
-        buf.write("\b\2\1\2\"X\5\2\2\2#$\7\f\2\2$%\b\2\1\2%X\5\2\2\2&\'\7")
-        buf.write("\r\2\2\'(\b\2\1\2(X\5\2\2\2)*\7\16\2\2*+\b\2\1\2+X\5\2")
-        buf.write("\2\2,-\7\17\2\2-.\b\2\1\2.X\5\2\2\2/\60\7\20\2\2\60\61")
-        buf.write("\b\2\1\2\61X\5\2\2\2\62\63\7\21\2\2\63\64\b\2\1\2\64X")
-        buf.write("\5\2\2\2\65\66\7\22\2\2\66\67\b\2\1\2\67X\5\2\2\289\7")
-        buf.write("\23\2\29:\b\2\1\2:X\5\2\2\2;<\7\24\2\2<=\b\2\1\2=X\5\2")
-        buf.write("\2\2>?\7\25\2\2?@\b\2\1\2@X\5\2\2\2AB\7\26\2\2BC\b\2\1")
-        buf.write("\2CX\5\2\2\2DE\7\30\2\2EF\b\2\1\2FX\5\2\2\2GH\7\31\2\2")
-        buf.write("HI\b\2\1\2IX\5\2\2\2JK\7\32\2\2KL\b\2\1\2LX\5\2\2\2MN")
-        buf.write("\7\33\2\2NO\b\2\1\2OX\5\2\2\2PQ\7\35\2\2QR\b\2\1\2RX\5")
-        buf.write("\2\2\2ST\7\34\2\2TU\b\2\1\2UX\5\2\2\2VX\7\2\2\3W\4\3\2")
-        buf.write("\2\2W\5\3\2\2\2W\b\3\2\2\2W\13\3\2\2\2W\16\3\2\2\2W\21")
-        buf.write("\3\2\2\2W\24\3\2\2\2W\27\3\2\2\2W\32\3\2\2\2W\35\3\2\2")
-        buf.write("\2W \3\2\2\2W#\3\2\2\2W&\3\2\2\2W)\3\2\2\2W,\3\2\2\2W")
-        buf.write("/\3\2\2\2W\62\3\2\2\2W\65\3\2\2\2W8\3\2\2\2W;\3\2\2\2")
-        buf.write("W>\3\2\2\2WA\3\2\2\2WD\3\2\2\2WG\3\2\2\2WJ\3\2\2\2WM\3")
-        buf.write("\2\2\2WP\3\2\2\2WS\3\2\2\2WV\3\2\2\2X\3\3\2\2\2\3W")
+        buf.write("\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2[\n\2\3\2\2\2\3\2\2")
+        buf.write("\2\2x\2Z\3\2\2\2\4[\3\2\2\2\5\6\7\30\2\2\6\7\b\2\1\2\7")
+        buf.write("[\5\2\2\2\b\t\7\3\2\2\t\n\b\2\1\2\n[\5\2\2\2\13\f\7\4")
+        buf.write("\2\2\f\r\b\2\1\2\r[\5\2\2\2\16\17\7\5\2\2\17\20\b\2\1")
+        buf.write("\2\20[\5\2\2\2\21\22\7\7\2\2\22\23\b\2\1\2\23[\5\2\2\2")
+        buf.write("\24\25\7\b\2\2\25\26\b\2\1\2\26[\5\2\2\2\27\30\7\t\2\2")
+        buf.write("\30\31\b\2\1\2\31[\5\2\2\2\32\33\7\n\2\2\33\34\b\2\1\2")
+        buf.write("\34[\5\2\2\2\35\36\7\13\2\2\36\37\b\2\1\2\37[\5\2\2\2")
+        buf.write(" !\7\f\2\2!\"\b\2\1\2\"[\5\2\2\2#$\7\r\2\2$%\b\2\1\2%")
+        buf.write("[\5\2\2\2&\'\7\16\2\2\'(\b\2\1\2([\5\2\2\2)*\7\17\2\2")
+        buf.write("*+\b\2\1\2+[\5\2\2\2,-\7\20\2\2-.\b\2\1\2.[\5\2\2\2/\60")
+        buf.write("\7\21\2\2\60\61\b\2\1\2\61[\5\2\2\2\62\63\7\22\2\2\63")
+        buf.write("\64\b\2\1\2\64[\5\2\2\2\65\66\7\23\2\2\66\67\b\2\1\2\67")
+        buf.write("[\5\2\2\289\7\24\2\29:\b\2\1\2:[\5\2\2\2;<\7\25\2\2<=")
+        buf.write("\b\2\1\2=[\5\2\2\2>?\7\26\2\2?@\b\2\1\2@[\5\2\2\2AB\7")
+        buf.write("\27\2\2BC\b\2\1\2C[\5\2\2\2DE\7\31\2\2EF\b\2\1\2F[\5\2")
+        buf.write("\2\2GH\7\32\2\2HI\b\2\1\2I[\5\2\2\2JK\7\34\2\2KL\b\2\1")
+        buf.write("\2L[\5\2\2\2MN\7\33\2\2NO\b\2\1\2O[\5\2\2\2PQ\7\6\2\2")
+        buf.write("QR\b\2\1\2R[\5\2\2\2ST\7\36\2\2TU\b\2\1\2U[\5\2\2\2VW")
+        buf.write("\7\35\2\2WX\b\2\1\2X[\5\2\2\2Y[\7\2\2\3Z\4\3\2\2\2Z\5")
+        buf.write("\3\2\2\2Z\b\3\2\2\2Z\13\3\2\2\2Z\16\3\2\2\2Z\21\3\2\2")
+        buf.write("\2Z\24\3\2\2\2Z\27\3\2\2\2Z\32\3\2\2\2Z\35\3\2\2\2Z \3")
+        buf.write("\2\2\2Z#\3\2\2\2Z&\3\2\2\2Z)\3\2\2\2Z,\3\2\2\2Z/\3\2\2")
+        buf.write("\2Z\62\3\2\2\2Z\65\3\2\2\2Z8\3\2\2\2Z;\3\2\2\2Z>\3\2\2")
+        buf.write("\2ZA\3\2\2\2ZD\3\2\2\2ZG\3\2\2\2ZJ\3\2\2\2ZM\3\2\2\2Z")
+        buf.write("P\3\2\2\2ZS\3\2\2\2ZV\3\2\2\2ZY\3\2\2\2[\3\3\2\2\2\3Z")
         return buf.getvalue()
 
 
@@ -56,16 +57,17 @@ class compiladoresParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "';'", "','", "'.'", "'{'", "'}'", "'['", 
-                     "']'", "')'", "'('", "<INVALID>", "<INVALID>", "'=='", 
-                     "'!='", "'if'", "'for'", "'while'", "'do'" ]
+    literalNames = [ "<INVALID>", "';'", "','", "'.'", "' '", "'{'", "'}'", 
+                     "'['", "']'", "')'", "'('", "<INVALID>", "<INVALID>", 
+                     "'=='", "'!='", "'if'", "'for'", "'while'", "'do'" ]
 
-    symbolicNames = [ "<INVALID>", "PUNTOYCOMA", "COMA", "PUNTO", "LLAVEABRE", 
-                      "LLAVECIERRA", "CORCHETEABRE", "CORCHETECIERRA", "PARENTESISCIERRA", 
-                      "PARENTESISABRE", "OP", "OPREL", "IGUALDAD", "NEGACION", 
-                      "IF", "FOR", "WHILE", "DO", "FLOTANTES", "FLOTANTESNEGATIVOS", 
-                      "HEXADECIMALES", "NUMERO", "PALABRA", "IP", "DOMINIO", 
-                      "CORREO", "OTRO", "ID" ]
+    symbolicNames = [ "<INVALID>", "PUNTOYCOMA", "COMA", "PUNTO", "ESPACIO", 
+                      "LLAVEABRE", "LLAVECIERRA", "CORCHETEABRE", "CORCHETECIERRA", 
+                      "PARENTESISCIERRA", "PARENTESISABRE", "OP", "OPREL", 
+                      "IGUALDAD", "NEGACION", "IF", "FOR", "WHILE", "DO", 
+                      "FLOTANTES", "FLOTANTESNEGATIVOS", "HEXADECIMALES", 
+                      "NUMERO", "PALABRA", "IP", "CORREO", "DOMINIO", "OTRO", 
+                      "ID" ]
 
     RULE_s = 0
 
@@ -75,30 +77,31 @@ class compiladoresParser ( Parser ):
     PUNTOYCOMA=1
     COMA=2
     PUNTO=3
-    LLAVEABRE=4
-    LLAVECIERRA=5
-    CORCHETEABRE=6
-    CORCHETECIERRA=7
-    PARENTESISCIERRA=8
-    PARENTESISABRE=9
-    OP=10
-    OPREL=11
-    IGUALDAD=12
-    NEGACION=13
-    IF=14
-    FOR=15
-    WHILE=16
-    DO=17
-    FLOTANTES=18
-    FLOTANTESNEGATIVOS=19
-    HEXADECIMALES=20
-    NUMERO=21
-    PALABRA=22
-    IP=23
-    DOMINIO=24
+    ESPACIO=4
+    LLAVEABRE=5
+    LLAVECIERRA=6
+    CORCHETEABRE=7
+    CORCHETECIERRA=8
+    PARENTESISCIERRA=9
+    PARENTESISABRE=10
+    OP=11
+    OPREL=12
+    IGUALDAD=13
+    NEGACION=14
+    IF=15
+    FOR=16
+    WHILE=17
+    DO=18
+    FLOTANTES=19
+    FLOTANTESNEGATIVOS=20
+    HEXADECIMALES=21
+    NUMERO=22
+    PALABRA=23
+    IP=24
     CORREO=25
-    OTRO=26
-    ID=27
+    DOMINIO=26
+    OTRO=27
+    ID=28
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -140,6 +143,7 @@ class compiladoresParser ( Parser ):
             self._IP = None # Token
             self._DOMINIO = None # Token
             self._CORREO = None # Token
+            self._ESPACIO = None # Token
             self._ID = None # Token
             self._OTRO = None # Token
 
@@ -222,6 +226,9 @@ class compiladoresParser ( Parser ):
         def CORREO(self):
             return self.getToken(compiladoresParser.CORREO, 0)
 
+        def ESPACIO(self):
+            return self.getToken(compiladoresParser.ESPACIO, 0)
+
         def ID(self):
             return self.getToken(compiladoresParser.ID, 0)
 
@@ -256,7 +263,7 @@ class compiladoresParser ( Parser ):
         localctx = compiladoresParser.SContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_s)
         try:
-            self.state = 85
+            self.state = 88
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
             if la_ == 1:
@@ -492,8 +499,8 @@ class compiladoresParser ( Parser ):
             elif la_ == 27:
                 self.enterOuterAlt(localctx, 27)
                 self.state = 78
-                localctx._ID = self.match(compiladoresParser.ID)
-                print("ID ->" + (None if localctx._ID is None else localctx._ID.text) + "<--") 
+                localctx._ESPACIO = self.match(compiladoresParser.ESPACIO)
+                print("ESPACIO ->" + (None if localctx._ESPACIO is None else localctx._ESPACIO.text) + "<--") 
                 self.state = 80
                 self.s()
                 pass
@@ -501,8 +508,8 @@ class compiladoresParser ( Parser ):
             elif la_ == 28:
                 self.enterOuterAlt(localctx, 28)
                 self.state = 81
-                localctx._OTRO = self.match(compiladoresParser.OTRO)
-                print("Otro ->" + (None if localctx._OTRO is None else localctx._OTRO.text) + "<--") 
+                localctx._ID = self.match(compiladoresParser.ID)
+                print("ID ->" + (None if localctx._ID is None else localctx._ID.text) + "<--") 
                 self.state = 83
                 self.s()
                 pass
@@ -510,6 +517,15 @@ class compiladoresParser ( Parser ):
             elif la_ == 29:
                 self.enterOuterAlt(localctx, 29)
                 self.state = 84
+                localctx._OTRO = self.match(compiladoresParser.OTRO)
+                print("Otro ->" + (None if localctx._OTRO is None else localctx._OTRO.text) + "<--") 
+                self.state = 86
+                self.s()
+                pass
+
+            elif la_ == 30:
+                self.enterOuterAlt(localctx, 30)
+                self.state = 87
                 self.match(compiladoresParser.EOF)
                 pass
 

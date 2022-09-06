@@ -146,6 +146,7 @@ print(a)
 
 #Leer archivo
 
+'''
 archivo = open('texto.txt','r')
 
 data = archivo.read()
@@ -153,3 +154,4 @@ lineas = data.split("\n")
 
 print(lineas)
 print(archivo.readlines())
+'''

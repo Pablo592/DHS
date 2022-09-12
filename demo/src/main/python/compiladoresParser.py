@@ -11,16 +11,20 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3%")
-        buf.write("\34\4\2\t\2\4\3\t\3\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3")
-        buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3\32\n\3")
-        buf.write("\3\3\2\2\4\2\4\2\2\2\34\2\6\3\2\2\2\4\31\3\2\2\2\6\7\5")
-        buf.write("\4\3\2\7\b\7\2\2\3\b\3\3\2\2\2\t\n\7\f\2\2\n\13\5\4\3")
-        buf.write("\2\13\f\7\13\2\2\f\r\5\4\3\2\r\32\3\2\2\2\16\17\7\t\2")
-        buf.write("\2\17\20\5\4\3\2\20\21\7\n\2\2\21\22\5\4\3\2\22\32\3\2")
-        buf.write("\2\2\23\24\7\7\2\2\24\25\5\4\3\2\25\26\7\b\2\2\26\27\5")
-        buf.write("\4\3\2\27\32\3\2\2\2\30\32\3\2\2\2\31\t\3\2\2\2\31\16")
-        buf.write("\3\2\2\2\31\23\3\2\2\2\31\30\3\2\2\2\32\5\3\2\2\2\3\31")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3&")
+        buf.write("-\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\t\b\3\2\3\2\3\2\3\3\3\3\3\3\3\3\5\3\30\n\3\3\4\3\4\5")
+        buf.write("\4\34\n\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7")
+        buf.write("\3\7\3\7\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2\2\'\2\20")
+        buf.write("\3\2\2\2\4\27\3\2\2\2\6\33\3\2\2\2\b\35\3\2\2\2\n!\3\2")
+        buf.write("\2\2\f%\3\2\2\2\16*\3\2\2\2\20\21\5\4\3\2\21\22\7\2\2")
+        buf.write("\3\22\3\3\2\2\2\23\24\5\6\4\2\24\25\5\4\3\2\25\30\3\2")
+        buf.write("\2\2\26\30\3\2\2\2\27\23\3\2\2\2\27\26\3\2\2\2\30\5\3")
+        buf.write("\2\2\2\31\34\5\b\5\2\32\34\5\n\6\2\33\31\3\2\2\2\33\32")
+        buf.write("\3\2\2\2\34\7\3\2\2\2\35\36\7\7\2\2\36\37\5\4\3\2\37 ")
+        buf.write("\7\b\2\2 \t\3\2\2\2!\"\5\16\b\2\"#\7&\2\2#$\7\3\2\2$\13")
+        buf.write("\3\2\2\2%&\7\f\2\2&\'\7\27\2\2\'(\7\13\2\2()\5\6\4\2)")
+        buf.write("\r\3\2\2\2*+\7\26\2\2+\17\3\2\2\2\4\27\33")
         return buf.getvalue()
 
 
@@ -36,22 +40,28 @@ class compiladoresParser ( Parser ):
 
     literalNames = [ "<INVALID>", "';'", "','", "'.'", "' '", "'{'", "'}'", 
                      "'['", "']'", "')'", "'('", "'+'", "'-'", "'*'", "'/'", 
-                     "'='", "'<'", "'>'", "'=='", "'!='", "'if'", "'for'", 
-                     "'while'", "'do'" ]
+                     "'='", "'<'", "'>'", "'=='", "'!='", "'int'", "'if'", 
+                     "'for'", "'while'", "'do'" ]
 
     symbolicNames = [ "<INVALID>", "PUNTOYCOMA", "COMA", "PUNTO", "ESPACIO", 
                       "LLAVEABRE", "LLAVECIERRA", "CORCHETEABRE", "CORCHETECIERRA", 
                       "PARENTESISCIERRA", "PARENTESISABRE", "MAS", "MENOS", 
                       "PRODUCTO", "DIVISION", "IGUAL", "MENOR", "MAYOR", 
-                      "IGUALDAD", "NEGACION", "IF", "FOR", "WHILE", "DO", 
-                      "FLOTANTES", "FLOTANTESNEGATIVOS", "HEXADECIMALES", 
+                      "IGUALDAD", "NEGACION", "INT", "IF", "FOR", "WHILE", 
+                      "DO", "FLOTANTES", "FLOTANTESNEGATIVOS", "HEXADECIMALES", 
                       "NUMERO", "PALABRA", "BYTE", "IP", "CORREO", "DOMINIO", 
                       "WS", "OTRO", "ID" ]
 
-    RULE_si = 0
-    RULE_s = 1
+    RULE_prog = 0
+    RULE_instrucciones = 1
+    RULE_instruccion = 2
+    RULE_bloque = 3
+    RULE_declaracion = 4
+    RULE_bloquewhile = 5
+    RULE_tdato = 6
 
-    ruleNames =  [ "si", "s" ]
+    ruleNames =  [ "prog", "instrucciones", "instruccion", "bloque", "declaracion", 
+                   "bloquewhile", "tdato" ]
 
     EOF = Token.EOF
     PUNTOYCOMA=1
@@ -73,22 +83,23 @@ class compiladoresParser ( Parser ):
     MAYOR=17
     IGUALDAD=18
     NEGACION=19
-    IF=20
-    FOR=21
-    WHILE=22
-    DO=23
-    FLOTANTES=24
-    FLOTANTESNEGATIVOS=25
-    HEXADECIMALES=26
-    NUMERO=27
-    PALABRA=28
-    BYTE=29
-    IP=30
-    CORREO=31
-    DOMINIO=32
-    WS=33
-    OTRO=34
-    ID=35
+    INT=20
+    IF=21
+    FOR=22
+    WHILE=23
+    DO=24
+    FLOTANTES=25
+    FLOTANTESNEGATIVOS=26
+    HEXADECIMALES=27
+    NUMERO=28
+    PALABRA=29
+    BYTE=30
+    IP=31
+    CORREO=32
+    DOMINIO=33
+    WS=34
+    OTRO=35
+    ID=36
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -99,49 +110,49 @@ class compiladoresParser ( Parser ):
 
 
 
-    class SiContext(ParserRuleContext):
+    class ProgContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def s(self):
-            return self.getTypedRuleContext(compiladoresParser.SContext,0)
+        def instrucciones(self):
+            return self.getTypedRuleContext(compiladoresParser.InstruccionesContext,0)
 
 
         def EOF(self):
             return self.getToken(compiladoresParser.EOF, 0)
 
         def getRuleIndex(self):
-            return compiladoresParser.RULE_si
+            return compiladoresParser.RULE_prog
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSi" ):
-                listener.enterSi(self)
+            if hasattr( listener, "enterProg" ):
+                listener.enterProg(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSi" ):
-                listener.exitSi(self)
+            if hasattr( listener, "exitProg" ):
+                listener.exitProg(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSi" ):
-                return visitor.visitSi(self)
+            if hasattr( visitor, "visitProg" ):
+                return visitor.visitProg(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def si(self):
+    def prog(self):
 
-        localctx = compiladoresParser.SiContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 0, self.RULE_si)
+        localctx = compiladoresParser.ProgContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 0, self.RULE_prog)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 4
-            self.s()
-            self.state = 5
+            self.state = 14
+            self.instrucciones()
+            self.state = 15
             self.match(compiladoresParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -152,7 +163,254 @@ class compiladoresParser ( Parser ):
         return localctx
 
 
-    class SContext(ParserRuleContext):
+    class InstruccionesContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def instruccion(self):
+            return self.getTypedRuleContext(compiladoresParser.InstruccionContext,0)
+
+
+        def instrucciones(self):
+            return self.getTypedRuleContext(compiladoresParser.InstruccionesContext,0)
+
+
+        def getRuleIndex(self):
+            return compiladoresParser.RULE_instrucciones
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterInstrucciones" ):
+                listener.enterInstrucciones(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitInstrucciones" ):
+                listener.exitInstrucciones(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstrucciones" ):
+                return visitor.visitInstrucciones(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def instrucciones(self):
+
+        localctx = compiladoresParser.InstruccionesContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 2, self.RULE_instrucciones)
+        try:
+            self.state = 21
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [compiladoresParser.LLAVEABRE, compiladoresParser.INT]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 17
+                self.instruccion()
+                self.state = 18
+                self.instrucciones()
+                pass
+            elif token in [compiladoresParser.EOF, compiladoresParser.LLAVECIERRA]:
+                self.enterOuterAlt(localctx, 2)
+
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class InstruccionContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def bloque(self):
+            return self.getTypedRuleContext(compiladoresParser.BloqueContext,0)
+
+
+        def declaracion(self):
+            return self.getTypedRuleContext(compiladoresParser.DeclaracionContext,0)
+
+
+        def getRuleIndex(self):
+            return compiladoresParser.RULE_instruccion
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterInstruccion" ):
+                listener.enterInstruccion(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitInstruccion" ):
+                listener.exitInstruccion(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstruccion" ):
+                return visitor.visitInstruccion(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def instruccion(self):
+
+        localctx = compiladoresParser.InstruccionContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 4, self.RULE_instruccion)
+        try:
+            self.state = 25
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [compiladoresParser.LLAVEABRE]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 23
+                self.bloque()
+                pass
+            elif token in [compiladoresParser.INT]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 24
+                self.declaracion()
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class BloqueContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def LLAVEABRE(self):
+            return self.getToken(compiladoresParser.LLAVEABRE, 0)
+
+        def instrucciones(self):
+            return self.getTypedRuleContext(compiladoresParser.InstruccionesContext,0)
+
+
+        def LLAVECIERRA(self):
+            return self.getToken(compiladoresParser.LLAVECIERRA, 0)
+
+        def getRuleIndex(self):
+            return compiladoresParser.RULE_bloque
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterBloque" ):
+                listener.enterBloque(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitBloque" ):
+                listener.exitBloque(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBloque" ):
+                return visitor.visitBloque(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def bloque(self):
+
+        localctx = compiladoresParser.BloqueContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 6, self.RULE_bloque)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 27
+            self.match(compiladoresParser.LLAVEABRE)
+            self.state = 28
+            self.instrucciones()
+            self.state = 29
+            self.match(compiladoresParser.LLAVECIERRA)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class DeclaracionContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def tdato(self):
+            return self.getTypedRuleContext(compiladoresParser.TdatoContext,0)
+
+
+        def ID(self):
+            return self.getToken(compiladoresParser.ID, 0)
+
+        def PUNTOYCOMA(self):
+            return self.getToken(compiladoresParser.PUNTOYCOMA, 0)
+
+        def getRuleIndex(self):
+            return compiladoresParser.RULE_declaracion
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDeclaracion" ):
+                listener.enterDeclaracion(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDeclaracion" ):
+                listener.exitDeclaracion(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDeclaracion" ):
+                return visitor.visitDeclaracion(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def declaracion(self):
+
+        localctx = compiladoresParser.DeclaracionContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_declaracion)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 31
+            self.tdato()
+            self.state = 32
+            self.match(compiladoresParser.ID)
+            self.state = 33
+            self.match(compiladoresParser.PUNTOYCOMA)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class BloquewhileContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -162,96 +420,97 @@ class compiladoresParser ( Parser ):
         def PARENTESISABRE(self):
             return self.getToken(compiladoresParser.PARENTESISABRE, 0)
 
-        def s(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(compiladoresParser.SContext)
-            else:
-                return self.getTypedRuleContext(compiladoresParser.SContext,i)
-
+        def IF(self):
+            return self.getToken(compiladoresParser.IF, 0)
 
         def PARENTESISCIERRA(self):
             return self.getToken(compiladoresParser.PARENTESISCIERRA, 0)
 
-        def CORCHETEABRE(self):
-            return self.getToken(compiladoresParser.CORCHETEABRE, 0)
+        def instruccion(self):
+            return self.getTypedRuleContext(compiladoresParser.InstruccionContext,0)
 
-        def CORCHETECIERRA(self):
-            return self.getToken(compiladoresParser.CORCHETECIERRA, 0)
-
-        def LLAVEABRE(self):
-            return self.getToken(compiladoresParser.LLAVEABRE, 0)
-
-        def LLAVECIERRA(self):
-            return self.getToken(compiladoresParser.LLAVECIERRA, 0)
 
         def getRuleIndex(self):
-            return compiladoresParser.RULE_s
+            return compiladoresParser.RULE_bloquewhile
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterS" ):
-                listener.enterS(self)
+            if hasattr( listener, "enterBloquewhile" ):
+                listener.enterBloquewhile(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitS" ):
-                listener.exitS(self)
+            if hasattr( listener, "exitBloquewhile" ):
+                listener.exitBloquewhile(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitS" ):
-                return visitor.visitS(self)
+            if hasattr( visitor, "visitBloquewhile" ):
+                return visitor.visitBloquewhile(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def s(self):
+    def bloquewhile(self):
 
-        localctx = compiladoresParser.SContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 2, self.RULE_s)
+        localctx = compiladoresParser.BloquewhileContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 10, self.RULE_bloquewhile)
         try:
-            self.state = 23
-            self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [compiladoresParser.PARENTESISABRE]:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 7
-                self.match(compiladoresParser.PARENTESISABRE)
-                self.state = 8
-                self.s()
-                self.state = 9
-                self.match(compiladoresParser.PARENTESISCIERRA)
-                self.state = 10
-                self.s()
-                pass
-            elif token in [compiladoresParser.CORCHETEABRE]:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 12
-                self.match(compiladoresParser.CORCHETEABRE)
-                self.state = 13
-                self.s()
-                self.state = 14
-                self.match(compiladoresParser.CORCHETECIERRA)
-                self.state = 15
-                self.s()
-                pass
-            elif token in [compiladoresParser.LLAVEABRE]:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 17
-                self.match(compiladoresParser.LLAVEABRE)
-                self.state = 18
-                self.s()
-                self.state = 19
-                self.match(compiladoresParser.LLAVECIERRA)
-                self.state = 20
-                self.s()
-                pass
-            elif token in [compiladoresParser.EOF, compiladoresParser.LLAVECIERRA, compiladoresParser.CORCHETECIERRA, compiladoresParser.PARENTESISCIERRA]:
-                self.enterOuterAlt(localctx, 4)
+            self.enterOuterAlt(localctx, 1)
+            self.state = 35
+            self.match(compiladoresParser.PARENTESISABRE)
+            self.state = 36
+            self.match(compiladoresParser.IF)
+            self.state = 37
+            self.match(compiladoresParser.PARENTESISCIERRA)
+            self.state = 38
+            self.instruccion()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
 
-                pass
+
+    class TdatoContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def INT(self):
+            return self.getToken(compiladoresParser.INT, 0)
+
+        def getRuleIndex(self):
+            return compiladoresParser.RULE_tdato
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterTdato" ):
+                listener.enterTdato(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitTdato" ):
+                listener.exitTdato(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTdato" ):
+                return visitor.visitTdato(self)
             else:
-                raise NoViableAltException(self)
+                return visitor.visitChildren(self)
 
+
+
+
+    def tdato(self):
+
+        localctx = compiladoresParser.TdatoContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 12, self.RULE_tdato)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 40
+            self.match(compiladoresParser.INT)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

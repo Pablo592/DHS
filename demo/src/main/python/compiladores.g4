@@ -21,6 +21,7 @@ MENOR : '<';
 MAYOR : '>';
 IGUALDAD: '==';
 NEGACION : '!=';
+INT: 'int';
 IF : 'if';
 FOR : 'for';
 WHILE : 'while';
@@ -44,13 +45,36 @@ ID : (LETRA | '_')(LETRA | DIGITO | '_')+ ;
 //Analisis sintactico descendente ----> Voy de la raiz a las hojas
 // antlr4 usa descendente
 
-/*Raiz*/si : s EOF;
+/*Raiz*///d  si : s EOF;
 
-s : PARENTESISABRE s PARENTESISCIERRA s
- | CORCHETEABRE s CORCHETECIERRA s
- | LLAVEABRE s LLAVECIERRA s
- |
- ;
+//s : PARENTESISABRE s PARENTESISCIERRA s
+// | CORCHETEABRE s CORCHETECIERRA s
+// | LLAVEABRE s LLAVECIERRA s
+// |
+// ;
+
+
+prog : instrucciones EOF ;
+instrucciones : instruccion instrucciones
+              |
+              ;
+
+instruccion : bloque
+            | declaracion
+          //  | asignacion
+          //  | bloqueif
+          //  | bloquefor
+          //  | bloquewhile
+  //          |
+              ;
+
+bloque : LLAVEABRE instrucciones LLAVECIERRA;
+
+declaracion : tdato ID PUNTOYCOMA;
+
+bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
+
+tdato : INT;
 
 //Analisis sintactico Ascendente ----> Voy de las hojas a la raiz
 
@@ -94,4 +118,6 @@ s :
   | OTRO   {print("Otro ->" + $OTRO.text + "<--") }     s
   | EOF
   ;
+
+  variable, asignar variables, llamado a funciones, prototipado, bucles, if
   */

@@ -540,33 +540,16 @@ materia2 = [str(input("Ingrese la materia 2: "))]
 materias = estudiante.get("Materias")+(materia1)+(materia2)
 estudiante['Materias']=materias
 
-materia = [{
-    "Nombre":"",
-    "Codigo":""
-},{
-    "Nombre":"",
-    "Codigo":""
-},{
-    "Nombre":"",
-    "Codigo":""
-},{
-    "Nombre":"",
-    "Codigo":""
-}]
 
-j = 0
 
 
 for i in estudiante.get("Materias"):
     
-    materia[j]['Nombre'] = i
-    materia[j]['Codigo'] = math.trunc(random()*100)
-    j+=1
+   estudiante[i] = math.trunc(random()*100)
 
-estudiante['Materias']=materia
 print(estudiante.items())
-'''
 
+'''
 #Ejercicio 7
 
 '''

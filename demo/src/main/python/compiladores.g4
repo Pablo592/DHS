@@ -41,15 +41,21 @@ ID : (LETRA | '_')(LETRA | DIGITO | '_')+ ;
 
 
 //Verifico que todos los parentesis se abran y se cierren fragment
-//Arbol sintactico descendente
+//Analisis sintactico descendente ----> Voy de la raiz a las hojas
+// antlr4 usa descendente
 
-si : s EOF;
+/*Raiz*/si : s EOF;
 
 s : PARENTESISABRE s PARENTESISCIERRA s
  | CORCHETEABRE s CORCHETECIERRA s
  | LLAVEABRE s LLAVECIERRA s
  |
  ;
+
+//Analisis sintactico Ascendente ----> Voy de las hojas a la raiz
+
+
+
 
 /* 
 s : 

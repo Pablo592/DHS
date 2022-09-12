@@ -34,13 +34,38 @@ class compiladoresVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#bloquewhile.
-    def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
+    # Visit a parse tree produced by compiladoresParser#asignacion.
+    def visitAsignacion(self, ctx:compiladoresParser.AsignacionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#tdato.
-    def visitTdato(self, ctx:compiladoresParser.TdatoContext):
+    # Visit a parse tree produced by compiladoresParser#prototipadoFuncion.
+    def visitPrototipadoFuncion(self, ctx:compiladoresParser.PrototipadoFuncionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#llamadoAFunciones.
+    def visitLlamadoAFunciones(self, ctx:compiladoresParser.LlamadoAFuncionesContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.
+    def visitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#operacion.
+    def visitOperacion(self, ctx:compiladoresParser.OperacionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#retorno.
+    def visitRetorno(self, ctx:compiladoresParser.RetornoContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#bloqueif.
+    def visitBloqueif(self, ctx:compiladoresParser.BloqueifContext):
         return self.visitChildren(ctx)
 
 

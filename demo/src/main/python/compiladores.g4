@@ -22,11 +22,15 @@ MENOR : '<';
 MAYOR : '>';
 IGUALDAD: '==';
 NEGACION : '!=';
+SUMAUNO : '++';
 TDATO :INT
       |STRING
       |FLOAT
       |DOUBLE
       ;
+BOOLEANOS : 'true'
+            |'false'
+            ;
 INT: 'int';
 STRING: 'string';
 FLOAT: 'float';
@@ -65,11 +69,11 @@ instrucciones : instruccion instrucciones
               ;
 
 instruccion : bloque
+            | llamadoAFunciones PUNTOYCOMA
             | declaracion PUNTOYCOMA
             | operacion PUNTOYCOMA
             | asignacion PUNTOYCOMA
             | prototipadoFuncion PUNTOYCOMA
-            | llamadoAFunciones PUNTOYCOMA
             | desarrolloFuncion
             | retorno PUNTOYCOMA
             | bloqueif
@@ -79,15 +83,15 @@ instruccion : bloque
 
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|VARIABLE)+;
-asignacion : (TDATO|) (COMA|VARIABLE (IGUAL (NUMERO|VARIABLE|llamadoAFunciones|operacion)))+;
+asignacion : (TDATO|) (COMA|(VARIABLE ((IGUAL (NUMERO|VARIABLE|llamadoAFunciones|operacion))| SUMAUNO)))+;
 prototipadoFuncion : TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: VARIABLE PARENTESISABRE ((VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA instrucciones;
 operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
 retorno: 'return' (NUMERO|VARIABLE);
-bloqueif: IF PARENTESISABRE ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE)) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
-bloquewhile: WHILE PARENTESISABRE ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE)) PARENTESISCIERRA instrucciones;
-bloquefor: FOR PARENTESISABRE (declaracion)* PUNTOYCOMA ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))* PUNTOYCOMA asignacion* PARENTESISCIERRA instrucciones;
+bloqueif: IF PARENTESISABRE (((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))|BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
+bloquewhile: WHILE PARENTESISABRE (((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))|BOOLEANOS) PARENTESISCIERRA instrucciones;
+bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA instrucciones;
 
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

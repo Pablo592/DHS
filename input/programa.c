@@ -9,6 +9,14 @@ int main()
 
     y = sumar(x, 10);
 
+    while (a != x)
+        a = a + 1;
+
+    for (int i = 0; i < x; i++)
+    {
+        a = a + 1;
+    }
+
     {
         int a = 5;
         int b = a + x;
@@ -25,7 +33,8 @@ int main()
     return 0;
 }
 
-int sumar (int a,int b){
+int sumar(int a, int b)
+{
     int r = a + b;
     return r;
 }

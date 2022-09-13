@@ -32,12 +32,13 @@ STRING: 'string';
 FLOAT: 'float';
 DOUBLE: 'double';
 IF : 'if';
+ELSE : 'else';
 FOR : 'for';
 WHILE : 'while';
 DO : 'do';
 FLOTANTES : DIGITO PUNTO DIGITO;
 FLOTANTESNEGATIVOS : '-' DIGITO PUNTO DIGITO;
-NUMERO : DIGITO+ ;
+NUMERO : ('-'(DIGITO+)) | (DIGITO+) ;
 
 
 VARIABLE : (LETRA | '_')(LETRA | DIGITO | '_')* ;
@@ -72,10 +73,9 @@ instruccion : bloque
             | desarrolloFuncion
             | retorno PUNTOYCOMA
             | bloqueif
-          //  | bloquefor
-          //  | bloquewhile
-  //          |
-              ;
+            | bloquefor
+            | bloquewhile
+            ;
 
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|VARIABLE)+;
@@ -85,7 +85,9 @@ llamadoAFunciones: VARIABLE PARENTESISABRE ((VARIABLE|NUMERO) (COMA|))* PARENTES
 desarrolloFuncion: TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA instrucciones;
 operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
 retorno: 'return' (NUMERO|VARIABLE);
-bloqueif: IF PARENTESISABRE ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE)) PARENTESISCIERRA instrucciones;
+bloqueif: IF PARENTESISABRE ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE)) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
+bloquewhile: WHILE PARENTESISABRE ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE)) PARENTESISCIERRA instrucciones;
+bloquefor: FOR PARENTESISABRE (declaracion)* PUNTOYCOMA ((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))* PUNTOYCOMA asignacion* PARENTESISCIERRA instrucciones;
 
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

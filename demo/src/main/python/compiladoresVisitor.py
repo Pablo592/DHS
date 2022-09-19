@@ -9,6 +9,51 @@ else:
 
 class compiladoresVisitor(ParseTreeVisitor):
 
+    # Visit a parse tree produced by compiladoresParser#itop.
+    def visitItop(self, ctx:compiladoresParser.ItopContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#oparit.
+    def visitOparit(self, ctx:compiladoresParser.OparitContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#exp.
+    def visitExp(self, ctx:compiladoresParser.ExpContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#to.
+    def visitTo(self, ctx:compiladoresParser.ToContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#op.
+    def visitOp(self, ctx:compiladoresParser.OpContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#term.
+    def visitTerm(self, ctx:compiladoresParser.TermContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#t.
+    def visitT(self, ctx:compiladoresParser.TContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#factor.
+    def visitFactor(self, ctx:compiladoresParser.FactorContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#f.
+    def visitF(self, ctx:compiladoresParser.FContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by compiladoresParser#prog.
     def visitProg(self, ctx:compiladoresParser.ProgContext):
         return self.visitChildren(ctx)
@@ -51,11 +96,6 @@ class compiladoresVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.
     def visitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by compiladoresParser#operacion.
-    def visitOperacion(self, ctx:compiladoresParser.OperacionContext):
         return self.visitChildren(ctx)
 
 

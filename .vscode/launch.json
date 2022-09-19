@@ -11,9 +11,9 @@
             // Archivo con la gramatica
             "grammar": "${file}",
             // Archivo a parsear
-            "input": "input/fragmentoPrograma.c",
+            "input": "input/aritmetica.txt",
             // Simbolo inicial
-            "startRule": "prog",
+            "startRule": "itop",
             // Muestra Arbol Sintactico
             "printParseTree": true,
             "visualParseTree": true

@@ -1,102 +1,154 @@
 grammar compiladores;
 
-fragment LETRA : [A-Za-z] ;
-fragment DIGITO : [0-9] ;
-PUNTOYCOMA : ';';
-COMA : ',';
-PUNTO : '.';
-LLAVEABRE : '{';
-LLAVECIERRA : '}';
-CORCHETEABRE : '[';
-CORCHETECIERRA : ']';
-PARENTESISCIERRA : ')';
-PARENTESISABRE : '(';
-OP: MAS|MENOS|PRODUCTO|DIVISION;
+fragment LETRA: [A-Za-z];
+fragment DIGITO: [0-9];
+PUNTOYCOMA: ';';
+COMA: ',';
+PUNTO: '.';
+LLAVEABRE: '{';
+LLAVECIERRA: '}';
+CORCHETEABRE: '[';
+CORCHETECIERRA: ']';
+PARENTESISCIERRA: ')';
+PARENTESISABRE: '(';
+//OP: MAS|MENOS|PRODUCTO|DIVISION;
 MAS: '+';
 MENOS: '-';
 PRODUCTO: '*';
 DIVISION: '/';
-CONDICIONAL: MENOR|MAYOR|IGUALDAD|NEGACION;
-IGUAL : '=';
-MENOR : '<';
-MAYOR : '>';
+CONDICIONAL: MENOR | MAYOR | IGUALDAD | NEGACION;
+IGUAL: '=';
+MENOR: '<';
+MAYOR: '>';
 IGUALDAD: '==';
-NEGACION : '!=';
-SUMAUNO : '++';
-TDATO :INT
-      |STRING
-      |FLOAT
-      |DOUBLE
-      ;
-BOOLEANOS : 'true'
-            |'false'
-            ;
+NEGACION: '!=';
+SUMAUNO: '++';
+RESTAUNO: '--';
+TDATO: INT | STRING | FLOAT | DOUBLE;
+BOOLEANOS: 'true' | 'false';
 INT: 'int';
 STRING: 'string';
 FLOAT: 'float';
 DOUBLE: 'double';
-IF : 'if';
-ELSE : 'else';
-FOR : 'for';
-WHILE : 'while';
-DO : 'do';
-FLOTANTES : DIGITO PUNTO DIGITO;
-FLOTANTESNEGATIVOS : '-' DIGITO PUNTO DIGITO;
-NUMERO : ('-'(DIGITO+)) | (DIGITO+) ;
+IF: 'if';
+ELSE: 'else';
+FOR: 'for';
+WHILE: 'while';
+DO: 'do';
+FLOTANTES: DIGITO PUNTO DIGITO;
+FLOTANTESNEGATIVOS: '-' DIGITO PUNTO DIGITO;
+NUMERO: ('-' (DIGITO+)) | (DIGITO+);
 
+VARIABLE: (LETRA | '_') (LETRA | DIGITO | '_')*;
 
-VARIABLE : (LETRA | '_')(LETRA | DIGITO | '_')* ;
+WS: [ \t\n\r] -> skip;
+OTRO: .;
 
-WS : [ \t\n\r] -> skip;
-OTRO : . ;
+/*
+ //Verifico que todos los parentesis se abran y se cierren fragment //Analisis sintactico
+ descendente ----> Voy de la raiz a las hojas // antlr4 usa descendente
+ 
+ Raiz//d si : s EOF;
+ 
+ //s : PARENTESISABRE s PARENTESISCIERRA s // | CORCHETEABRE s CORCHETECIERRA s // | LLAVEABRE s
+ LLAVECIERRA s // | // ;
+ */
 
-//Verifico que todos los parentesis se abran y se cierren fragment
-//Analisis sintactico descendente ----> Voy de la raiz a las hojas
-// antlr4 usa descendente
+itop: oparit itop |;
+// c = a + b + d + f / r * q
+oparit: exp;
 
-/*Raiz*///d  si : s EOF;
+exp: term to;
 
-//s : PARENTESISABRE s PARENTESISCIERRA s
-// | CORCHETEABRE s CORCHETECIERRA s
-// | LLAVEABRE s LLAVECIERRA s
-// |
-// ;
+to : op t;
 
+op : IGUALDAD term t
+   | NEGACION term t
+   ;
 
-prog : instrucciones EOF ;
-instrucciones : instruccion instrucciones
-              |
-              ;
+term: factor f;
 
-instruccion : bloque
-            | llamadoAFunciones PUNTOYCOMA
-            | declaracion PUNTOYCOMA
-            | operacion PUNTOYCOMA
-            | asignacion PUNTOYCOMA
-            | prototipadoFuncion PUNTOYCOMA
-            | desarrolloFuncion
-            | retorno PUNTOYCOMA
-            | bloqueif
-            | bloquefor
-            | bloquewhile
-            ;
+t: MAS term t 
+ | MENOS term t 
+ |
+ ;
 
-bloque : LLAVEABRE instrucciones LLAVECIERRA;
-declaracion : TDATO (COMA|VARIABLE)+;
-asignacion : (TDATO|) (COMA|(VARIABLE ((IGUAL (NUMERO|VARIABLE|llamadoAFunciones|operacion))| SUMAUNO)))+;
-prototipadoFuncion : TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA;
-llamadoAFunciones: VARIABLE PARENTESISABRE ((VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA;
-desarrolloFuncion: TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE|NUMERO) (COMA|))* PARENTESISCIERRA instrucciones;
-operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
-retorno: 'return' (NUMERO|VARIABLE);
-bloqueif: IF PARENTESISABRE (((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))|BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
-bloquewhile: WHILE PARENTESISABRE (((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))|BOOLEANOS) PARENTESISCIERRA instrucciones;
-bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO|VARIABLE)CONDICIONAL(NUMERO|VARIABLE))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA instrucciones;
+factor:  VARIABLE SUMAUNO
+       | VARIABLE RESTAUNO
+       | VARIABLE
+	| NUMERO
+	| PARENTESISABRE exp PARENTESISCIERRA;
+
+f:  PRODUCTO factor f
+   |DIVISION factor f
+   |
+   ;
+
+prog: instrucciones EOF;
+instrucciones: instruccion instrucciones |;
+
+instruccion:
+	bloque
+	| llamadoAFunciones PUNTOYCOMA
+	| declaracion PUNTOYCOMA
+	//   | operacion PUNTOYCOMA
+	| asignacion PUNTOYCOMA
+	| prototipadoFuncion PUNTOYCOMA
+	| desarrolloFuncion
+	| retorno PUNTOYCOMA
+	| bloqueif
+	| bloquefor
+	| bloquewhile;
+
+bloque: LLAVEABRE instrucciones LLAVECIERRA;
+declaracion: TDATO (COMA | VARIABLE)+;
+asignacion: (TDATO |) (
+		COMA
+		| (
+			VARIABLE (
+				(
+					IGUAL (
+						NUMERO
+						| VARIABLE
+						| llamadoAFunciones /*|operacion*/
+					)
+				)
+				| SUMAUNO
+			)
+		)
+	)+;
+prototipadoFuncion:
+	TDATO VARIABLE PARENTESISABRE (
+		TDATO (VARIABLE | NUMERO) (COMA |)
+	)* PARENTESISCIERRA;
+llamadoAFunciones:
+	VARIABLE PARENTESISABRE ((VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
+desarrolloFuncion:
+	TDATO VARIABLE PARENTESISABRE (
+		TDATO (VARIABLE | NUMERO) (COMA |)
+	)* PARENTESISCIERRA instrucciones;
+//operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
+retorno: 'return' (NUMERO | VARIABLE);
+bloqueif:
+	IF PARENTESISABRE (
+		((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))
+		| BOOLEANOS
+	) PARENTESISCIERRA instrucciones ((ELSE instrucciones) |);
+bloquewhile:
+	WHILE PARENTESISABRE (
+		((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))
+		| BOOLEANOS
+	) PARENTESISCIERRA instrucciones;
+bloquefor:
+	FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (
+		((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))*
+		| BOOLEANOS
+	) PUNTOYCOMA (asignacion /*|OP*/)* PARENTESISCIERRA instrucciones;
 
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
-
-
 
 //Analisis sintactico Ascendente ----> Voy de las hojas a la raiz
 
 //variable, asignar variables, llamado a funciones, prototipado, bucles, if
+
+// bloquewhile : PA comparacion/opal PC instruccion ;

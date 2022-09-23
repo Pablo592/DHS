@@ -14,23 +14,33 @@ class compiladoresVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#oparit.
-    def visitOparit(self, ctx:compiladoresParser.OparitContext):
+    # Visit a parse tree produced by compiladoresParser#operation.
+    def visitOperation(self, ctx:compiladoresParser.OperationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#exp.
-    def visitExp(self, ctx:compiladoresParser.ExpContext):
+    # Visit a parse tree produced by compiladoresParser#expression.
+    def visitExpression(self, ctx:compiladoresParser.ExpressionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#to.
-    def visitTo(self, ctx:compiladoresParser.ToContext):
+    # Visit a parse tree produced by compiladoresParser#logicOr.
+    def visitLogicOr(self, ctx:compiladoresParser.LogicOrContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#op.
-    def visitOp(self, ctx:compiladoresParser.OpContext):
+    # Visit a parse tree produced by compiladoresParser#lor.
+    def visitLor(self, ctx:compiladoresParser.LorContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#logicAnd.
+    def visitLogicAnd(self, ctx:compiladoresParser.LogicAndContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by compiladoresParser#land.
+    def visitLand(self, ctx:compiladoresParser.LandContext):
         return self.visitChildren(ctx)
 
 

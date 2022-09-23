@@ -16,12 +16,14 @@ MAS: '+';
 MENOS: '-';
 PRODUCTO: '*';
 DIVISION: '/';
-CONDICIONAL: MENOR | MAYOR | IGUALDAD | NEGACION;
+CONDICIONAL: MENOR | MAYOR | IGUALDAD | DISTINTO;
 IGUAL: '=';
 MENOR: '<';
 MAYOR: '>';
 IGUALDAD: '==';
-NEGACION: '!=';
+AND : '&&';
+OR : '||';
+DISTINTO: '!=';
 SUMAUNO: '++';
 RESTAUNO: '--';
 TDATO: INT | STRING | FLOAT | DOUBLE;
@@ -54,35 +56,43 @@ OTRO: .;
  LLAVECIERRA s // | // ;
  */
 
-itop: oparit itop |;
-// c = a + b + d + f / r * q
-oparit: exp;
+itop :  operation itop
+        |
+        ;
 
-exp: term to;
+operation : expression ;
 
-to : op t;
+expression : logicOr lor ;
 
-op : IGUALDAD term t
-   | NEGACION term t
-   ;
+logicOr : logicAnd land;
 
-term: factor f;
+lor:OR logicOr lor
+    |
+    ;
 
-t: MAS term t 
- | MENOS term t 
- |
- ;
+logicAnd: term t;
 
-factor:  VARIABLE SUMAUNO
-       | VARIABLE RESTAUNO
-       | VARIABLE
-	| NUMERO
-	| PARENTESISABRE exp PARENTESISCIERRA;
+land :  AND logicAnd land
+        |
+        ;
 
-f:  PRODUCTO factor f
-   |DIVISION factor f
+term : factor f ;
+
+t : MAS term t
+   | MENOS term t
    |
-   ;
+  ;
+
+factor : VARIABLE
+       | NUMERO
+       | PARENTESISABRE expression PARENTESISCIERRA
+       ;
+
+f : PRODUCTO factor f
+   | DIVISION factor f
+   |
+  ;
+
 
 prog: instrucciones EOF;
 instrucciones: instruccion instrucciones |;
@@ -102,48 +112,15 @@ instruccion:
 
 bloque: LLAVEABRE instrucciones LLAVECIERRA;
 declaracion: TDATO (COMA | VARIABLE)+;
-asignacion: (TDATO |) (
-		COMA
-		| (
-			VARIABLE (
-				(
-					IGUAL (
-						NUMERO
-						| VARIABLE
-						| llamadoAFunciones /*|operacion*/
-					)
-				)
-				| SUMAUNO
-			)
-		)
-	)+;
-prototipadoFuncion:
-	TDATO VARIABLE PARENTESISABRE (
-		TDATO (VARIABLE | NUMERO) (COMA |)
-	)* PARENTESISCIERRA;
-llamadoAFunciones:
-	VARIABLE PARENTESISABRE ((VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
-desarrolloFuncion:
-	TDATO VARIABLE PARENTESISABRE (
-		TDATO (VARIABLE | NUMERO) (COMA |)
-	)* PARENTESISCIERRA instrucciones;
+asignacion: (TDATO |) (COMA| (VARIABLE ((IGUAL (NUMERO| VARIABLE| llamadoAFunciones /*|operacion*/))| SUMAUNO)))+;
+prototipadoFuncion: TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
+llamadoAFunciones:VARIABLE PARENTESISABRE ((VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
+desarrolloFuncion:TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA instrucciones;
 //operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
 retorno: 'return' (NUMERO | VARIABLE);
-bloqueif:
-	IF PARENTESISABRE (
-		((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))
-		| BOOLEANOS
-	) PARENTESISCIERRA instrucciones ((ELSE instrucciones) |);
-bloquewhile:
-	WHILE PARENTESISABRE (
-		((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))
-		| BOOLEANOS
-	) PARENTESISCIERRA instrucciones;
-bloquefor:
-	FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (
-		((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))*
-		| BOOLEANOS
-	) PUNTOYCOMA (asignacion /*|OP*/)* PARENTESISCIERRA instrucciones;
+bloqueif:IF PARENTESISABRE (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))| BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones) |);
+bloquewhile:WHILE PARENTESISABRE (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))| BOOLEANOS) PARENTESISCIERRA instrucciones;
+bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))*| BOOLEANOS) PUNTOYCOMA (asignacion /*|OP*/)* PARENTESISCIERRA instrucciones;
 
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

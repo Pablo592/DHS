@@ -30,3 +30,19 @@ sudo apt-get install antlr4
 sudo apt install python3-antlr4
 
 En (compiladores.g4) usamos el analisis sintactico descendente 
+
+
+Cada contexto es un diccionario
+
+id
+inicializada
+usada
+tipo dato
+nombre
+
+https://docs.python.org/es/3/tutorial/classes.html
+
+self = this
+
+
+Tarea: lograr almacenar todas las variables en Tabla

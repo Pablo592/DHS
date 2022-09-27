@@ -16,17 +16,25 @@ MAS: '+';
 MENOS: '-';
 PRODUCTO: '*';
 DIVISION: '/';
+RESTO:'%';
 CONDICIONAL: MENOR | MAYOR | IGUALDAD | DISTINTO;
 IGUAL: '=';
+PRODUCTOIGUAL:'*=';
+IGUALDAD: '==';
+DIVIDIDOIGUAL:'/=';
+RESTOIGUAL:'%=';
+MASIGUAL:'+=';
+MENOSIGUAL:'-=';
+MAYORIGUAL:'>=';
+MENORIGUAL:'<=';
 MENOR: '<';
 MAYOR: '>';
-IGUALDAD: '==';
 AND : '&&';
 OR : '||';
 DISTINTO: '!=';
+NEGACION: '!';
 SUMAUNO: '++';
 RESTAUNO: '--';
-TDATO: INT | STRING | FLOAT | DOUBLE;
 BOOLEANOS: 'true' | 'false';
 INT: 'int';
 STRING: 'string';
@@ -56,6 +64,103 @@ OTRO: .;
  LLAVECIERRA s // | // ;
  */
 
+
+itop : oparit itop
+     |
+     ;
+// c = a + b + d + f / r * q
+oparit : expo;
+
+expo : tie coma;
+
+coma: COMA
+    |
+    ;
+
+tie : to igualOperaciones;
+
+igualOperaciones:IGUAL
+                |PRODUCTOIGUAL
+                |DIVIDIDOIGUAL
+                |RESTOIGUAL
+                |MASIGUAL
+                |MENOSIGUAL
+                |
+                ;
+         
+
+to: ti orLogico;
+
+orLogico: OR
+        |
+        ;
+
+ti: te andLogico;
+
+andLogico: AND
+         |
+         ;
+
+te: po igualo;
+
+igualo:IGUALDAD
+      |DISTINTO
+      |
+      ;
+
+po: pi relaciono;
+
+relaciono:MAYOR
+         |MENOR
+         |MAYORIGUAL
+         |MENORIGUAL
+         |
+         ;
+
+pi: pu sumoResto;
+
+sumoResto:MAS
+         |MENOS
+         |
+         ;
+
+pu: pe multiDivi;
+
+multiDivi:PRODUCTO
+         |DIVISION
+         |RESTO
+         |
+         ;
+
+pe: pa tipoDato;
+
+tipoDato:INT
+        |STRING
+        |FLOAT
+        |DOUBLE
+        |
+        ;
+
+pa: factor prefijo;
+
+prefijo:RESTAUNO VARIABLE
+       |SUMAUNO VARIABLE
+       |NEGACION
+       |
+       ;
+
+factor: VARIABLE
+       |VARIABLE SUMAUNO
+       |VARIABLE RESTAUNO
+       |PUNTO
+       |NUMERO
+       |CORCHETEABRE (VARIABLE|NUMERO) CORCHETECIERRA
+       |PARENTESISABRE
+       |PARENTESISCIERRA
+       ;
+       
+
+/* 
 itop :  operation itop
         |
         ;
@@ -93,7 +198,7 @@ f : PRODUCTO factor f
    |
   ;
 
-
+*/
 prog: instrucciones EOF;
 instrucciones: instruccion instrucciones |;
 
@@ -111,11 +216,11 @@ instruccion:
 	| bloquewhile;
 
 bloque: LLAVEABRE instrucciones LLAVECIERRA;
-declaracion: TDATO (COMA | VARIABLE)+;
-asignacion: (TDATO |) (COMA| (VARIABLE ((IGUAL (NUMERO| VARIABLE| llamadoAFunciones /*|operacion*/))| SUMAUNO)))+;
-prototipadoFuncion: TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
+declaracion: tipoDato (COMA | VARIABLE)+;
+asignacion: (tipoDato |) (COMA| (VARIABLE ((IGUAL (NUMERO| VARIABLE| llamadoAFunciones /*|operacion*/))| SUMAUNO)))+;
+prototipadoFuncion: tipoDato VARIABLE PARENTESISABRE (tipoDato (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
 llamadoAFunciones:VARIABLE PARENTESISABRE ((VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
-desarrolloFuncion:TDATO VARIABLE PARENTESISABRE (TDATO (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA instrucciones;
+desarrolloFuncion:tipoDato VARIABLE PARENTESISABRE (tipoDato (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA instrucciones;
 //operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
 retorno: 'return' (NUMERO | VARIABLE);
 bloqueif:IF PARENTESISABRE (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))| BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones) |);

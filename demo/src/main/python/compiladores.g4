@@ -64,12 +64,12 @@ OTRO: .;
  LLAVECIERRA s // | // ;
  */
 
-
 itop : oparit itop
      |
      ;
 // c = a + b + d + f / r * q
-oparit : expo;
+oparit : expo
+       ;
 
 expo : tie coma;
 
@@ -151,6 +151,8 @@ prefijo:RESTAUNO VARIABLE
 
 factor: VARIABLE
        |tipoDato VARIABLE
+       |VARIABLE SUMAUNO
+       |VARIABLE RESTAUNO
        |PUNTO
        |NUMERO
        |CORCHETEABRE (VARIABLE|NUMERO) CORCHETECIERRA

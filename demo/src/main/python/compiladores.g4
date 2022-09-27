@@ -150,55 +150,13 @@ prefijo:RESTAUNO VARIABLE
        ;
 
 factor: VARIABLE
-       |VARIABLE SUMAUNO
-       |VARIABLE RESTAUNO
+       |tipoDato VARIABLE
        |PUNTO
        |NUMERO
        |CORCHETEABRE (VARIABLE|NUMERO) CORCHETECIERRA
-       |PARENTESISABRE
-       |PARENTESISCIERRA
+       |PARENTESISABRE itop PARENTESISCIERRA
        ;
        
-
-/* 
-itop :  operation itop
-        |
-        ;
-
-operation : expression ;
-
-expression : logicOr lor ;
-
-logicOr : logicAnd land;
-
-lor:OR logicOr lor
-    |
-    ;
-
-logicAnd: term t;
-
-land :  AND logicAnd land
-        |
-        ;
-
-term : factor f ;
-
-t : MAS term t
-   | MENOS term t
-   |
-  ;
-
-factor : VARIABLE
-       | NUMERO
-       | PARENTESISABRE expression PARENTESISCIERRA
-       ;
-
-f : PRODUCTO factor f
-   | DIVISION factor f
-   |
-  ;
-
-*/
 prog: instrucciones EOF;
 instrucciones: instruccion instrucciones |;
 

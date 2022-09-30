@@ -2,6 +2,7 @@ import sys
 from antlr4 import *
 from compiladoresLexer  import compiladoresLexer
 from compiladoresParser import compiladoresParser
+from MiListener import MiListener
 
 
 def main(argv):
@@ -12,7 +13,10 @@ def main(argv):
     lexer = compiladoresLexer(input)
     stream = CommonTokenStream(lexer)
     parser = compiladoresParser(stream)
+    miListener = MiListener()
+    parser.addParseListener(miListener)
     tree = parser.itop()
+    print(tree.toStringTree(recog=parser))
     print(tree.toStringTree(recog=parser))
 
 if __name__ == '__main__':

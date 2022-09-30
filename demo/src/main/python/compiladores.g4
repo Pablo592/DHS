@@ -52,6 +52,7 @@ NUMERO: ('-' (DIGITO+)) | (DIGITO+);
 VARIABLE: (LETRA | '_') (LETRA | DIGITO | '_')*;
 
 WS: [ \t\n\r] -> skip;
+COMENTARIOS: ('/*'.'*/') '//' -> skip;
 OTRO: .;
 
 /*

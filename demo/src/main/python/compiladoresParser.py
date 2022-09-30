@@ -11,7 +11,7 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\63")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\64")
         buf.write("\u0165\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
@@ -205,7 +205,7 @@ class compiladoresParser ( Parser ):
                       "SUMAUNO", "RESTAUNO", "BOOLEANOS", "INT", "STRING", 
                       "FLOAT", "DOUBLE", "IF", "ELSE", "FOR", "WHILE", "DO", 
                       "FLOTANTES", "FLOTANTESNEGATIVOS", "NUMERO", "VARIABLE", 
-                      "WS", "OTRO" ]
+                      "WS", "COMENTARIOS", "OTRO" ]
 
     RULE_itop = 0
     RULE_oparit = 1
@@ -302,7 +302,8 @@ class compiladoresParser ( Parser ):
     NUMERO=46
     VARIABLE=47
     WS=48
-    OTRO=49
+    COMENTARIOS=49
+    OTRO=50
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)

@@ -124,6 +124,11 @@ class compiladoresVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by compiladoresParser#variable.
+    def visitVariable(self, ctx:compiladoresParser.VariableContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by compiladoresParser#prog.
     def visitProg(self, ctx:compiladoresParser.ProgContext):
         return self.visitChildren(ctx)

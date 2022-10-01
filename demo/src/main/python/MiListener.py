@@ -8,11 +8,6 @@ else:
 # This class defines a complete listener for a parse tree produced by compiladoresParser.
 class MiListener(ParseTreeListener):
 
-    # Enter a parse tree produced by compiladoresParser#itop.
-    def enterItop(self, ctx:compiladoresParser.ItopContext):
-        print ("Term tiene " + str(ctx.getChildCount()) + " hijos")
-        print ("Term -> text |" + ctx.getText() + "|")
-
     # Exit a parse tree produced by compiladoresParser#itop.
     def exitItop(self, ctx:compiladoresParser.ItopContext):
         print ("Term tiene " + str(ctx.getChildCount()) + " hijos")

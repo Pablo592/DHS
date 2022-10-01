@@ -75,7 +75,6 @@ oparit : expo
 expo : tie coma;
 
 coma: COMA
-    | PUNTOYCOMA
     |
     ;
 
@@ -112,34 +111,34 @@ igualo:IGUALDAD
 
 po: pi relaciono;
 
-relaciono:MAYOR variable
-         |MENOR variable
-         |MAYORIGUAL variable
-         |MENORIGUAL variable
+relaciono:MAYOR
+         |MENOR
+         |MAYORIGUAL
+         |MENORIGUAL
          |
          ;
 
 pi: pu sumoResto;
 
-sumoResto:MAS variable sumoResto
-         |MENOS variable sumoResto
+sumoResto:MAS
+         |MENOS
          |
          ;
 
 pu: pe multiDivi;
 
-multiDivi:PRODUCTO variable multiDivi
-         |DIVISION variable multiDivi
-         |RESTO variable multiDivi
+multiDivi:PRODUCTO
+         |DIVISION
+         |RESTO
          |
          ;
 
 pe: pa tipoDato;
 
-tipoDato:INT variable
-        |STRING variable
-        |FLOAT variable
-        |DOUBLE variable
+tipoDato:INT
+        |STRING
+        |FLOAT
+        |DOUBLE
         |
         ;
 
@@ -160,13 +159,6 @@ factor: VARIABLE
        |CORCHETEABRE (VARIABLE|NUMERO) CORCHETECIERRA
        |PARENTESISABRE itop PARENTESISCIERRA
        ;
-       
-variable:VARIABLE
-        |NUMERO
-        |VARIABLE RESTAUNO
-        |VARIABLE SUMAUNO
-        |
-        ;
        
 prog: instrucciones EOF;
 instrucciones: instruccion instrucciones |;
@@ -203,12 +195,3 @@ bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO | VARIABLE) CON
 //variable, asignar variables, llamado a funciones, prototipado, bucles, if
 
 // bloquewhile : PA comparacion/opal PC instruccion ;
-
-
-/*
-variable:VARIABLE
-        |NUMERO
-        |VARIABLE RESTAUNO
-        |VARIABLE SUMAUNO
-        |
-        ; */

@@ -251,6 +251,15 @@ class compiladoresListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by compiladoresParser#declaroAsigno.
+    def enterDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
+        pass
+
+    # Exit a parse tree produced by compiladoresParser#declaroAsigno.
+    def exitDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
+        pass
+
+
     # Enter a parse tree produced by compiladoresParser#asignacion.
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):
         pass

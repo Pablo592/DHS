@@ -161,6 +161,7 @@ instrucciones : instruccion instrucciones
 
 instruccion : bloque
             | llamadoAFunciones PUNTOYCOMA
+            | declaroAsigno PUNTOYCOMA
             | declaracion PUNTOYCOMA
             | operacion PUNTOYCOMA
             | asignacion PUNTOYCOMA
@@ -174,6 +175,9 @@ instruccion : bloque
 variable:VARIABLE;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|variable)+;
+declaroAsigno : TDATO (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)))+;
+
+
 asignacion : (TDATO|) (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)))+;
 prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;

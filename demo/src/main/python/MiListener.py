@@ -252,6 +252,10 @@ class MiListener(ParseTreeListener):
     #    print ("Term -> text |" + ctx.getText() + "|")
 
 
+   
+
+
+
 
     # Enter a parse tree produced by compiladoresParser#variable.
     def enterVariable(self, ctx:compiladoresParser.VariableContext):
@@ -268,7 +272,7 @@ class MiListener(ParseTreeListener):
 
     # Enter a parse tree produced by compiladoresParser#declaracion.
     def enterDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
-        print("Entro "+ctx.getText())
+        pass
     
     
 
@@ -276,8 +280,16 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#declaracion.
     def exitDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
          print("Salgo "+ctx.getText())
-         for i in ctx.getChildren():
-            print("Hijo: "+str(i))
+         
+
+
+    # Enter a parse tree produced by compiladoresParser#declaroAsigno.
+    def enterDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
+        pass
+
+    # Exit a parse tree produced by compiladoresParser#declaroAsigno.
+    def exitDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
+        print("Salgo "+ctx.getText())
 
 
     # Enter a parse tree produced by compiladoresParser#asignacion.

@@ -6,7 +6,7 @@ from MiListener import MiListener
 
 
 def main(argv):
-    archivo = "input/aritmetica.txt"
+    archivo = "input/fragmentoPrograma.c"
     if len(argv) > 1 :
         archivo = argv[1]
     input = FileStream(archivo)
@@ -15,7 +15,7 @@ def main(argv):
     parser = compiladoresParser(stream)
     miListener = MiListener()
     parser.addParseListener(miListener)
-    tree = parser.itop()
+    tree = parser.prog()
     print(tree.toStringTree(recog=parser))
     print(tree.toStringTree(recog=parser))
 

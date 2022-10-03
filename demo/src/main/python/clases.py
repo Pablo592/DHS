@@ -8,10 +8,7 @@ class Tabla:
            cls._instance = super(Tabla, cls).__new__(cls)
         return cls._instance
 
-    diccionario = [{
-        "nombreVariable":"",
-        "variable":""
-    }]
+    diccionario = [dict()]
 
     def buscarId(self,id):
         for i in count(self.diccionario):
@@ -20,10 +17,7 @@ class Tabla:
         return False
 
     def addContexto(self):
-        self.diccionario.append({
-        "nombreVariable":"",
-        "variable":""
-    })
+        self.diccionario.append(dict())
 
     def delContexto(self):
         self.diccionario.pop()

@@ -23,8 +23,10 @@ class Tabla:
         self.diccionario.pop()
 
     def addId(self,nombre,variable):
-        self.diccionario[-1].nombreVariable = nombre
-        self.diccionario[-1].variable = variable
+        self.diccionario[-1].get("nombreVariable")
+        self.diccionario[-1]['nombreVariable'] = nombre
+        self.diccionario[-1].get("variable")
+        self.diccionario[-1]['variable'] = variable
 
 
 

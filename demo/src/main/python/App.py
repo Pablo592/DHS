@@ -16,8 +16,7 @@ def main(argv):
     miListener = MiListener()
     parser.addParseListener(miListener)
     tree = parser.prog()
-    print(tree.toStringTree(recog=parser))
-    print(tree.toStringTree(recog=parser))
+#    print(tree.toStringTree(recog=parser))
 
 if __name__ == '__main__':
     main(sys.argv)

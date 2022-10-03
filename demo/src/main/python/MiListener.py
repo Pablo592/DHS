@@ -234,16 +234,19 @@ class MiListener(ParseTreeListener):
     # Enter a parse tree produced by compiladoresParser#bloque.
     def enterBloque(self, ctx:compiladoresParser.BloqueContext):
         self.tabla.addContexto()
-        print (self.tabla.diccionario)
+    #    print (self.tabla.diccionario)
 
         
 
     # Exit a parse tree produced by compiladoresParser#bloque.
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
+        self.tabla.addId(ctx.getText(),ctx.getText())
+        print("\n")
+        print (self.tabla.diccionario)
+        print("\n")
         self.tabla.delContexto()
     #    print ("Term tiene " + str(ctx.getChildCount()) + " hijos")
     #    print ("Term -> text |" + ctx.getText() + "|")
-        print (self.tabla.diccionario)
 
 
 

@@ -55,119 +55,136 @@ WS: [ \t\n\r] -> skip;
 COMENTARIOS: ('/*'.'*/') '//' -> skip;
 OTRO: .;
 
-/*
+
+
+/* 
+itop : oparit itop
+     |
+     ;
+oparit : exp ;
+
+exp : term t ;
+
+t : MAS term t
+  |
+  ;
+
+term : factor f ;
+
+f : PRODUCTO factor f
+  |
+  ;
+
+factor : VARIABLE
+       | NUMERO
+       | PARENTESISABRE exp PARENTESISCIERRA
+       ;
+*/
+
+
+
+
+
+
+
+
+
+
+
  //Verifico que todos los parentesis se abran y se cierren fragment //Analisis sintactico
- descendente ----> Voy de la raiz a las hojas // antlr4 usa descendente
+// descendente ----> Voy de la raiz a las hojas // antlr4 usa descendente
  
- Raiz//d si : s EOF;
+// Raiz//d si : s EOF;
  
  //s : PARENTESISABRE s PARENTESISCIERRA s // | CORCHETEABRE s CORCHETECIERRA s // | LLAVEABRE s
- LLAVECIERRA s // | // ;
- */
+// LLAVECIERRA s // | // ;
+
 
 itop : oparit itop
      |
      ;
-// c = a + b + d + f / r * q
+
 oparit : expo
        ;
 
 expo : tie coma;
 
-coma: COMA
-    | PUNTOYCOMA
+coma: COMA tie coma
+    | PUNTOYCOMA tie coma
     |
     ;
 
 tie : to igualOperaciones;
 
-igualOperaciones:IGUAL
-                |PRODUCTOIGUAL
-                |DIVIDIDOIGUAL
-                |RESTOIGUAL
-                |MASIGUAL
-                |MENOSIGUAL
+igualOperaciones:IGUAL to igualOperaciones
+                |PRODUCTOIGUAL to igualOperaciones
+                |DIVIDIDOIGUAL to igualOperaciones
+                |RESTOIGUAL to igualOperaciones
+                |MASIGUAL to igualOperaciones
+                |MENOSIGUAL to igualOperaciones
                 |
                 ;
          
 
 to: ti orLogico;
 
-orLogico: OR
+orLogico: OR ti orLogico
         |
         ;
 
 ti: te andLogico;
 
-andLogico: AND
+andLogico: AND te andLogico
          |
          ;
 
 te: po igualo;
 
-igualo:IGUALDAD
-      |DISTINTO
+igualo:IGUALDAD po igualo
+      |DISTINTO po igualo
       |
       ;
 
 po: pi relaciono;
 
-relaciono:MAYOR variable
-         |MENOR variable
-         |MAYORIGUAL variable
-         |MENORIGUAL variable
+relaciono:MAYOR pi relaciono
+         |MENOR pi relaciono
+         |MAYORIGUAL pi relaciono
+         |MENORIGUAL pi relaciono
          |
          ;
 
 pi: pu sumoResto;
 
-sumoResto:MAS variable sumoResto
-         |MENOS variable sumoResto
+sumoResto:MAS pu sumoResto
+         |MENOS pu sumoResto
          |
          ;
 
 pu: pe multiDivi;
 
-multiDivi:PRODUCTO variable multiDivi
-         |DIVISION variable multiDivi
-         |RESTO variable multiDivi
+multiDivi:PRODUCTO pe multiDivi
+         |DIVISION pe multiDivi
+         |RESTO pe multiDivi
          |
          ;
 
-pe: pa tipoDato;
+pe: factor prefijo;
 
-tipoDato:INT variable
-        |STRING variable
-        |FLOAT variable
-        |DOUBLE variable
-        |
-        ;
 
-pa: factor prefijo;
-
-prefijo:RESTAUNO VARIABLE
-       |SUMAUNO VARIABLE
-       |NEGACION
+prefijo:RESTAUNO VARIABLE factor prefijo
+       |SUMAUNO VARIABLE factor prefijo
+       |NEGACION factor prefijo
        |
        ;
 
-factor: VARIABLE
-       |tipoDato VARIABLE
-       |VARIABLE SUMAUNO
-       |VARIABLE RESTAUNO
-       |PUNTO
-       |NUMERO
-       |CORCHETEABRE (VARIABLE|NUMERO) CORCHETECIERRA
-       |PARENTESISABRE itop PARENTESISCIERRA
+
+factor : VARIABLE
+       | NUMERO
+       | PARENTESISABRE expo PARENTESISCIERRA
        ;
        
-variable:VARIABLE
-        |NUMERO
-        |VARIABLE RESTAUNO
-        |VARIABLE SUMAUNO
-        |
-        ;
-       
+  /*  
 prog: instrucciones EOF;
 instrucciones: instruccion instrucciones |;
 
@@ -175,7 +192,6 @@ instruccion:
 	bloque
 	| llamadoAFunciones PUNTOYCOMA
 	| declaracion PUNTOYCOMA
-	//   | operacion PUNTOYCOMA
 	| asignacion PUNTOYCOMA
 	| prototipadoFuncion PUNTOYCOMA
 	| desarrolloFuncion
@@ -186,16 +202,15 @@ instruccion:
 
 bloque: LLAVEABRE instrucciones LLAVECIERRA;
 declaracion: tipoDato (COMA | VARIABLE)+;
-asignacion: (tipoDato |) (COMA| (VARIABLE ((IGUAL (NUMERO| VARIABLE| llamadoAFunciones /*|operacion*/))| SUMAUNO)))+;
+asignacion: (tipoDato |) (COMA| (VARIABLE ((IGUAL (NUMERO| VARIABLE| llamadoAFunciones |operacion))| SUMAUNO)))+;
 prototipadoFuncion: tipoDato VARIABLE PARENTESISABRE (tipoDato (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
 llamadoAFunciones:VARIABLE PARENTESISABRE ((VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA;
 desarrolloFuncion:tipoDato VARIABLE PARENTESISABRE (tipoDato (VARIABLE | NUMERO) (COMA |))* PARENTESISCIERRA instrucciones;
-//operacion: ( (VARIABLE|NUMERO) OP (VARIABLE|NUMERO));
 retorno: 'return' (NUMERO | VARIABLE);
 bloqueif:IF PARENTESISABRE (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))| BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones) |);
 bloquewhile:WHILE PARENTESISABRE (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))| BOOLEANOS) PARENTESISCIERRA instrucciones;
-bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))*| BOOLEANOS) PUNTOYCOMA (asignacion /*|OP*/)* PARENTESISCIERRA instrucciones;
-
+bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO | VARIABLE) CONDICIONAL (NUMERO | VARIABLE))*| BOOLEANOS) PUNTOYCOMA (asignacion )* PARENTESISCIERRA instrucciones;
+*/  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 
 //Analisis sintactico Ascendente ----> Voy de las hojas a la raiz

@@ -1,5 +1,5 @@
-string pedro =  (2 * 7) + (6 * 8)
-int lucas = 34
-double m = 6 + 16
-float nm = 50 * 10
-int hh = (4 * 5 + 10) * (7 + 9)
+string pedro =  (2 * 7) + (6 * 8);
+int lucas = 34;
+double m = 6 + 16;
+float nm = 50 * 10;
+int hh = (4 * 5 + 10) * (7 + 9);

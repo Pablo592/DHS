@@ -1,4 +1,4 @@
-# Generated from /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
+# Generated from /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/compiladores-copia by ANTLR 4.9.2
 from antlr4 import *
 from io import StringIO
 import sys
@@ -232,7 +232,7 @@ class compiladoresLexer(Lexer):
                   "FLOTANTESNEGATIVOS", "NUMERO", "VARIABLE", "WS", "COMENTARIOS", 
                   "OTRO" ]
 
-    grammarFileName = "compiladores.g4"
+    grammarFileName = "compiladores-copia"
 
     def __init__(self, input=None, output:TextIO = sys.stdout):
         super().__init__(input, output)

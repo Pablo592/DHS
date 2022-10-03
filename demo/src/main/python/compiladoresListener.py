@@ -224,6 +224,15 @@ class compiladoresListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by compiladoresParser#variable.
+    def enterVariable(self, ctx:compiladoresParser.VariableContext):
+        pass
+
+    # Exit a parse tree produced by compiladoresParser#variable.
+    def exitVariable(self, ctx:compiladoresParser.VariableContext):
+        pass
+
+
     # Enter a parse tree produced by compiladoresParser#bloque.
     def enterBloque(self, ctx:compiladoresParser.BloqueContext):
         pass

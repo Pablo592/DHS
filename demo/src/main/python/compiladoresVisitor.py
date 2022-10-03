@@ -129,6 +129,11 @@ class compiladoresVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by compiladoresParser#variable.
+    def visitVariable(self, ctx:compiladoresParser.VariableContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by compiladoresParser#bloque.
     def visitBloque(self, ctx:compiladoresParser.BloqueContext):
         return self.visitChildren(ctx)

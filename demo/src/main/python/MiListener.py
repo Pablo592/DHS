@@ -296,19 +296,19 @@ class MiListener(ParseTreeListener):
         variable.setInicializada(True)
 
         if "int" in datos:
-            variable.setTipo("int")
+            variable.setTipo('int')
             datos = datos[3:]
         elif "string" in datos:
-            variable.setTipo("string")
+            variable.setTipo('string')
             datos = datos[6:]
         elif "float" in datos:
-            variable.setTipo("float")
+            variable.setTipo('float')
             datos = datos[5:]
         elif "double" in datos:
-            variable.setTipo("double")
+            variable.setTipo('double')
             datos = datos[6:]
         elif "long" in datos:
-            variable.setTipo("long")
+            variable.setTipo('long')
             datos = datos[4:]
 
         if "," in datos:
@@ -319,20 +319,22 @@ class MiListener(ParseTreeListener):
                 v = variable.clone()
                 v.setNombre(d[0])
                 if(len(d)> 1):
-                    self.tabla.addId(d[0],d[1])
+                    self.tabla.addId(d[0],v)
                     print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-                    print(d)
+                    print(d[1])
+                    print(v.toString())
                 else:
-                    self.tabla.addId(d[0],0)
+                    self.tabla.addId(d[0],v)
                     print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-                    print(d)
+                    print(v.toString())
         else:
             d = datos.split("=")
             v = variable.clone()
             v.setNombre(d[0])
-            self.tabla.addId(v,d[1])
+            self.tabla.addId(d[0],v)
             print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-            print(d)
+            print(d[1])
+            print(v.toString())
 
     # Enter a parse tree produced by compiladoresParser#asignacion.
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):

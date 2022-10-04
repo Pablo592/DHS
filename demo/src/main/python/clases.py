@@ -38,6 +38,9 @@ class Id:
     inicializada = False
     usada = False
 
+    def toString(self):
+        return vars(self)
+
     def setNombre(self,nombre):
         self.nombre = nombre
 
@@ -66,10 +69,10 @@ class Id:
     def clone(self):
         id = Id()
 
-        id.setInicializada(self.getInicializada)
-        id.setNombre(self.getNombre)
-        id.setTipo(self.getTipo)
-        id.setUsada(self.getUsada)
+        id.setInicializada(self.getInicializada())
+        id.setNombre(self.getNombre())
+        id.setTipo(self.getTipo())
+        id.setUsada(self.getUsada())
         return id
 
 

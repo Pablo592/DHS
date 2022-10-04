@@ -177,7 +177,7 @@ instruccion : bloque
 variable:VARIABLE;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|variable)+;
-declaroAsigno : TDATO (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable))+;
+declaroAsigno : TDATO (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable|NUMERO))+;
 
 
 asignacion : (TDATO|) (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)))+;

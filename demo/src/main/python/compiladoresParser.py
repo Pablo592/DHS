@@ -11,8 +11,8 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\66")
-        buf.write("\u01dd\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\67")
+        buf.write("\u01e0\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
@@ -39,72 +39,72 @@ def serializedATN():
         buf.write("\3\31\3\31\3\31\3\31\3\31\5\31\u0118\n\31\3\32\3\32\3")
         buf.write("\33\3\33\3\33\3\33\3\34\3\34\3\34\6\34\u0123\n\34\r\34")
         buf.write("\16\34\u0124\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\5")
-        buf.write("\35\u012f\n\35\3\35\5\35\u0132\n\35\6\35\u0134\n\35\r")
-        buf.write("\35\16\35\u0135\3\36\3\36\5\36\u013a\n\36\3\36\3\36\3")
-        buf.write("\36\3\36\3\36\3\36\3\36\5\36\u0143\n\36\3\36\5\36\u0146")
-        buf.write("\n\36\6\36\u0148\n\36\r\36\16\36\u0149\3\37\3\37\3\37")
-        buf.write("\3\37\3\37\3\37\5\37\u0152\n\37\3\37\3\37\5\37\u0156\n")
-        buf.write("\37\7\37\u0158\n\37\f\37\16\37\u015b\13\37\3\37\3\37\3")
-        buf.write(" \3 \3 \3 \5 \u0163\n \3 \3 \5 \u0167\n \7 \u0169\n \f")
-        buf.write(" \16 \u016c\13 \3 \3 \3!\3!\3!\3!\3!\3!\5!\u0176\n!\3")
-        buf.write("!\3!\5!\u017a\n!\7!\u017c\n!\f!\16!\u017f\13!\3!\3!\3")
-        buf.write("!\3\"\3\"\5\"\u0186\n\"\3\"\3\"\3\"\5\"\u018b\n\"\3#\3")
-        buf.write("#\3#\5#\u0190\n#\3$\3$\3$\3$\5$\u0196\n$\3$\3$\3$\5$\u019b")
-        buf.write("\n$\3$\5$\u019e\n$\3$\3$\3$\3$\3$\5$\u01a5\n$\3%\3%\3")
-        buf.write("%\3%\5%\u01ab\n%\3%\3%\3%\5%\u01b0\n%\3%\5%\u01b3\n%\3")
-        buf.write("%\3%\3%\3&\3&\3&\7&\u01bb\n&\f&\16&\u01be\13&\3&\3&\3")
-        buf.write("&\5&\u01c3\n&\3&\3&\3&\5&\u01c8\n&\7&\u01ca\n&\f&\16&")
-        buf.write("\u01cd\13&\3&\5&\u01d0\n&\3&\3&\3&\7&\u01d5\n&\f&\16&")
-        buf.write("\u01d8\13&\3&\3&\3&\3&\2\2\'\2\4\6\b\n\f\16\20\22\24\26")
-        buf.write("\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJ\2\2\2\u0207")
-        buf.write("\2P\3\2\2\2\4R\3\2\2\2\6T\3\2\2\2\b`\3\2\2\2\nb\3\2\2")
-        buf.write("\2\f~\3\2\2\2\16\u0080\3\2\2\2\20\u0088\3\2\2\2\22\u008a")
-        buf.write("\3\2\2\2\24\u0092\3\2\2\2\26\u0094\3\2\2\2\30\u00a0\3")
-        buf.write("\2\2\2\32\u00a2\3\2\2\2\34\u00b6\3\2\2\2\36\u00b8\3\2")
-        buf.write("\2\2 \u00c4\3\2\2\2\"\u00c6\3\2\2\2$\u00d6\3\2\2\2&\u00d8")
-        buf.write("\3\2\2\2(\u00ea\3\2\2\2*\u00f2\3\2\2\2,\u00f4\3\2\2\2")
-        buf.write(".\u00fb\3\2\2\2\60\u0117\3\2\2\2\62\u0119\3\2\2\2\64\u011b")
-        buf.write("\3\2\2\2\66\u011f\3\2\2\28\u0126\3\2\2\2:\u0139\3\2\2")
-        buf.write("\2<\u014b\3\2\2\2>\u015e\3\2\2\2@\u016f\3\2\2\2B\u0185")
-        buf.write("\3\2\2\2D\u018c\3\2\2\2F\u0191\3\2\2\2H\u01a6\3\2\2\2")
-        buf.write("J\u01b7\3\2\2\2LM\5\4\3\2MN\5\2\2\2NQ\3\2\2\2OQ\3\2\2")
-        buf.write("\2PL\3\2\2\2PO\3\2\2\2Q\3\3\2\2\2RS\5\6\4\2S\5\3\2\2\2")
-        buf.write("TU\5\n\6\2UV\5\b\5\2V\7\3\2\2\2WX\7\5\2\2XY\5\n\6\2YZ")
-        buf.write("\5\b\5\2Za\3\2\2\2[\\\7\4\2\2\\]\5\n\6\2]^\5\b\5\2^a\3")
-        buf.write("\2\2\2_a\3\2\2\2`W\3\2\2\2`[\3\2\2\2`_\3\2\2\2a\t\3\2")
-        buf.write("\2\2bc\5\16\b\2cd\5\f\7\2d\13\3\2\2\2ef\7\24\2\2fg\5\16")
-        buf.write("\b\2gh\5\f\7\2h\177\3\2\2\2ij\7\25\2\2jk\5\16\b\2kl\5")
-        buf.write("\f\7\2l\177\3\2\2\2mn\7\27\2\2no\5\16\b\2op\5\f\7\2p\177")
-        buf.write("\3\2\2\2qr\7\30\2\2rs\5\16\b\2st\5\f\7\2t\177\3\2\2\2")
-        buf.write("uv\7\31\2\2vw\5\16\b\2wx\5\f\7\2x\177\3\2\2\2yz\7\32\2")
-        buf.write("\2z{\5\16\b\2{|\5\f\7\2|\177\3\2\2\2}\177\3\2\2\2~e\3")
-        buf.write("\2\2\2~i\3\2\2\2~m\3\2\2\2~q\3\2\2\2~u\3\2\2\2~y\3\2\2")
-        buf.write("\2~}\3\2\2\2\177\r\3\2\2\2\u0080\u0081\5\22\n\2\u0081")
-        buf.write("\u0082\5\20\t\2\u0082\17\3\2\2\2\u0083\u0084\7 \2\2\u0084")
-        buf.write("\u0085\5\22\n\2\u0085\u0086\5\20\t\2\u0086\u0089\3\2\2")
-        buf.write("\2\u0087\u0089\3\2\2\2\u0088\u0083\3\2\2\2\u0088\u0087")
-        buf.write("\3\2\2\2\u0089\21\3\2\2\2\u008a\u008b\5\26\f\2\u008b\u008c")
-        buf.write("\5\24\13\2\u008c\23\3\2\2\2\u008d\u008e\7\37\2\2\u008e")
-        buf.write("\u008f\5\26\f\2\u008f\u0090\5\24\13\2\u0090\u0093\3\2")
-        buf.write("\2\2\u0091\u0093\3\2\2\2\u0092\u008d\3\2\2\2\u0092\u0091")
-        buf.write("\3\2\2\2\u0093\25\3\2\2\2\u0094\u0095\5\32\16\2\u0095")
-        buf.write("\u0096\5\30\r\2\u0096\27\3\2\2\2\u0097\u0098\7\26\2\2")
-        buf.write("\u0098\u0099\5\32\16\2\u0099\u009a\5\30\r\2\u009a\u00a1")
-        buf.write("\3\2\2\2\u009b\u009c\7!\2\2\u009c\u009d\5\32\16\2\u009d")
-        buf.write("\u009e\5\30\r\2\u009e\u00a1\3\2\2\2\u009f\u00a1\3\2\2")
-        buf.write("\2\u00a0\u0097\3\2\2\2\u00a0\u009b\3\2\2\2\u00a0\u009f")
-        buf.write("\3\2\2\2\u00a1\31\3\2\2\2\u00a2\u00a3\5\36\20\2\u00a3")
-        buf.write("\u00a4\5\34\17\2\u00a4\33\3\2\2\2\u00a5\u00a6\7\36\2\2")
-        buf.write("\u00a6\u00a7\5\36\20\2\u00a7\u00a8\5\34\17\2\u00a8\u00b7")
-        buf.write("\3\2\2\2\u00a9\u00aa\7\35\2\2\u00aa\u00ab\5\36\20\2\u00ab")
-        buf.write("\u00ac\5\34\17\2\u00ac\u00b7\3\2\2\2\u00ad\u00ae\7\33")
-        buf.write("\2\2\u00ae\u00af\5\36\20\2\u00af\u00b0\5\34\17\2\u00b0")
-        buf.write("\u00b7\3\2\2\2\u00b1\u00b2\7\34\2\2\u00b2\u00b3\5\36\20")
-        buf.write("\2\u00b3\u00b4\5\34\17\2\u00b4\u00b7\3\2\2\2\u00b5\u00b7")
-        buf.write("\3\2\2\2\u00b6\u00a5\3\2\2\2\u00b6\u00a9\3\2\2\2\u00b6")
-        buf.write("\u00ad\3\2\2\2\u00b6\u00b1\3\2\2\2\u00b6\u00b5\3\2\2\2")
-        buf.write("\u00b7\35\3\2\2\2\u00b8\u00b9\5\"\22\2\u00b9\u00ba\5 ")
-        buf.write("\21\2\u00ba\37\3\2\2\2\u00bb\u00bc\7\16\2\2\u00bc\u00bd")
+        buf.write("\35\u012f\n\35\3\35\5\35\u0132\n\35\3\35\5\35\u0135\n")
+        buf.write("\35\6\35\u0137\n\35\r\35\16\35\u0138\3\36\3\36\5\36\u013d")
+        buf.write("\n\36\3\36\3\36\3\36\3\36\3\36\3\36\3\36\5\36\u0146\n")
+        buf.write("\36\3\36\5\36\u0149\n\36\6\36\u014b\n\36\r\36\16\36\u014c")
+        buf.write("\3\37\3\37\3\37\3\37\3\37\3\37\5\37\u0155\n\37\3\37\3")
+        buf.write("\37\5\37\u0159\n\37\7\37\u015b\n\37\f\37\16\37\u015e\13")
+        buf.write("\37\3\37\3\37\3 \3 \3 \3 \5 \u0166\n \3 \3 \5 \u016a\n")
+        buf.write(" \7 \u016c\n \f \16 \u016f\13 \3 \3 \3!\3!\3!\3!\3!\3")
+        buf.write("!\5!\u0179\n!\3!\3!\5!\u017d\n!\7!\u017f\n!\f!\16!\u0182")
+        buf.write("\13!\3!\3!\3!\3\"\3\"\5\"\u0189\n\"\3\"\3\"\3\"\5\"\u018e")
+        buf.write("\n\"\3#\3#\3#\5#\u0193\n#\3$\3$\3$\3$\5$\u0199\n$\3$\3")
+        buf.write("$\3$\5$\u019e\n$\3$\5$\u01a1\n$\3$\3$\3$\3$\3$\5$\u01a8")
+        buf.write("\n$\3%\3%\3%\3%\5%\u01ae\n%\3%\3%\3%\5%\u01b3\n%\3%\5")
+        buf.write("%\u01b6\n%\3%\3%\3%\3&\3&\3&\7&\u01be\n&\f&\16&\u01c1")
+        buf.write("\13&\3&\3&\3&\5&\u01c6\n&\3&\3&\3&\5&\u01cb\n&\7&\u01cd")
+        buf.write("\n&\f&\16&\u01d0\13&\3&\5&\u01d3\n&\3&\3&\3&\7&\u01d8")
+        buf.write("\n&\f&\16&\u01db\13&\3&\3&\3&\3&\2\2\'\2\4\6\b\n\f\16")
+        buf.write("\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDF")
+        buf.write("HJ\2\2\2\u020b\2P\3\2\2\2\4R\3\2\2\2\6T\3\2\2\2\b`\3\2")
+        buf.write("\2\2\nb\3\2\2\2\f~\3\2\2\2\16\u0080\3\2\2\2\20\u0088\3")
+        buf.write("\2\2\2\22\u008a\3\2\2\2\24\u0092\3\2\2\2\26\u0094\3\2")
+        buf.write("\2\2\30\u00a0\3\2\2\2\32\u00a2\3\2\2\2\34\u00b6\3\2\2")
+        buf.write("\2\36\u00b8\3\2\2\2 \u00c4\3\2\2\2\"\u00c6\3\2\2\2$\u00d6")
+        buf.write("\3\2\2\2&\u00d8\3\2\2\2(\u00ea\3\2\2\2*\u00f2\3\2\2\2")
+        buf.write(",\u00f4\3\2\2\2.\u00fb\3\2\2\2\60\u0117\3\2\2\2\62\u0119")
+        buf.write("\3\2\2\2\64\u011b\3\2\2\2\66\u011f\3\2\2\28\u0126\3\2")
+        buf.write("\2\2:\u013c\3\2\2\2<\u014e\3\2\2\2>\u0161\3\2\2\2@\u0172")
+        buf.write("\3\2\2\2B\u0188\3\2\2\2D\u018f\3\2\2\2F\u0194\3\2\2\2")
+        buf.write("H\u01a9\3\2\2\2J\u01ba\3\2\2\2LM\5\4\3\2MN\5\2\2\2NQ\3")
+        buf.write("\2\2\2OQ\3\2\2\2PL\3\2\2\2PO\3\2\2\2Q\3\3\2\2\2RS\5\6")
+        buf.write("\4\2S\5\3\2\2\2TU\5\n\6\2UV\5\b\5\2V\7\3\2\2\2WX\7\5\2")
+        buf.write("\2XY\5\n\6\2YZ\5\b\5\2Za\3\2\2\2[\\\7\4\2\2\\]\5\n\6\2")
+        buf.write("]^\5\b\5\2^a\3\2\2\2_a\3\2\2\2`W\3\2\2\2`[\3\2\2\2`_\3")
+        buf.write("\2\2\2a\t\3\2\2\2bc\5\16\b\2cd\5\f\7\2d\13\3\2\2\2ef\7")
+        buf.write("\24\2\2fg\5\16\b\2gh\5\f\7\2h\177\3\2\2\2ij\7\25\2\2j")
+        buf.write("k\5\16\b\2kl\5\f\7\2l\177\3\2\2\2mn\7\27\2\2no\5\16\b")
+        buf.write("\2op\5\f\7\2p\177\3\2\2\2qr\7\30\2\2rs\5\16\b\2st\5\f")
+        buf.write("\7\2t\177\3\2\2\2uv\7\31\2\2vw\5\16\b\2wx\5\f\7\2x\177")
+        buf.write("\3\2\2\2yz\7\32\2\2z{\5\16\b\2{|\5\f\7\2|\177\3\2\2\2")
+        buf.write("}\177\3\2\2\2~e\3\2\2\2~i\3\2\2\2~m\3\2\2\2~q\3\2\2\2")
+        buf.write("~u\3\2\2\2~y\3\2\2\2~}\3\2\2\2\177\r\3\2\2\2\u0080\u0081")
+        buf.write("\5\22\n\2\u0081\u0082\5\20\t\2\u0082\17\3\2\2\2\u0083")
+        buf.write("\u0084\7 \2\2\u0084\u0085\5\22\n\2\u0085\u0086\5\20\t")
+        buf.write("\2\u0086\u0089\3\2\2\2\u0087\u0089\3\2\2\2\u0088\u0083")
+        buf.write("\3\2\2\2\u0088\u0087\3\2\2\2\u0089\21\3\2\2\2\u008a\u008b")
+        buf.write("\5\26\f\2\u008b\u008c\5\24\13\2\u008c\23\3\2\2\2\u008d")
+        buf.write("\u008e\7\37\2\2\u008e\u008f\5\26\f\2\u008f\u0090\5\24")
+        buf.write("\13\2\u0090\u0093\3\2\2\2\u0091\u0093\3\2\2\2\u0092\u008d")
+        buf.write("\3\2\2\2\u0092\u0091\3\2\2\2\u0093\25\3\2\2\2\u0094\u0095")
+        buf.write("\5\32\16\2\u0095\u0096\5\30\r\2\u0096\27\3\2\2\2\u0097")
+        buf.write("\u0098\7\26\2\2\u0098\u0099\5\32\16\2\u0099\u009a\5\30")
+        buf.write("\r\2\u009a\u00a1\3\2\2\2\u009b\u009c\7!\2\2\u009c\u009d")
+        buf.write("\5\32\16\2\u009d\u009e\5\30\r\2\u009e\u00a1\3\2\2\2\u009f")
+        buf.write("\u00a1\3\2\2\2\u00a0\u0097\3\2\2\2\u00a0\u009b\3\2\2\2")
+        buf.write("\u00a0\u009f\3\2\2\2\u00a1\31\3\2\2\2\u00a2\u00a3\5\36")
+        buf.write("\20\2\u00a3\u00a4\5\34\17\2\u00a4\33\3\2\2\2\u00a5\u00a6")
+        buf.write("\7\36\2\2\u00a6\u00a7\5\36\20\2\u00a7\u00a8\5\34\17\2")
+        buf.write("\u00a8\u00b7\3\2\2\2\u00a9\u00aa\7\35\2\2\u00aa\u00ab")
+        buf.write("\5\36\20\2\u00ab\u00ac\5\34\17\2\u00ac\u00b7\3\2\2\2\u00ad")
+        buf.write("\u00ae\7\33\2\2\u00ae\u00af\5\36\20\2\u00af\u00b0\5\34")
+        buf.write("\17\2\u00b0\u00b7\3\2\2\2\u00b1\u00b2\7\34\2\2\u00b2\u00b3")
+        buf.write("\5\36\20\2\u00b3\u00b4\5\34\17\2\u00b4\u00b7\3\2\2\2\u00b5")
+        buf.write("\u00b7\3\2\2\2\u00b6\u00a5\3\2\2\2\u00b6\u00a9\3\2\2\2")
+        buf.write("\u00b6\u00ad\3\2\2\2\u00b6\u00b1\3\2\2\2\u00b6\u00b5\3")
+        buf.write("\2\2\2\u00b7\35\3\2\2\2\u00b8\u00b9\5\"\22\2\u00b9\u00ba")
+        buf.write("\5 \21\2\u00ba\37\3\2\2\2\u00bb\u00bc\7\16\2\2\u00bc\u00bd")
         buf.write("\5\"\22\2\u00bd\u00be\5 \21\2\u00be\u00c5\3\2\2\2\u00bf")
         buf.write("\u00c0\7\17\2\2\u00c0\u00c1\5\"\22\2\u00c1\u00c2\5 \21")
         buf.write("\2\u00c2\u00c5\3\2\2\2\u00c3\u00c5\3\2\2\2\u00c4\u00bb")
@@ -118,14 +118,14 @@ def serializedATN():
         buf.write("\u00d6\u00c9\3\2\2\2\u00d6\u00cd\3\2\2\2\u00d6\u00d1\3")
         buf.write("\2\2\2\u00d6\u00d5\3\2\2\2\u00d7%\3\2\2\2\u00d8\u00d9")
         buf.write("\5*\26\2\u00d9\u00da\5(\25\2\u00da\'\3\2\2\2\u00db\u00dc")
-        buf.write("\7$\2\2\u00dc\u00dd\7\63\2\2\u00dd\u00de\5*\26\2\u00de")
+        buf.write("\7$\2\2\u00dc\u00dd\7\64\2\2\u00dd\u00de\5*\26\2\u00de")
         buf.write("\u00df\5(\25\2\u00df\u00eb\3\2\2\2\u00e0\u00e1\7#\2\2")
-        buf.write("\u00e1\u00e2\7\63\2\2\u00e2\u00e3\5*\26\2\u00e3\u00e4")
+        buf.write("\u00e1\u00e2\7\64\2\2\u00e2\u00e3\5*\26\2\u00e3\u00e4")
         buf.write("\5(\25\2\u00e4\u00eb\3\2\2\2\u00e5\u00e6\7\"\2\2\u00e6")
         buf.write("\u00e7\5*\26\2\u00e7\u00e8\5(\25\2\u00e8\u00eb\3\2\2\2")
         buf.write("\u00e9\u00eb\3\2\2\2\u00ea\u00db\3\2\2\2\u00ea\u00e0\3")
         buf.write("\2\2\2\u00ea\u00e5\3\2\2\2\u00ea\u00e9\3\2\2\2\u00eb)")
-        buf.write("\3\2\2\2\u00ec\u00f3\7\63\2\2\u00ed\u00f3\7\62\2\2\u00ee")
+        buf.write("\3\2\2\2\u00ec\u00f3\7\64\2\2\u00ed\u00f3\7\63\2\2\u00ee")
         buf.write("\u00ef\7\f\2\2\u00ef\u00f0\5\6\4\2\u00f0\u00f1\7\13\2")
         buf.write("\2\u00f1\u00f3\3\2\2\2\u00f2\u00ec\3\2\2\2\u00f2\u00ed")
         buf.write("\3\2\2\2\u00f2\u00ee\3\2\2\2\u00f3+\3\2\2\2\u00f4\u00f5")
@@ -134,110 +134,111 @@ def serializedATN():
         buf.write("\u00fc\3\2\2\2\u00fb\u00f7\3\2\2\2\u00fb\u00fa\3\2\2\2")
         buf.write("\u00fc/\3\2\2\2\u00fd\u0118\5\64\33\2\u00fe\u00ff\5> ")
         buf.write("\2\u00ff\u0100\7\4\2\2\u0100\u0118\3\2\2\2\u0101\u0102")
-        buf.write("\58\35\2\u0102\u0103\7\4\2\2\u0103\u0118\3\2\2\2\u0104")
-        buf.write("\u0105\5\66\34\2\u0105\u0106\7\4\2\2\u0106\u0118\3\2\2")
-        buf.write("\2\u0107\u0108\5B\"\2\u0108\u0109\7\4\2\2\u0109\u0118")
-        buf.write("\3\2\2\2\u010a\u010b\5:\36\2\u010b\u010c\7\4\2\2\u010c")
-        buf.write("\u0118\3\2\2\2\u010d\u010e\5<\37\2\u010e\u010f\7\4\2\2")
-        buf.write("\u010f\u0118\3\2\2\2\u0110\u0118\5@!\2\u0111\u0112\5D")
-        buf.write("#\2\u0112\u0113\7\4\2\2\u0113\u0118\3\2\2\2\u0114\u0118")
-        buf.write("\5F$\2\u0115\u0118\5J&\2\u0116\u0118\5H%\2\u0117\u00fd")
-        buf.write("\3\2\2\2\u0117\u00fe\3\2\2\2\u0117\u0101\3\2\2\2\u0117")
-        buf.write("\u0104\3\2\2\2\u0117\u0107\3\2\2\2\u0117\u010a\3\2\2\2")
-        buf.write("\u0117\u010d\3\2\2\2\u0117\u0110\3\2\2\2\u0117\u0111\3")
-        buf.write("\2\2\2\u0117\u0114\3\2\2\2\u0117\u0115\3\2\2\2\u0117\u0116")
-        buf.write("\3\2\2\2\u0118\61\3\2\2\2\u0119\u011a\7\63\2\2\u011a\63")
-        buf.write("\3\2\2\2\u011b\u011c\7\7\2\2\u011c\u011d\5.\30\2\u011d")
-        buf.write("\u011e\7\b\2\2\u011e\65\3\2\2\2\u011f\u0122\7&\2\2\u0120")
-        buf.write("\u0123\7\5\2\2\u0121\u0123\5\62\32\2\u0122\u0120\3\2\2")
-        buf.write("\2\u0122\u0121\3\2\2\2\u0123\u0124\3\2\2\2\u0124\u0122")
-        buf.write("\3\2\2\2\u0124\u0125\3\2\2\2\u0125\67\3\2\2\2\u0126\u0133")
-        buf.write("\7&\2\2\u0127\u0134\7\5\2\2\u0128\u0131\5\62\32\2\u0129")
-        buf.write("\u012e\7\24\2\2\u012a\u012f\7\62\2\2\u012b\u012f\5\62")
-        buf.write("\32\2\u012c\u012f\5> \2\u012d\u012f\5B\"\2\u012e\u012a")
-        buf.write("\3\2\2\2\u012e\u012b\3\2\2\2\u012e\u012c\3\2\2\2\u012e")
-        buf.write("\u012d\3\2\2\2\u012f\u0132\3\2\2\2\u0130\u0132\7#\2\2")
-        buf.write("\u0131\u0129\3\2\2\2\u0131\u0130\3\2\2\2\u0132\u0134\3")
-        buf.write("\2\2\2\u0133\u0127\3\2\2\2\u0133\u0128\3\2\2\2\u0134\u0135")
-        buf.write("\3\2\2\2\u0135\u0133\3\2\2\2\u0135\u0136\3\2\2\2\u0136")
-        buf.write("9\3\2\2\2\u0137\u013a\7&\2\2\u0138\u013a\3\2\2\2\u0139")
-        buf.write("\u0137\3\2\2\2\u0139\u0138\3\2\2\2\u013a\u0147\3\2\2\2")
-        buf.write("\u013b\u0148\7\5\2\2\u013c\u0145\5\62\32\2\u013d\u0142")
-        buf.write("\7\24\2\2\u013e\u0143\7\62\2\2\u013f\u0143\5\62\32\2\u0140")
-        buf.write("\u0143\5> \2\u0141\u0143\5B\"\2\u0142\u013e\3\2\2\2\u0142")
-        buf.write("\u013f\3\2\2\2\u0142\u0140\3\2\2\2\u0142\u0141\3\2\2\2")
-        buf.write("\u0143\u0146\3\2\2\2\u0144\u0146\7#\2\2\u0145\u013d\3")
-        buf.write("\2\2\2\u0145\u0144\3\2\2\2\u0146\u0148\3\2\2\2\u0147\u013b")
-        buf.write("\3\2\2\2\u0147\u013c\3\2\2\2\u0148\u0149\3\2\2\2\u0149")
-        buf.write("\u0147\3\2\2\2\u0149\u014a\3\2\2\2\u014a;\3\2\2\2\u014b")
-        buf.write("\u014c\7&\2\2\u014c\u014d\5\62\32\2\u014d\u0159\7\f\2")
-        buf.write("\2\u014e\u0151\7&\2\2\u014f\u0152\5\62\32\2\u0150\u0152")
-        buf.write("\7\62\2\2\u0151\u014f\3\2\2\2\u0151\u0150\3\2\2\2\u0152")
-        buf.write("\u0155\3\2\2\2\u0153\u0156\7\5\2\2\u0154\u0156\3\2\2\2")
-        buf.write("\u0155\u0153\3\2\2\2\u0155\u0154\3\2\2\2\u0156\u0158\3")
-        buf.write("\2\2\2\u0157\u014e\3\2\2\2\u0158\u015b\3\2\2\2\u0159\u0157")
-        buf.write("\3\2\2\2\u0159\u015a\3\2\2\2\u015a\u015c\3\2\2\2\u015b")
-        buf.write("\u0159\3\2\2\2\u015c\u015d\7\13\2\2\u015d=\3\2\2\2\u015e")
-        buf.write("\u015f\5\62\32\2\u015f\u016a\7\f\2\2\u0160\u0163\5\62")
-        buf.write("\32\2\u0161\u0163\7\62\2\2\u0162\u0160\3\2\2\2\u0162\u0161")
-        buf.write("\3\2\2\2\u0163\u0166\3\2\2\2\u0164\u0167\7\5\2\2\u0165")
-        buf.write("\u0167\3\2\2\2\u0166\u0164\3\2\2\2\u0166\u0165\3\2\2\2")
-        buf.write("\u0167\u0169\3\2\2\2\u0168\u0162\3\2\2\2\u0169\u016c\3")
-        buf.write("\2\2\2\u016a\u0168\3\2\2\2\u016a\u016b\3\2\2\2\u016b\u016d")
-        buf.write("\3\2\2\2\u016c\u016a\3\2\2\2\u016d\u016e\7\13\2\2\u016e")
-        buf.write("?\3\2\2\2\u016f\u0170\7&\2\2\u0170\u0171\5\62\32\2\u0171")
-        buf.write("\u017d\7\f\2\2\u0172\u0175\7&\2\2\u0173\u0176\5\62\32")
-        buf.write("\2\u0174\u0176\7\62\2\2\u0175\u0173\3\2\2\2\u0175\u0174")
-        buf.write("\3\2\2\2\u0176\u0179\3\2\2\2\u0177\u017a\7\5\2\2\u0178")
-        buf.write("\u017a\3\2\2\2\u0179\u0177\3\2\2\2\u0179\u0178\3\2\2\2")
-        buf.write("\u017a\u017c\3\2\2\2\u017b\u0172\3\2\2\2\u017c\u017f\3")
-        buf.write("\2\2\2\u017d\u017b\3\2\2\2\u017d\u017e\3\2\2\2\u017e\u0180")
-        buf.write("\3\2\2\2\u017f\u017d\3\2\2\2\u0180\u0181\7\13\2\2\u0181")
-        buf.write("\u0182\5.\30\2\u0182A\3\2\2\2\u0183\u0186\5\62\32\2\u0184")
-        buf.write("\u0186\7\62\2\2\u0185\u0183\3\2\2\2\u0185\u0184\3\2\2")
-        buf.write("\2\u0186\u0187\3\2\2\2\u0187\u018a\7\r\2\2\u0188\u018b")
-        buf.write("\5\62\32\2\u0189\u018b\7\62\2\2\u018a\u0188\3\2\2\2\u018a")
-        buf.write("\u0189\3\2\2\2\u018bC\3\2\2\2\u018c\u018f\7\3\2\2\u018d")
-        buf.write("\u0190\7\62\2\2\u018e\u0190\5\62\32\2\u018f\u018d\3\2")
-        buf.write("\2\2\u018f\u018e\3\2\2\2\u0190E\3\2\2\2\u0191\u0192\7")
-        buf.write("+\2\2\u0192\u019d\7\f\2\2\u0193\u0196\7\62\2\2\u0194\u0196")
-        buf.write("\5\62\32\2\u0195\u0193\3\2\2\2\u0195\u0194\3\2\2\2\u0196")
-        buf.write("\u0197\3\2\2\2\u0197\u019a\7\23\2\2\u0198\u019b\7\62\2")
-        buf.write("\2\u0199\u019b\5\62\32\2\u019a\u0198\3\2\2\2\u019a\u0199")
-        buf.write("\3\2\2\2\u019b\u019e\3\2\2\2\u019c\u019e\7%\2\2\u019d")
-        buf.write("\u0195\3\2\2\2\u019d\u019c\3\2\2\2\u019e\u019f\3\2\2\2")
-        buf.write("\u019f\u01a0\7\13\2\2\u01a0\u01a4\5.\30\2\u01a1\u01a2")
-        buf.write("\7,\2\2\u01a2\u01a5\5.\30\2\u01a3\u01a5\3\2\2\2\u01a4")
-        buf.write("\u01a1\3\2\2\2\u01a4\u01a3\3\2\2\2\u01a5G\3\2\2\2\u01a6")
-        buf.write("\u01a7\7.\2\2\u01a7\u01b2\7\f\2\2\u01a8\u01ab\7\62\2\2")
-        buf.write("\u01a9\u01ab\5\62\32\2\u01aa\u01a8\3\2\2\2\u01aa\u01a9")
-        buf.write("\3\2\2\2\u01ab\u01ac\3\2\2\2\u01ac\u01af\7\23\2\2\u01ad")
-        buf.write("\u01b0\7\62\2\2\u01ae\u01b0\5\62\32\2\u01af\u01ad\3\2")
-        buf.write("\2\2\u01af\u01ae\3\2\2\2\u01b0\u01b3\3\2\2\2\u01b1\u01b3")
-        buf.write("\7%\2\2\u01b2\u01aa\3\2\2\2\u01b2\u01b1\3\2\2\2\u01b3")
-        buf.write("\u01b4\3\2\2\2\u01b4\u01b5\7\13\2\2\u01b5\u01b6\5.\30")
-        buf.write("\2\u01b6I\3\2\2\2\u01b7\u01b8\7-\2\2\u01b8\u01bc\7\f\2")
-        buf.write("\2\u01b9\u01bb\5:\36\2\u01ba\u01b9\3\2\2\2\u01bb\u01be")
-        buf.write("\3\2\2\2\u01bc\u01ba\3\2\2\2\u01bc\u01bd\3\2\2\2\u01bd")
-        buf.write("\u01bf\3\2\2\2\u01be\u01bc\3\2\2\2\u01bf\u01cf\7\4\2\2")
-        buf.write("\u01c0\u01c3\7\62\2\2\u01c1\u01c3\5\62\32\2\u01c2\u01c0")
-        buf.write("\3\2\2\2\u01c2\u01c1\3\2\2\2\u01c3\u01c4\3\2\2\2\u01c4")
-        buf.write("\u01c7\7\23\2\2\u01c5\u01c8\7\62\2\2\u01c6\u01c8\5\62")
-        buf.write("\32\2\u01c7\u01c5\3\2\2\2\u01c7\u01c6\3\2\2\2\u01c8\u01ca")
-        buf.write("\3\2\2\2\u01c9\u01c2\3\2\2\2\u01ca\u01cd\3\2\2\2\u01cb")
-        buf.write("\u01c9\3\2\2\2\u01cb\u01cc\3\2\2\2\u01cc\u01d0\3\2\2\2")
-        buf.write("\u01cd\u01cb\3\2\2\2\u01ce\u01d0\7%\2\2\u01cf\u01cb\3")
-        buf.write("\2\2\2\u01cf\u01ce\3\2\2\2\u01d0\u01d1\3\2\2\2\u01d1\u01d6")
-        buf.write("\7\4\2\2\u01d2\u01d5\5:\36\2\u01d3\u01d5\7\r\2\2\u01d4")
-        buf.write("\u01d2\3\2\2\2\u01d4\u01d3\3\2\2\2\u01d5\u01d8\3\2\2\2")
-        buf.write("\u01d6\u01d4\3\2\2\2\u01d6\u01d7\3\2\2\2\u01d7\u01d9\3")
-        buf.write("\2\2\2\u01d8\u01d6\3\2\2\2\u01d9\u01da\7\13\2\2\u01da")
-        buf.write("\u01db\5.\30\2\u01dbK\3\2\2\2\64P`~\u0088\u0092\u00a0")
+        buf.write("\5\66\34\2\u0102\u0103\7\4\2\2\u0103\u0118\3\2\2\2\u0104")
+        buf.write("\u0105\58\35\2\u0105\u0106\7\4\2\2\u0106\u0118\3\2\2\2")
+        buf.write("\u0107\u0108\5B\"\2\u0108\u0109\7\4\2\2\u0109\u0118\3")
+        buf.write("\2\2\2\u010a\u010b\5:\36\2\u010b\u010c\7\4\2\2\u010c\u0118")
+        buf.write("\3\2\2\2\u010d\u010e\5<\37\2\u010e\u010f\7\4\2\2\u010f")
+        buf.write("\u0118\3\2\2\2\u0110\u0118\5@!\2\u0111\u0112\5D#\2\u0112")
+        buf.write("\u0113\7\4\2\2\u0113\u0118\3\2\2\2\u0114\u0118\5F$\2\u0115")
+        buf.write("\u0118\5J&\2\u0116\u0118\5H%\2\u0117\u00fd\3\2\2\2\u0117")
+        buf.write("\u00fe\3\2\2\2\u0117\u0101\3\2\2\2\u0117\u0104\3\2\2\2")
+        buf.write("\u0117\u0107\3\2\2\2\u0117\u010a\3\2\2\2\u0117\u010d\3")
+        buf.write("\2\2\2\u0117\u0110\3\2\2\2\u0117\u0111\3\2\2\2\u0117\u0114")
+        buf.write("\3\2\2\2\u0117\u0115\3\2\2\2\u0117\u0116\3\2\2\2\u0118")
+        buf.write("\61\3\2\2\2\u0119\u011a\7\64\2\2\u011a\63\3\2\2\2\u011b")
+        buf.write("\u011c\7\7\2\2\u011c\u011d\5.\30\2\u011d\u011e\7\b\2\2")
+        buf.write("\u011e\65\3\2\2\2\u011f\u0122\7&\2\2\u0120\u0123\7\5\2")
+        buf.write("\2\u0121\u0123\5\62\32\2\u0122\u0120\3\2\2\2\u0122\u0121")
+        buf.write("\3\2\2\2\u0123\u0124\3\2\2\2\u0124\u0122\3\2\2\2\u0124")
+        buf.write("\u0125\3\2\2\2\u0125\67\3\2\2\2\u0126\u0136\7&\2\2\u0127")
+        buf.write("\u0137\7\5\2\2\u0128\u0131\5\62\32\2\u0129\u012e\7\24")
+        buf.write("\2\2\u012a\u012f\7\63\2\2\u012b\u012f\5\62\32\2\u012c")
+        buf.write("\u012f\5> \2\u012d\u012f\5B\"\2\u012e\u012a\3\2\2\2\u012e")
+        buf.write("\u012b\3\2\2\2\u012e\u012c\3\2\2\2\u012e\u012d\3\2\2\2")
+        buf.write("\u012f\u0132\3\2\2\2\u0130\u0132\7#\2\2\u0131\u0129\3")
+        buf.write("\2\2\2\u0131\u0130\3\2\2\2\u0132\u0135\3\2\2\2\u0133\u0135")
+        buf.write("\5\62\32\2\u0134\u0128\3\2\2\2\u0134\u0133\3\2\2\2\u0135")
+        buf.write("\u0137\3\2\2\2\u0136\u0127\3\2\2\2\u0136\u0134\3\2\2\2")
+        buf.write("\u0137\u0138\3\2\2\2\u0138\u0136\3\2\2\2\u0138\u0139\3")
+        buf.write("\2\2\2\u01399\3\2\2\2\u013a\u013d\7&\2\2\u013b\u013d\3")
+        buf.write("\2\2\2\u013c\u013a\3\2\2\2\u013c\u013b\3\2\2\2\u013d\u014a")
+        buf.write("\3\2\2\2\u013e\u014b\7\5\2\2\u013f\u0148\5\62\32\2\u0140")
+        buf.write("\u0145\7\24\2\2\u0141\u0146\7\63\2\2\u0142\u0146\5\62")
+        buf.write("\32\2\u0143\u0146\5> \2\u0144\u0146\5B\"\2\u0145\u0141")
+        buf.write("\3\2\2\2\u0145\u0142\3\2\2\2\u0145\u0143\3\2\2\2\u0145")
+        buf.write("\u0144\3\2\2\2\u0146\u0149\3\2\2\2\u0147\u0149\7#\2\2")
+        buf.write("\u0148\u0140\3\2\2\2\u0148\u0147\3\2\2\2\u0149\u014b\3")
+        buf.write("\2\2\2\u014a\u013e\3\2\2\2\u014a\u013f\3\2\2\2\u014b\u014c")
+        buf.write("\3\2\2\2\u014c\u014a\3\2\2\2\u014c\u014d\3\2\2\2\u014d")
+        buf.write(";\3\2\2\2\u014e\u014f\7&\2\2\u014f\u0150\5\62\32\2\u0150")
+        buf.write("\u015c\7\f\2\2\u0151\u0154\7&\2\2\u0152\u0155\5\62\32")
+        buf.write("\2\u0153\u0155\7\63\2\2\u0154\u0152\3\2\2\2\u0154\u0153")
+        buf.write("\3\2\2\2\u0155\u0158\3\2\2\2\u0156\u0159\7\5\2\2\u0157")
+        buf.write("\u0159\3\2\2\2\u0158\u0156\3\2\2\2\u0158\u0157\3\2\2\2")
+        buf.write("\u0159\u015b\3\2\2\2\u015a\u0151\3\2\2\2\u015b\u015e\3")
+        buf.write("\2\2\2\u015c\u015a\3\2\2\2\u015c\u015d\3\2\2\2\u015d\u015f")
+        buf.write("\3\2\2\2\u015e\u015c\3\2\2\2\u015f\u0160\7\13\2\2\u0160")
+        buf.write("=\3\2\2\2\u0161\u0162\5\62\32\2\u0162\u016d\7\f\2\2\u0163")
+        buf.write("\u0166\5\62\32\2\u0164\u0166\7\63\2\2\u0165\u0163\3\2")
+        buf.write("\2\2\u0165\u0164\3\2\2\2\u0166\u0169\3\2\2\2\u0167\u016a")
+        buf.write("\7\5\2\2\u0168\u016a\3\2\2\2\u0169\u0167\3\2\2\2\u0169")
+        buf.write("\u0168\3\2\2\2\u016a\u016c\3\2\2\2\u016b\u0165\3\2\2\2")
+        buf.write("\u016c\u016f\3\2\2\2\u016d\u016b\3\2\2\2\u016d\u016e\3")
+        buf.write("\2\2\2\u016e\u0170\3\2\2\2\u016f\u016d\3\2\2\2\u0170\u0171")
+        buf.write("\7\13\2\2\u0171?\3\2\2\2\u0172\u0173\7&\2\2\u0173\u0174")
+        buf.write("\5\62\32\2\u0174\u0180\7\f\2\2\u0175\u0178\7&\2\2\u0176")
+        buf.write("\u0179\5\62\32\2\u0177\u0179\7\63\2\2\u0178\u0176\3\2")
+        buf.write("\2\2\u0178\u0177\3\2\2\2\u0179\u017c\3\2\2\2\u017a\u017d")
+        buf.write("\7\5\2\2\u017b\u017d\3\2\2\2\u017c\u017a\3\2\2\2\u017c")
+        buf.write("\u017b\3\2\2\2\u017d\u017f\3\2\2\2\u017e\u0175\3\2\2\2")
+        buf.write("\u017f\u0182\3\2\2\2\u0180\u017e\3\2\2\2\u0180\u0181\3")
+        buf.write("\2\2\2\u0181\u0183\3\2\2\2\u0182\u0180\3\2\2\2\u0183\u0184")
+        buf.write("\7\13\2\2\u0184\u0185\5.\30\2\u0185A\3\2\2\2\u0186\u0189")
+        buf.write("\5\62\32\2\u0187\u0189\7\63\2\2\u0188\u0186\3\2\2\2\u0188")
+        buf.write("\u0187\3\2\2\2\u0189\u018a\3\2\2\2\u018a\u018d\7\r\2\2")
+        buf.write("\u018b\u018e\5\62\32\2\u018c\u018e\7\63\2\2\u018d\u018b")
+        buf.write("\3\2\2\2\u018d\u018c\3\2\2\2\u018eC\3\2\2\2\u018f\u0192")
+        buf.write("\7\3\2\2\u0190\u0193\7\63\2\2\u0191\u0193\5\62\32\2\u0192")
+        buf.write("\u0190\3\2\2\2\u0192\u0191\3\2\2\2\u0193E\3\2\2\2\u0194")
+        buf.write("\u0195\7,\2\2\u0195\u01a0\7\f\2\2\u0196\u0199\7\63\2\2")
+        buf.write("\u0197\u0199\5\62\32\2\u0198\u0196\3\2\2\2\u0198\u0197")
+        buf.write("\3\2\2\2\u0199\u019a\3\2\2\2\u019a\u019d\7\23\2\2\u019b")
+        buf.write("\u019e\7\63\2\2\u019c\u019e\5\62\32\2\u019d\u019b\3\2")
+        buf.write("\2\2\u019d\u019c\3\2\2\2\u019e\u01a1\3\2\2\2\u019f\u01a1")
+        buf.write("\7%\2\2\u01a0\u0198\3\2\2\2\u01a0\u019f\3\2\2\2\u01a1")
+        buf.write("\u01a2\3\2\2\2\u01a2\u01a3\7\13\2\2\u01a3\u01a7\5.\30")
+        buf.write("\2\u01a4\u01a5\7-\2\2\u01a5\u01a8\5.\30\2\u01a6\u01a8")
+        buf.write("\3\2\2\2\u01a7\u01a4\3\2\2\2\u01a7\u01a6\3\2\2\2\u01a8")
+        buf.write("G\3\2\2\2\u01a9\u01aa\7/\2\2\u01aa\u01b5\7\f\2\2\u01ab")
+        buf.write("\u01ae\7\63\2\2\u01ac\u01ae\5\62\32\2\u01ad\u01ab\3\2")
+        buf.write("\2\2\u01ad\u01ac\3\2\2\2\u01ae\u01af\3\2\2\2\u01af\u01b2")
+        buf.write("\7\23\2\2\u01b0\u01b3\7\63\2\2\u01b1\u01b3\5\62\32\2\u01b2")
+        buf.write("\u01b0\3\2\2\2\u01b2\u01b1\3\2\2\2\u01b3\u01b6\3\2\2\2")
+        buf.write("\u01b4\u01b6\7%\2\2\u01b5\u01ad\3\2\2\2\u01b5\u01b4\3")
+        buf.write("\2\2\2\u01b6\u01b7\3\2\2\2\u01b7\u01b8\7\13\2\2\u01b8")
+        buf.write("\u01b9\5.\30\2\u01b9I\3\2\2\2\u01ba\u01bb\7.\2\2\u01bb")
+        buf.write("\u01bf\7\f\2\2\u01bc\u01be\5:\36\2\u01bd\u01bc\3\2\2\2")
+        buf.write("\u01be\u01c1\3\2\2\2\u01bf\u01bd\3\2\2\2\u01bf\u01c0\3")
+        buf.write("\2\2\2\u01c0\u01c2\3\2\2\2\u01c1\u01bf\3\2\2\2\u01c2\u01d2")
+        buf.write("\7\4\2\2\u01c3\u01c6\7\63\2\2\u01c4\u01c6\5\62\32\2\u01c5")
+        buf.write("\u01c3\3\2\2\2\u01c5\u01c4\3\2\2\2\u01c6\u01c7\3\2\2\2")
+        buf.write("\u01c7\u01ca\7\23\2\2\u01c8\u01cb\7\63\2\2\u01c9\u01cb")
+        buf.write("\5\62\32\2\u01ca\u01c8\3\2\2\2\u01ca\u01c9\3\2\2\2\u01cb")
+        buf.write("\u01cd\3\2\2\2\u01cc\u01c5\3\2\2\2\u01cd\u01d0\3\2\2\2")
+        buf.write("\u01ce\u01cc\3\2\2\2\u01ce\u01cf\3\2\2\2\u01cf\u01d3\3")
+        buf.write("\2\2\2\u01d0\u01ce\3\2\2\2\u01d1\u01d3\7%\2\2\u01d2\u01ce")
+        buf.write("\3\2\2\2\u01d2\u01d1\3\2\2\2\u01d3\u01d4\3\2\2\2\u01d4")
+        buf.write("\u01d9\7\4\2\2\u01d5\u01d8\5:\36\2\u01d6\u01d8\7\r\2\2")
+        buf.write("\u01d7\u01d5\3\2\2\2\u01d7\u01d6\3\2\2\2\u01d8\u01db\3")
+        buf.write("\2\2\2\u01d9\u01d7\3\2\2\2\u01d9\u01da\3\2\2\2\u01da\u01dc")
+        buf.write("\3\2\2\2\u01db\u01d9\3\2\2\2\u01dc\u01dd\7\13\2\2\u01dd")
+        buf.write("\u01de\5.\30\2\u01deK\3\2\2\2\65P`~\u0088\u0092\u00a0")
         buf.write("\u00b6\u00c4\u00d6\u00ea\u00f2\u00fb\u0117\u0122\u0124")
-        buf.write("\u012e\u0131\u0133\u0135\u0139\u0142\u0145\u0147\u0149")
-        buf.write("\u0151\u0155\u0159\u0162\u0166\u016a\u0175\u0179\u017d")
-        buf.write("\u0185\u018a\u018f\u0195\u019a\u019d\u01a4\u01aa\u01af")
-        buf.write("\u01b2\u01bc\u01c2\u01c7\u01cb\u01cf\u01d4\u01d6")
+        buf.write("\u012e\u0131\u0134\u0136\u0138\u013c\u0145\u0148\u014a")
+        buf.write("\u014c\u0154\u0158\u015c\u0165\u0169\u016d\u0178\u017c")
+        buf.write("\u0180\u0188\u018d\u0192\u0198\u019d\u01a0\u01a7\u01ad")
+        buf.write("\u01b2\u01b5\u01bf\u01c5\u01ca\u01ce\u01d2\u01d7\u01d9")
         return buf.getvalue()
 
 
@@ -257,8 +258,8 @@ class compiladoresParser ( Parser ):
                      "'=='", "'/='", "'%='", "'+='", "'-='", "'>='", "'<='", 
                      "'<'", "'>'", "'&&'", "'||'", "'!='", "'!'", "'++'", 
                      "'--'", "<INVALID>", "<INVALID>", "'int'", "'string'", 
-                     "'float'", "'double'", "'if'", "'else'", "'for'", "'while'", 
-                     "'do'" ]
+                     "'float'", "'double'", "'long'", "'if'", "'else'", 
+                     "'for'", "'while'", "'do'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "PUNTOYCOMA", "COMA", "PUNTO", 
                       "LLAVEABRE", "LLAVECIERRA", "CORCHETEABRE", "CORCHETECIERRA", 
@@ -268,8 +269,8 @@ class compiladoresParser ( Parser ):
                       "RESTOIGUAL", "MASIGUAL", "MENOSIGUAL", "MAYORIGUAL", 
                       "MENORIGUAL", "MENOR", "MAYOR", "AND", "OR", "DISTINTO", 
                       "NEGACION", "SUMAUNO", "RESTAUNO", "BOOLEANOS", "TDATO", 
-                      "INT", "STRING", "FLOAT", "DOUBLE", "IF", "ELSE", 
-                      "FOR", "WHILE", "DO", "FLOTANTES", "FLOTANTESNEGATIVOS", 
+                      "INT", "STRING", "FLOAT", "DOUBLE", "LONG", "IF", 
+                      "ELSE", "FOR", "WHILE", "DO", "FLOTANTES", "FLOTANTESNEGATIVOS", 
                       "NUMERO", "VARIABLE", "WS", "COMENTARIOS", "OTRO" ]
 
     RULE_itop = 0
@@ -360,18 +361,19 @@ class compiladoresParser ( Parser ):
     STRING=38
     FLOAT=39
     DOUBLE=40
-    IF=41
-    ELSE=42
-    FOR=43
-    WHILE=44
-    DO=45
-    FLOTANTES=46
-    FLOTANTESNEGATIVOS=47
-    NUMERO=48
-    VARIABLE=49
-    WS=50
-    COMENTARIOS=51
-    OTRO=52
+    LONG=41
+    IF=42
+    ELSE=43
+    FOR=44
+    WHILE=45
+    DO=46
+    FLOTANTES=47
+    FLOTANTESNEGATIVOS=48
+    NUMERO=49
+    VARIABLE=50
+    WS=51
+    COMENTARIOS=52
+    OTRO=53
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -2027,12 +2029,12 @@ class compiladoresParser ( Parser ):
         def PUNTOYCOMA(self):
             return self.getToken(compiladoresParser.PUNTOYCOMA, 0)
 
-        def declaroAsigno(self):
-            return self.getTypedRuleContext(compiladoresParser.DeclaroAsignoContext,0)
-
-
         def declaracion(self):
             return self.getTypedRuleContext(compiladoresParser.DeclaracionContext,0)
+
+
+        def declaroAsigno(self):
+            return self.getTypedRuleContext(compiladoresParser.DeclaroAsignoContext,0)
 
 
         def operacion(self):
@@ -2112,7 +2114,7 @@ class compiladoresParser ( Parser ):
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 255
-                self.declaroAsigno()
+                self.declaracion()
                 self.state = 256
                 self.match(compiladoresParser.PUNTOYCOMA)
                 pass
@@ -2120,7 +2122,7 @@ class compiladoresParser ( Parser ):
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
                 self.state = 258
-                self.declaracion()
+                self.declaroAsigno()
                 self.state = 259
                 self.match(compiladoresParser.PUNTOYCOMA)
                 pass
@@ -2465,11 +2467,11 @@ class compiladoresParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 292
             self.match(compiladoresParser.TDATO)
-            self.state = 305 
+            self.state = 308 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 305
+                self.state = 308
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.COMA]:
@@ -2477,51 +2479,63 @@ class compiladoresParser ( Parser ):
                     self.match(compiladoresParser.COMA)
                     pass
                 elif token in [compiladoresParser.VARIABLE]:
-                    self.state = 294
-                    self.variable()
-                    self.state = 303
+                    self.state = 306
                     self._errHandler.sync(self)
-                    token = self._input.LA(1)
-                    if token in [compiladoresParser.IGUAL]:
-                        self.state = 295
-                        self.match(compiladoresParser.IGUAL)
-                        self.state = 300
+                    la_ = self._interp.adaptivePredict(self._input,17,self._ctx)
+                    if la_ == 1:
+                        self.state = 294
+                        self.variable()
+                        self.state = 303
                         self._errHandler.sync(self)
-                        la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
-                        if la_ == 1:
-                            self.state = 296
-                            self.match(compiladoresParser.NUMERO)
-                            pass
+                        token = self._input.LA(1)
+                        if token in [compiladoresParser.IGUAL]:
+                            self.state = 295
+                            self.match(compiladoresParser.IGUAL)
+                            self.state = 300
+                            self._errHandler.sync(self)
+                            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
+                            if la_ == 1:
+                                self.state = 296
+                                self.match(compiladoresParser.NUMERO)
+                                pass
 
-                        elif la_ == 2:
-                            self.state = 297
-                            self.variable()
-                            pass
+                            elif la_ == 2:
+                                self.state = 297
+                                self.variable()
+                                pass
 
-                        elif la_ == 3:
-                            self.state = 298
-                            self.llamadoAFunciones()
-                            pass
+                            elif la_ == 3:
+                                self.state = 298
+                                self.llamadoAFunciones()
+                                pass
 
-                        elif la_ == 4:
-                            self.state = 299
-                            self.operacion()
-                            pass
+                            elif la_ == 4:
+                                self.state = 299
+                                self.operacion()
+                                pass
 
+
+                            pass
+                        elif token in [compiladoresParser.SUMAUNO]:
+                            self.state = 302
+                            self.match(compiladoresParser.SUMAUNO)
+                            pass
+                        else:
+                            raise NoViableAltException(self)
 
                         pass
-                    elif token in [compiladoresParser.SUMAUNO]:
-                        self.state = 302
-                        self.match(compiladoresParser.SUMAUNO)
+
+                    elif la_ == 2:
+                        self.state = 305
+                        self.variable()
                         pass
-                    else:
-                        raise NoViableAltException(self)
+
 
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 307 
+                self.state = 310 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==compiladoresParser.COMA or _la==compiladoresParser.VARIABLE):
@@ -2617,11 +2631,11 @@ class compiladoresParser ( Parser ):
         self.enterRule(localctx, 56, self.RULE_asignacion)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 311
+            self.state = 314
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.TDATO]:
-                self.state = 309
+                self.state = 312
                 self.match(compiladoresParser.TDATO)
                 pass
             elif token in [compiladoresParser.COMA, compiladoresParser.VARIABLE]:
@@ -2629,54 +2643,54 @@ class compiladoresParser ( Parser ):
             else:
                 raise NoViableAltException(self)
 
-            self.state = 325 
+            self.state = 328 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 325
+                    self.state = 328
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [compiladoresParser.COMA]:
-                        self.state = 313
+                        self.state = 316
                         self.match(compiladoresParser.COMA)
                         pass
                     elif token in [compiladoresParser.VARIABLE]:
-                        self.state = 314
+                        self.state = 317
                         self.variable()
-                        self.state = 323
+                        self.state = 326
                         self._errHandler.sync(self)
                         token = self._input.LA(1)
                         if token in [compiladoresParser.IGUAL]:
-                            self.state = 315
+                            self.state = 318
                             self.match(compiladoresParser.IGUAL)
-                            self.state = 320
+                            self.state = 323
                             self._errHandler.sync(self)
-                            la_ = self._interp.adaptivePredict(self._input,20,self._ctx)
+                            la_ = self._interp.adaptivePredict(self._input,21,self._ctx)
                             if la_ == 1:
-                                self.state = 316
+                                self.state = 319
                                 self.match(compiladoresParser.NUMERO)
                                 pass
 
                             elif la_ == 2:
-                                self.state = 317
+                                self.state = 320
                                 self.variable()
                                 pass
 
                             elif la_ == 3:
-                                self.state = 318
+                                self.state = 321
                                 self.llamadoAFunciones()
                                 pass
 
                             elif la_ == 4:
-                                self.state = 319
+                                self.state = 322
                                 self.operacion()
                                 pass
 
 
                             pass
                         elif token in [compiladoresParser.SUMAUNO]:
-                            self.state = 322
+                            self.state = 325
                             self.match(compiladoresParser.SUMAUNO)
                             pass
                         else:
@@ -2689,9 +2703,9 @@ class compiladoresParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 327 
+                self.state = 330 
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,23,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,24,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -2767,37 +2781,37 @@ class compiladoresParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 329
+            self.state = 332
             self.match(compiladoresParser.TDATO)
-            self.state = 330
+            self.state = 333
             self.variable()
-            self.state = 331
+            self.state = 334
             self.match(compiladoresParser.PARENTESISABRE)
-            self.state = 343
+            self.state = 346
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==compiladoresParser.TDATO:
-                self.state = 332
-                self.match(compiladoresParser.TDATO)
                 self.state = 335
+                self.match(compiladoresParser.TDATO)
+                self.state = 338
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.VARIABLE]:
-                    self.state = 333
+                    self.state = 336
                     self.variable()
                     pass
                 elif token in [compiladoresParser.NUMERO]:
-                    self.state = 334
+                    self.state = 337
                     self.match(compiladoresParser.NUMERO)
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 339
+                self.state = 342
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.COMA]:
-                    self.state = 337
+                    self.state = 340
                     self.match(compiladoresParser.COMA)
                     pass
                 elif token in [compiladoresParser.PARENTESISCIERRA, compiladoresParser.TDATO]:
@@ -2805,11 +2819,11 @@ class compiladoresParser ( Parser ):
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 345
+                self.state = 348
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 346
+            self.state = 349
             self.match(compiladoresParser.PARENTESISCIERRA)
         except RecognitionException as re:
             localctx.exception = re
@@ -2879,33 +2893,33 @@ class compiladoresParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 348
+            self.state = 351
             self.variable()
-            self.state = 349
+            self.state = 352
             self.match(compiladoresParser.PARENTESISABRE)
-            self.state = 360
+            self.state = 363
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==compiladoresParser.NUMERO or _la==compiladoresParser.VARIABLE:
-                self.state = 352
+                self.state = 355
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.VARIABLE]:
-                    self.state = 350
+                    self.state = 353
                     self.variable()
                     pass
                 elif token in [compiladoresParser.NUMERO]:
-                    self.state = 351
+                    self.state = 354
                     self.match(compiladoresParser.NUMERO)
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 356
+                self.state = 359
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.COMA]:
-                    self.state = 354
+                    self.state = 357
                     self.match(compiladoresParser.COMA)
                     pass
                 elif token in [compiladoresParser.PARENTESISCIERRA, compiladoresParser.NUMERO, compiladoresParser.VARIABLE]:
@@ -2913,11 +2927,11 @@ class compiladoresParser ( Parser ):
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 362
+                self.state = 365
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 363
+            self.state = 366
             self.match(compiladoresParser.PARENTESISCIERRA)
         except RecognitionException as re:
             localctx.exception = re
@@ -2997,37 +3011,37 @@ class compiladoresParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 365
+            self.state = 368
             self.match(compiladoresParser.TDATO)
-            self.state = 366
+            self.state = 369
             self.variable()
-            self.state = 367
+            self.state = 370
             self.match(compiladoresParser.PARENTESISABRE)
-            self.state = 379
+            self.state = 382
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==compiladoresParser.TDATO:
-                self.state = 368
-                self.match(compiladoresParser.TDATO)
                 self.state = 371
+                self.match(compiladoresParser.TDATO)
+                self.state = 374
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.VARIABLE]:
-                    self.state = 369
+                    self.state = 372
                     self.variable()
                     pass
                 elif token in [compiladoresParser.NUMERO]:
-                    self.state = 370
+                    self.state = 373
                     self.match(compiladoresParser.NUMERO)
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 375
+                self.state = 378
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.COMA]:
-                    self.state = 373
+                    self.state = 376
                     self.match(compiladoresParser.COMA)
                     pass
                 elif token in [compiladoresParser.PARENTESISCIERRA, compiladoresParser.TDATO]:
@@ -3035,13 +3049,13 @@ class compiladoresParser ( Parser ):
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 381
+                self.state = 384
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 382
+            self.state = 385
             self.match(compiladoresParser.PARENTESISCIERRA)
-            self.state = 383
+            self.state = 386
             self.instrucciones()
         except RecognitionException as re:
             localctx.exception = re
@@ -3101,31 +3115,31 @@ class compiladoresParser ( Parser ):
         self.enterRule(localctx, 64, self.RULE_operacion)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 387
+            self.state = 390
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.VARIABLE]:
-                self.state = 385
+                self.state = 388
                 self.variable()
                 pass
             elif token in [compiladoresParser.NUMERO]:
-                self.state = 386
+                self.state = 389
                 self.match(compiladoresParser.NUMERO)
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 389
-            self.match(compiladoresParser.OP)
             self.state = 392
+            self.match(compiladoresParser.OP)
+            self.state = 395
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.VARIABLE]:
-                self.state = 390
+                self.state = 393
                 self.variable()
                 pass
             elif token in [compiladoresParser.NUMERO]:
-                self.state = 391
+                self.state = 394
                 self.match(compiladoresParser.NUMERO)
                 pass
             else:
@@ -3180,17 +3194,17 @@ class compiladoresParser ( Parser ):
         self.enterRule(localctx, 66, self.RULE_retorno)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 394
-            self.match(compiladoresParser.T__0)
             self.state = 397
+            self.match(compiladoresParser.T__0)
+            self.state = 400
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.NUMERO]:
-                self.state = 395
+                self.state = 398
                 self.match(compiladoresParser.NUMERO)
                 pass
             elif token in [compiladoresParser.VARIABLE]:
-                self.state = 396
+                self.state = 399
                 self.variable()
                 pass
             else:
@@ -3276,39 +3290,39 @@ class compiladoresParser ( Parser ):
         self.enterRule(localctx, 68, self.RULE_bloqueif)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 399
+            self.state = 402
             self.match(compiladoresParser.IF)
-            self.state = 400
+            self.state = 403
             self.match(compiladoresParser.PARENTESISABRE)
-            self.state = 411
+            self.state = 414
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.NUMERO, compiladoresParser.VARIABLE]:
-                self.state = 403
+                self.state = 406
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.NUMERO]:
-                    self.state = 401
+                    self.state = 404
                     self.match(compiladoresParser.NUMERO)
                     pass
                 elif token in [compiladoresParser.VARIABLE]:
-                    self.state = 402
+                    self.state = 405
                     self.variable()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 405
-                self.match(compiladoresParser.CONDICIONAL)
                 self.state = 408
+                self.match(compiladoresParser.CONDICIONAL)
+                self.state = 411
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.NUMERO]:
-                    self.state = 406
+                    self.state = 409
                     self.match(compiladoresParser.NUMERO)
                     pass
                 elif token in [compiladoresParser.VARIABLE]:
-                    self.state = 407
+                    self.state = 410
                     self.variable()
                     pass
                 else:
@@ -3316,23 +3330,23 @@ class compiladoresParser ( Parser ):
 
                 pass
             elif token in [compiladoresParser.BOOLEANOS]:
-                self.state = 410
+                self.state = 413
                 self.match(compiladoresParser.BOOLEANOS)
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 413
+            self.state = 416
             self.match(compiladoresParser.PARENTESISCIERRA)
-            self.state = 414
+            self.state = 417
             self.instrucciones()
-            self.state = 418
+            self.state = 421
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,39,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,40,self._ctx)
             if la_ == 1:
-                self.state = 415
+                self.state = 418
                 self.match(compiladoresParser.ELSE)
-                self.state = 416
+                self.state = 419
                 self.instrucciones()
                 pass
 
@@ -3414,39 +3428,39 @@ class compiladoresParser ( Parser ):
         self.enterRule(localctx, 70, self.RULE_bloquewhile)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 420
+            self.state = 423
             self.match(compiladoresParser.WHILE)
-            self.state = 421
+            self.state = 424
             self.match(compiladoresParser.PARENTESISABRE)
-            self.state = 432
+            self.state = 435
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.NUMERO, compiladoresParser.VARIABLE]:
-                self.state = 424
+                self.state = 427
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.NUMERO]:
-                    self.state = 422
+                    self.state = 425
                     self.match(compiladoresParser.NUMERO)
                     pass
                 elif token in [compiladoresParser.VARIABLE]:
-                    self.state = 423
+                    self.state = 426
                     self.variable()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 426
-                self.match(compiladoresParser.CONDICIONAL)
                 self.state = 429
+                self.match(compiladoresParser.CONDICIONAL)
+                self.state = 432
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.NUMERO]:
-                    self.state = 427
+                    self.state = 430
                     self.match(compiladoresParser.NUMERO)
                     pass
                 elif token in [compiladoresParser.VARIABLE]:
-                    self.state = 428
+                    self.state = 431
                     self.variable()
                     pass
                 else:
@@ -3454,15 +3468,15 @@ class compiladoresParser ( Parser ):
 
                 pass
             elif token in [compiladoresParser.BOOLEANOS]:
-                self.state = 431
+                self.state = 434
                 self.match(compiladoresParser.BOOLEANOS)
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 434
+            self.state = 437
             self.match(compiladoresParser.PARENTESISCIERRA)
-            self.state = 435
+            self.state = 438
             self.instrucciones()
         except RecognitionException as re:
             localctx.exception = re
@@ -3561,99 +3575,99 @@ class compiladoresParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 437
+            self.state = 440
             self.match(compiladoresParser.FOR)
-            self.state = 438
+            self.state = 441
             self.match(compiladoresParser.PARENTESISABRE)
-            self.state = 442
+            self.state = 445
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << compiladoresParser.COMA) | (1 << compiladoresParser.TDATO) | (1 << compiladoresParser.VARIABLE))) != 0):
-                self.state = 439
+                self.state = 442
                 self.asignacion()
-                self.state = 444
+                self.state = 447
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 445
+            self.state = 448
             self.match(compiladoresParser.PUNTOYCOMA)
-            self.state = 461
+            self.state = 464
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [compiladoresParser.PUNTOYCOMA, compiladoresParser.NUMERO, compiladoresParser.VARIABLE]:
-                self.state = 457
+                self.state = 460
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==compiladoresParser.NUMERO or _la==compiladoresParser.VARIABLE:
-                    self.state = 448
+                    self.state = 451
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [compiladoresParser.NUMERO]:
-                        self.state = 446
+                        self.state = 449
                         self.match(compiladoresParser.NUMERO)
                         pass
                     elif token in [compiladoresParser.VARIABLE]:
-                        self.state = 447
+                        self.state = 450
                         self.variable()
                         pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 450
-                    self.match(compiladoresParser.CONDICIONAL)
                     self.state = 453
+                    self.match(compiladoresParser.CONDICIONAL)
+                    self.state = 456
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [compiladoresParser.NUMERO]:
-                        self.state = 451
+                        self.state = 454
                         self.match(compiladoresParser.NUMERO)
                         pass
                     elif token in [compiladoresParser.VARIABLE]:
-                        self.state = 452
+                        self.state = 455
                         self.variable()
                         pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 459
+                    self.state = 462
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
                 pass
             elif token in [compiladoresParser.BOOLEANOS]:
-                self.state = 460
+                self.state = 463
                 self.match(compiladoresParser.BOOLEANOS)
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 463
+            self.state = 466
             self.match(compiladoresParser.PUNTOYCOMA)
-            self.state = 468
+            self.state = 471
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << compiladoresParser.COMA) | (1 << compiladoresParser.OP) | (1 << compiladoresParser.TDATO) | (1 << compiladoresParser.VARIABLE))) != 0):
-                self.state = 466
+                self.state = 469
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [compiladoresParser.COMA, compiladoresParser.TDATO, compiladoresParser.VARIABLE]:
-                    self.state = 464
+                    self.state = 467
                     self.asignacion()
                     pass
                 elif token in [compiladoresParser.OP]:
-                    self.state = 465
+                    self.state = 468
                     self.match(compiladoresParser.OP)
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 470
+                self.state = 473
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 471
+            self.state = 474
             self.match(compiladoresParser.PARENTESISCIERRA)
-            self.state = 472
+            self.state = 475
             self.instrucciones()
         except RecognitionException as re:
             localctx.exception = re

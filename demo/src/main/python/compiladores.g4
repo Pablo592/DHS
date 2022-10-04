@@ -40,11 +40,13 @@ TDATO :INT
       |STRING
       |FLOAT
       |DOUBLE
+      |LONG
       ;
 INT: 'int';
 STRING: 'string';
 FLOAT: 'float';
 DOUBLE: 'double';
+LONG: 'long';
 IF: 'if';
 ELSE: 'else';
 FOR: 'for';
@@ -161,8 +163,8 @@ instrucciones : instruccion instrucciones
 
 instruccion : bloque
             | llamadoAFunciones PUNTOYCOMA
-            | declaroAsigno PUNTOYCOMA
             | declaracion PUNTOYCOMA
+            | declaroAsigno PUNTOYCOMA
             | operacion PUNTOYCOMA
             | asignacion PUNTOYCOMA
             | prototipadoFuncion PUNTOYCOMA
@@ -175,7 +177,7 @@ instruccion : bloque
 variable:VARIABLE;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|variable)+;
-declaroAsigno : TDATO (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)))+;
+declaroAsigno : TDATO (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable))+;
 
 
 asignacion : (TDATO|) (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)))+;

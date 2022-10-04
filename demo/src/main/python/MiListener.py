@@ -1,17 +1,18 @@
 # Generated from /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
+from pickle import TRUE
 from antlr4 import *
 
 from clases import Tabla
+from clases import Id
+
 
 from compiladoresParser import compiladoresParser
 
 # This class defines a complete listener for a parse tree produced by compiladoresParser.
 class MiListener(ParseTreeListener):
 
-    clave = 0
-
     tabla = Tabla()
-
+    
     # Exit a parse tree produced by compiladoresParser#itop.
     def exitItop(self, ctx:compiladoresParser.ItopContext):
         print ("Term tiene " + str(ctx.getChildCount()) + " hijos")
@@ -242,8 +243,6 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#bloque.
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
-        self.clave+=1
-        self.tabla.addId(self.clave,ctx.getText())
         print("\n")
         print (self.tabla.diccionario)
         print("\n")
@@ -279,7 +278,7 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#declaracion.
     def exitDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
-         print("Salgo "+ctx.getText())
+         print("Salgo exitDeclaracion "+ctx.getText())
          
 
 
@@ -289,8 +288,51 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#declaroAsigno.
     def exitDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
-        print("Salgo "+ctx.getText())
+        print("Salgo exitDeclaroAsigno "+ctx.getText())
 
+        variable = Id()
+
+        datos = ctx.getText()
+        variable.setInicializada(True)
+
+        if "int" in datos:
+            variable.setTipo("int")
+            datos = datos[3:]
+        elif "string" in datos:
+            variable.setTipo("string")
+            datos = datos[6:]
+        elif "float" in datos:
+            variable.setTipo("float")
+            datos = datos[5:]
+        elif "double" in datos:
+            variable.setTipo("double")
+            datos = datos[6:]
+        elif "long" in datos:
+            variable.setTipo("long")
+            datos = datos[4:]
+
+        if "," in datos:
+            dato = datos.split(",")
+
+            for i in dato:
+                d = i.split("=")
+                v = variable.clone()
+                v.setNombre(d[0])
+                if(len(d)> 1):
+                    self.tabla.addId(d[0],d[1])
+                    print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+                    print(d)
+                else:
+                    self.tabla.addId(d[0],0)
+                    print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+                    print(d)
+        else:
+            d = datos.split("=")
+            v = variable.clone()
+            v.setNombre(d[0])
+            self.tabla.addId(v,d[1])
+            print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+            print(d)
 
     # Enter a parse tree produced by compiladoresParser#asignacion.
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):
@@ -298,7 +340,7 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#asignacion.
     def exitAsignacion(self, ctx:compiladoresParser.AsignacionContext):
-        pass
+        print("Salgo exitAsignacion "+ctx.getText())
 
 
     # Enter a parse tree produced by compiladoresParser#prototipadoFuncion.

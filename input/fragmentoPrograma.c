@@ -5,7 +5,7 @@ int main()
     int y;
     int x = 5;
     int p, q, r, t;
-    int a = 1, b = 2, c = 3;
+    int a = 1, b = 2, c = 3,d;
 
     y = sumar(x, 10);
 

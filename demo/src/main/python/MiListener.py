@@ -387,6 +387,17 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#asignacion.
     def exitAsignacion(self, ctx:compiladoresParser.AsignacionContext):
         print("Salgo exitAsignacion "+ctx.getText())
+        variable = Id()
+        variable.setUsada(True)
+        datos = ctx.getText()
+        d = datos.split("=")
+        v = variable.clone()
+        v.setNombre(d[0])
+        if(len(d)> 1):
+            self.tabla.addId(d[0],v)
+            print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+            print(d[1])
+            print(v.toString())
 
 
     # Enter a parse tree produced by compiladoresParser#prototipadoFuncion.

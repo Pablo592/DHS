@@ -181,11 +181,11 @@ declaracion : TDATO (COMA|variable)+;
 declaroAsigno : TDATO (COMA|(variable ((OPIGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable|NUMERO))+;
 
 
-asignacion :  ((variable ((OPIGUAL (operacion|NUMERO|variable|llamadoAFunciones))| SUMAUNO)))+;
+asignacion :  (variable ((OPIGUAL (operacion|NUMERO|variable|llamadoAFunciones))| SUMAUNO))+;
 prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instrucciones;
-operacion: ( (variable|NUMERO) OP (variable|NUMERO));
+operacion: ( (variable|NUMERO|) OP (variable|NUMERO))+;
 retorno: 'return' (NUMERO|variable);
 bloqueif: IF PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
 bloquewhile: WHILE PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instrucciones;

@@ -5,7 +5,7 @@ int main()
     int y;
     int x = 5;
     int p, q, r, t;
-    int a = 1, b = 2, c = 3,d;
+    int a = 1, b = 2, c = 3, d;
 
     y = sumar(x, 10);
 
@@ -14,7 +14,7 @@ int main()
 
     for (int i = 0; i < x; i++)
     {
-        a = a + 1;
+        a = a + 1 + 9 + 5 + 1 - 5 - 4 + x;
     }
 
     {

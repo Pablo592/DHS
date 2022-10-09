@@ -18,6 +18,7 @@ PRODUCTO: '*';
 DIVISION: '/';
 RESTO:'%';
 CONDICIONAL: MENOR | MAYOR | IGUALDAD | DISTINTO;
+OPIGUAL: IGUAL | PRODUCTOIGUAL | DIVIDIDOIGUAL | RESTOIGUAL | MASIGUAL | MENOSIGUAL;
 IGUAL: '=';
 PRODUCTOIGUAL:'*=';
 IGUALDAD: '==';
@@ -177,10 +178,10 @@ instruccion : bloque
 variable:VARIABLE;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|variable)+;
-declaroAsigno : TDATO (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable|NUMERO))+;
+declaroAsigno : TDATO (COMA|(variable ((OPIGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable|NUMERO))+;
 
 
-asignacion : (TDATO|) (COMA|(variable ((IGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)))+;
+asignacion :  ((variable ((OPIGUAL (operacion|NUMERO|variable|llamadoAFunciones))| SUMAUNO)))+;
 prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instrucciones;
@@ -188,7 +189,7 @@ operacion: ( (variable|NUMERO) OP (variable|NUMERO));
 retorno: 'return' (NUMERO|variable);
 bloqueif: IF PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
 bloquewhile: WHILE PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instrucciones;
-bloquefor: FOR PARENTESISABRE (asignacion)* PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA instrucciones;
+bloquefor: FOR PARENTESISABRE (TDATO|) (asignacion)* PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA instrucciones;
  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

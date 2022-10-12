@@ -246,11 +246,7 @@ class MiListener(ParseTreeListener):
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
         print("\n")
         print (self.tabla.diccionario)
-        print("\n")
         self.tabla.delContexto()
-    #    print ("Term tiene " + str(ctx.getChildCount()) + " hijos")
-    #    print ("Term -> text |" + ctx.getText() + "|")
-
 
    
 

@@ -21,8 +21,8 @@ int main()
     }
 
     {
-        int a = 5;
-        int b = a + x;
+        a = 5;
+        b = a + x;
     }
 
     if (y == 14)

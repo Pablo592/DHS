@@ -10,17 +10,25 @@ class Tabla:
 
     diccionario = [dict()]
 
-    def buscarId(self,id):
-        for i in count(self.diccionario):
-            if(self.diccionario[-i].nombreVariable == id.nombre):
-                return True    
-        return False
+    def buscarId(self,nombre):
+
+        for i in range(0,len(self.diccionario)):
+         if(("nombre-"+str(nombre)) not in self.diccionario[-i].values()):
+          return i, False
+         else:
+          return i, self.diccionario[-i].get("variable-"+str(nombre))
 
     def addContexto(self):
         self.diccionario.append(dict())
 
     def delContexto(self):
         self.diccionario.pop()
+
+    def addId(self,nombre,variable,i):
+        self.diccionario[-i].get("nombre-"+str(nombre))
+        self.diccionario[-i]["nombre-"+str(nombre)] = nombre
+        self.diccionario[-i].get("variable-"+str(nombre))
+        self.diccionario[-i]["variable-"+str(nombre)] = variable
 
     def addId(self,nombre,variable):
         self.diccionario[-1].get("nombre-"+str(nombre))

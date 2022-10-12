@@ -307,22 +307,14 @@ class MiListener(ParseTreeListener):
             for i in dato:
                 d = i
                 v = variable.clone()
-                v.setNombre(d[0])
-                if(len(d)> 1):
-                    self.tabla.addId(d,v.toJson())
-               #     print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-               #     print(d)
-               #     print(v.toJson())
-                else:
-                    self.tabla.addId(d,v.toJson())
-               #     print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-               #     print(v.toJson())
+                v.setNombre(d)
+                self.existeVariable(d,v.toJson(),'creo')
+                    
 
          else:
-            d = datos.split("=")
             v = variable.clone()
-            v.setNombre(d)
-            self.tabla.addId(d,v.toJson())
+            v.setNombre(datos[0])
+            self.tabla.addId(datos,v.toJson())
          #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
          #   print(d)
          #   print(v.toJson())
@@ -364,19 +356,21 @@ class MiListener(ParseTreeListener):
                 v = variable.clone()
                 v.setNombre(d[0])
                 if(len(d)> 1):
-                    self.tabla.addId(d[0],v.toJson())
+                    self.existeVariable(d[0],v.toJson(),'creoInicializo')
             #        print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
             #        print(d[1])
             #        print(v.toJson())
                 else:
-                    self.tabla.addId(d[0],v.toJson())
+                    self.existeVariable(d[0],v.toJson(),'creo')
              #       print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
              #       print(v.toJson())
         else:
             d = datos.split("=")
             v = variable.clone()
             v.setNombre(d[0])
-            self.tabla.addId(d[0],v.toJson())
+            self.existeVariable(d[0],v.toJson(),'creoInicializo')
+
+            #self.tabla.addId(d[0],v.toJson())
          #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
          #   print(d[1])
          #   print(v.toJson())
@@ -395,7 +389,8 @@ class MiListener(ParseTreeListener):
         v = variable.clone()
         v.setNombre(d[0])
         if(len(d)> 1):
-            self.tabla.addId(d[0],v.toJson())
+            self.existeVariable(d[0],v.toJson(),'uso')
+         #   self.tabla.addId(d[0],v.toJson())
          #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
         #    print(d[1])
          #   print(v.toJson())
@@ -471,4 +466,23 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#bloquefor.
     def exitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
         pass
+
+    def existeVariable(self,nombre,variable,caso):
+        i ,resultado = self.tabla.buscarId(nombre)
+
+        if(resultado == False):
+            if(str(caso) == 'uso'):
+                print("Error, la variable \""+str(nombre)+"\" no existe")
+            if(str(caso) == 'creoInicializo'):
+                self.tabla.addId(str(nombre),variable)
+            if(str(caso) == 'creo'):
+                self.tabla.addId(str(nombre),0)
+        else:
+            if(str(caso) == 'uso'):
+             diccio = resultado.__dict__
+             diccio['usada'] = True
+             self.tabla.addId(nombre,diccio,i)
+            else:
+             print("Error, la variable "+str(nombre)+" ya se encuentra creada")
+
 del compiladoresParser

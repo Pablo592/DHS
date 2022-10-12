@@ -15,7 +15,6 @@ class Tabla:
         for i in range(0,len(self.diccionario)):
       #   print(len(self.diccionario))
       #   print(i)
-      #   print((("nombre-"+str(nombre)) not in self.diccionario[-i].values()))
       #   print(self.diccionario[-i].values())
          if(("nombre-"+str(nombre)) in self.diccionario[-i]):
           return i, self.diccionario[-i].get("variable-"+str(nombre))

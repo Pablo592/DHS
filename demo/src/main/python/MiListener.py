@@ -389,7 +389,28 @@ class MiListener(ParseTreeListener):
             self.existeVariable(d[0],v.toJson(),'uso')
          #   self.tabla.addId(d[0],v.toJson())
          #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-        #    print(d[1])
+            print(d[1])
+            valor = d[1]
+            posiblesVariables = []
+
+            operadores = ['+','-','*','/']
+
+    
+            aux1 = valor.split('+')
+            for i in aux1:
+             aux2 = i.split('-')
+             for j in aux2:
+              aux3 = j.split('*')
+              for k in aux3:
+                aux4 = k.split('/')
+                for m in aux4:
+                 if(not m.isnumeric()):
+                    if(m != ""):
+                     posiblesVariables.append(m)
+            
+            for i  in posiblesVariables:
+                print("variable: "+ i)
+            
          #   print(v.toJson())
 
 

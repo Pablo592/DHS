@@ -189,7 +189,7 @@ operacion: ( (variable|NUMERO|) OP (variable|NUMERO))+;
 retorno: 'return' (NUMERO|variable);
 bloqueif: IF PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instruccion ((ELSE instruccion)|);
 bloquewhile: WHILE PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instruccion;
-bloquefor: FOR PARENTESISABRE (TDATO|) (asignacion)* PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA bloque;
+bloquefor: FOR PARENTESISABRE (declaroAsigno|asignacion|declaracion) PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA bloque;
  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

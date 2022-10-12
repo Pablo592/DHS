@@ -13,10 +13,13 @@ class Tabla:
     def buscarId(self,nombre):
 
         for i in range(0,len(self.diccionario)):
-         if(("nombre-"+str(nombre)) not in self.diccionario[-i].values()):
-          return i, False
-         else:
+      #   print(len(self.diccionario))
+      #   print(i)
+      #   print((("nombre-"+str(nombre)) not in self.diccionario[-i].values()))
+      #   print(self.diccionario[-i].values())
+         if(("nombre-"+str(nombre)) in self.diccionario[-i]):
           return i, self.diccionario[-i].get("variable-"+str(nombre))
+        return i, False
 
     def addContexto(self):
         self.diccionario.append(dict())
@@ -24,7 +27,7 @@ class Tabla:
     def delContexto(self):
         self.diccionario.pop()
 
-    def addId(self,nombre,variable,i):
+    def addIdi(self,nombre,variable,i):
         self.diccionario[-i].get("nombre-"+str(nombre))
         self.diccionario[-i]["nombre-"+str(nombre)] = nombre
         self.diccionario[-i].get("variable-"+str(nombre))

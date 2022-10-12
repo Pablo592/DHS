@@ -279,7 +279,7 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#declaracion.
     def exitDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
-     #    print("Salgo exitDeclaracion "+ctx.getText())
+      #   print("Salgo exitDeclaracion "+ctx.getText())
          variable = Id()
 
          datos = ctx.getText()
@@ -301,20 +301,21 @@ class MiListener(ParseTreeListener):
             variable.setTipo('long')
             datos = datos[4:]
 
+        # print(datos)
+
          if "," in datos:
             dato = datos.split(",")
 
             for i in dato:
-                d = i
                 v = variable.clone()
-                v.setNombre(d)
-                self.existeVariable(d,v.toJson(),'creo')
+                v.setNombre(i)
+                self.existeVariable(i,v.toJson(),'creo')
                     
 
          else:
             v = variable.clone()
-            v.setNombre(datos[0])
-            self.tabla.addId(datos,v.toJson())
+            v.setNombre(datos)
+            self.existeVariable(datos,v.toJson(),'creo')
          #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
          #   print(d)
          #   print(v.toJson())
@@ -476,12 +477,11 @@ class MiListener(ParseTreeListener):
             if(str(caso) == 'creoInicializo'):
                 self.tabla.addId(str(nombre),variable)
             if(str(caso) == 'creo'):
-                self.tabla.addId(str(nombre),0)
+                self.tabla.addId(str(nombre),variable)
         else:
             if(str(caso) == 'uso'):
-             diccio = resultado.__dict__
-             diccio['usada'] = True
-             self.tabla.addId(nombre,diccio,i)
+             resultado['usada'] = True
+             self.tabla.addIdi(str(nombre),resultado,i)
             else:
              print("Error, la variable "+str(nombre)+" ya se encuentra creada")
 

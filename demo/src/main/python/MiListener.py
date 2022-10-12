@@ -1,4 +1,5 @@
 # Generated from /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/compiladores.g4 by ANTLR 4.9.2
+from itertools import count
 from pickle import TRUE
 from antlr4 import *
 
@@ -278,7 +279,7 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#declaracion.
     def exitDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
-         print("Salgo exitDeclaracion "+ctx.getText())
+     #    print("Salgo exitDeclaracion "+ctx.getText())
          variable = Id()
 
          datos = ctx.getText()
@@ -308,23 +309,23 @@ class MiListener(ParseTreeListener):
                 v = variable.clone()
                 v.setNombre(d[0])
                 if(len(d)> 1):
-                    self.tabla.addId(d,v)
-                    print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-                    print(d)
-                    print(v.toString())
+                    self.tabla.addId(d,v.toJson())
+               #     print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+               #     print(d)
+               #     print(v.toJson())
                 else:
-                    self.tabla.addId(d,v)
-                    print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-                    print(v.toString())
+                    self.tabla.addId(d,v.toJson())
+               #     print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+               #     print(v.toJson())
 
          else:
             d = datos.split("=")
             v = variable.clone()
             v.setNombre(d)
-            self.tabla.addId(d,v)
-            print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-            print(d)
-            print(v.toString())
+            self.tabla.addId(d,v.toJson())
+         #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+         #   print(d)
+         #   print(v.toJson())
 
     # Enter a parse tree produced by compiladoresParser#declaroAsigno.
     def enterDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
@@ -332,7 +333,7 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#declaroAsigno.
     def exitDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
-        print("Salgo exitDeclaroAsigno "+ctx.getText())
+     #   print("Salgo exitDeclaroAsigno "+ctx.getText())
 
         variable = Id()
 
@@ -363,22 +364,22 @@ class MiListener(ParseTreeListener):
                 v = variable.clone()
                 v.setNombre(d[0])
                 if(len(d)> 1):
-                    self.tabla.addId(d[0],v)
-                    print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-                    print(d[1])
-                    print(v.toString())
+                    self.tabla.addId(d[0],v.toJson())
+            #        print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+            #        print(d[1])
+            #        print(v.toJson())
                 else:
-                    self.tabla.addId(d[0],v)
-                    print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-                    print(v.toString())
+                    self.tabla.addId(d[0],v.toJson())
+             #       print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+             #       print(v.toJson())
         else:
             d = datos.split("=")
             v = variable.clone()
             v.setNombre(d[0])
-            self.tabla.addId(d[0],v)
-            print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-            print(d[1])
-            print(v.toString())
+            self.tabla.addId(d[0],v.toJson())
+         #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+         #   print(d[1])
+         #   print(v.toJson())
 
     # Enter a parse tree produced by compiladoresParser#asignacion.
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):
@@ -386,7 +387,7 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#asignacion.
     def exitAsignacion(self, ctx:compiladoresParser.AsignacionContext):
-        print("Salgo exitAsignacion "+ctx.getText())
+     #   print("Salgo exitAsignacion "+ctx.getText())
         variable = Id()
         variable.setUsada(True)
         datos = ctx.getText()
@@ -394,10 +395,10 @@ class MiListener(ParseTreeListener):
         v = variable.clone()
         v.setNombre(d[0])
         if(len(d)> 1):
-            self.tabla.addId(d[0],v)
-            print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-            print(d[1])
-            print(v.toString())
+            self.tabla.addId(d[0],v.toJson())
+         #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
+        #    print(d[1])
+         #   print(v.toJson())
 
 
     # Enter a parse tree produced by compiladoresParser#prototipadoFuncion.
@@ -470,7 +471,4 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#bloquefor.
     def exitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
         pass
-
-
-
 del compiladoresParser

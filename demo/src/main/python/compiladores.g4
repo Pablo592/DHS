@@ -184,12 +184,12 @@ declaroAsigno : TDATO (COMA|(variable ((OPIGUAL (NUMERO|variable|llamadoAFuncion
 asignacion :  (variable ((OPIGUAL (operacion|NUMERO|variable|llamadoAFunciones))| SUMAUNO))+;
 prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
-desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instrucciones;
+desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instruccion;
 operacion: ( (variable|NUMERO|) OP (variable|NUMERO))+;
 retorno: 'return' (NUMERO|variable);
-bloqueif: IF PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instrucciones ((ELSE instrucciones)|);
-bloquewhile: WHILE PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instrucciones;
-bloquefor: FOR PARENTESISABRE (TDATO|) (asignacion)* PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA instrucciones;
+bloqueif: IF PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instruccion ((ELSE instruccion)|);
+bloquewhile: WHILE PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instruccion;
+bloquefor: FOR PARENTESISABRE (TDATO|) (asignacion)* PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA bloque;
  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

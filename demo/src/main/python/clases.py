@@ -23,10 +23,10 @@ class Tabla:
         self.diccionario.pop()
 
     def addId(self,nombre,variable):
-        self.diccionario[-1].get("nombreVariable")
-        self.diccionario[-1]['nombreVariable'] = nombre
-        self.diccionario[-1].get("variable")
-        self.diccionario[-1]['variable'] = variable
+        self.diccionario[-1].get("nombre-"+str(nombre))
+        self.diccionario[-1]["nombre-"+str(nombre)] = nombre
+        self.diccionario[-1].get("variable-"+str(nombre))
+        self.diccionario[-1]["variable-"+str(nombre)] = variable
 
 
 
@@ -38,8 +38,14 @@ class Id:
     inicializada = False
     usada = False
 
-    def toString(self):
-        return vars(self)
+    def toJson(self):
+        diccionario = dict()
+        diccionario['nombre'] = self.nombre
+        diccionario['tipo'] = self.tipo
+        diccionario['inicializada'] = self.inicializada
+        diccionario['usada'] = self.usada
+
+        return diccionario
 
     def setNombre(self,nombre):
         self.nombre = nombre

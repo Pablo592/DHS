@@ -1,5 +1,7 @@
 int sumar(int a, int b);
 
+int global = 5;
+
 int main()
 {
     int y;
@@ -15,6 +17,7 @@ int main()
     for (int i = 0; i < x; i++)
     {
         a = a + 1 + 9 + 5 + 1 - 5 - 4 + x;
+        i = a + 1 + 9 + 5 + 1 - 5 - 4 + x;
     }
 
     {

@@ -16,8 +16,9 @@ class MiListener(ParseTreeListener):
     
     # Exit a parse tree produced by compiladoresParser#itop.
     def exitItop(self, ctx:compiladoresParser.ItopContext):
-        print ("Term tiene " + str(ctx.getChildCount()) + " hijos")
-        print ("Term -> text |" + ctx.getText() + "|")
+      #  print ("Term tiene " + str(ctx.getChildCount()) + " hijos")
+      #  print ("Term -> text |" + ctx.getText() + "|")
+       pass
 
 
     # Enter a parse tree produced by compiladoresParser#oparit.
@@ -238,14 +239,14 @@ class MiListener(ParseTreeListener):
     # Enter a parse tree produced by compiladoresParser#bloque.
     def enterBloque(self, ctx:compiladoresParser.BloqueContext):
         self.tabla.addContexto()
-        print ("contenido llave: "+ctx.getText())
+     #   print ("contenido llave: "+ctx.getText())
 
         
 
     # Exit a parse tree produced by compiladoresParser#bloque.
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
-        print("\n")
-        print (self.tabla.diccionario)
+       # print("\n")
+       # print (self.tabla.diccionario)
         self.tabla.delContexto()
 
    

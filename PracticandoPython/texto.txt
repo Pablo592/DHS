@@ -48,3 +48,5 @@ self = this
 Tarea: lograr almacenar todas las variables en Tabla
 
 https://www.antlr.org/api/Java/org/antlr/v4/runtime/ParserRuleContext.html
+
+https://prezi.com/6xmat6mory1t/analisis-lexico-sintactico-y-semantico/

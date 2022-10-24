@@ -6,16 +6,13 @@ int main()
 {
     int y;
     int x = 5;
-    int p, q, r, t,i;
+    int p, q, r, t, i;
     int a = 1, b = 2, c = 3, d;
 
     y = sumar(x, 10);
 
     while (a != x)
         a = a + 1;
-
-
-
 
     for (i = 0; i < x; i++)
     {
@@ -34,7 +31,10 @@ int main()
         y = x + 2;
     }
     else
+    {
         y = -2;
+        global = 0;
+    }
 
     return 0;
 }

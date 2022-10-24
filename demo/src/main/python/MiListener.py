@@ -12,6 +12,10 @@ from compiladoresParser import compiladoresParser
 # This class defines a complete listener for a parse tree produced by compiladoresParser.
 class MiListener(ParseTreeListener):
 
+
+    f = open("output/Tabla_De_Simbolos.txt", "w")
+    
+
     tabla = Tabla()
     
     # Exit a parse tree produced by compiladoresParser#itop.
@@ -245,11 +249,15 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#bloque.
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
-       # print("\n")
-       # print (self.tabla.diccionario)
+        self.f.write("\n")
+        self.f.write(str(self.tabla.diccionario))
+        print (self.tabla.diccionario)
         self.tabla.delContexto()
+        self.f.write("\n")
+        self.f.write(str(self.tabla.diccionario))
 
-   
+        if (len(self.tabla.diccionario) == 0 ):
+            self.f.close()
 
 
 

@@ -54,7 +54,6 @@ class Id:
         diccionario['tipo'] = self.tipo
         diccionario['inicializada'] = self.inicializada
         diccionario['usada'] = self.usada
-
         return diccionario
 
     def setNombre(self,nombre):
@@ -96,4 +95,22 @@ class Variable(Id):
     pass
 
 class Funcion(Id):
-    nombresVariables = []
+
+    argumentos = []
+
+    def addArg(self,nombre,tipo):
+        self.argumentos.append(dict())
+        self.argumentos[-1].get("tipo")
+        self.argumentos[-1]["tipo"] = tipo
+        self.argumentos[-1].get("nombre")
+        self.argumentos[-1]["nombre"] = nombre
+
+
+    def toJson(self):
+        diccionario = dict()
+        diccionario['nombre'] = self.nombre
+        diccionario['tipo'] = self.tipo
+        diccionario['inicializada'] = self.inicializada
+        diccionario['usada'] = self.usada
+        diccionario['argumentos'] = self.argumentos
+        return diccionario

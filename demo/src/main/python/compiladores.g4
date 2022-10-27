@@ -152,6 +152,8 @@ prefijo:RESTAUNO VARIABLE factor prefijo
 
 factor : VARIABLE
        | NUMERO
+       | FLOTANTES
+       | FLOTANTESNEGATIVOS
        | PARENTESISABRE expo PARENTESISCIERRA
        | VARIABLE SUMAUNO
        | VARIABLE RESTAUNO
@@ -183,7 +185,7 @@ asignacion :  itop;
 prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instruccion;
-retorno: 'return' (NUMERO|variable);
+retorno: 'return' (NUMERO|variable|);
 bloqueif: IF PARENTESISABRE (itop) PARENTESISCIERRA instruccion ((ELSE instruccion)|);
 bloquewhile: WHILE PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
 bloquefor: FOR PARENTESISABRE (itop) PUNTOYCOMA itop PUNTOYCOMA itop PARENTESISCIERRA bloque;

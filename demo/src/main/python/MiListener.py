@@ -4,8 +4,8 @@ from pickle import TRUE
 from antlr4 import *
 
 from clases import Tabla
-from clases import Id
-
+from clases import Variable
+from clases import Funcion
 
 from compiladoresParser import compiladoresParser
 
@@ -212,15 +212,6 @@ class MiListener(ParseTreeListener):
     def exitInstruccion(self, ctx:compiladoresParser.InstruccionContext):
         pass
 
-
-
-
-
-
-
-
-
-
     # Enter a parse tree produced by compiladoresParser#bloque.
     def enterBloque(self, ctx:compiladoresParser.BloqueContext):
         self.tabla.addContexto()
@@ -262,7 +253,7 @@ class MiListener(ParseTreeListener):
     def exitDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
      #   print("Salgo exitDeclaroAsigno "+ctx.getText())
 
-        variable = Id()
+        variable = Variable()
 
         datos = ctx.getText()
         variable.setInicializada(True)
@@ -317,7 +308,7 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#asignacion.
     def exitAsignacion(self, ctx:compiladoresParser.AsignacionContext):
      #   print("Salgo exitAsignacion "+ctx.getText())
-        variable = Id()
+        variable = Variable()
         variable.setUsada(True)
         datos = ctx.getText()
         d = datos.split("=")
@@ -357,7 +348,11 @@ class MiListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#prototipadoFuncion.
     def exitPrototipadoFuncion(self, ctx:compiladoresParser.PrototipadoFuncionContext):
-        pass
+        funcion = Funcion()
+        datos = ctx.getText()
+        funcion.setInicializada(True)
+        funcion = self.obtenerFuncion(funcion,datos)  
+        self.existeVariable(funcion.getNombre(),funcion.toJson(),'creo')
 
 
     # Enter a parse tree produced by compiladoresParser#llamadoAFunciones.
@@ -412,12 +407,64 @@ class MiListener(ParseTreeListener):
     def exitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
         pass
 
+    def obtenerFuncion(self,funcion,datos):
+        if  datos.startswith("int"):
+            funcion.setTipo('int')
+            datos = datos[3:]
+        elif datos.startswith("string"):
+            funcion.setTipo('string')
+            datos = datos[6:]
+        elif datos.startswith("float"):
+            funcion.setTipo('float')
+            datos = datos[5:]
+        elif datos.startswith("double"):
+            funcion.setTipo('double')
+            datos = datos[6:]
+        elif datos.startswith("long"):
+            funcion.setTipo('long')
+            datos = datos[4:]
+
+        datos = datos.split('(')
+        funcion.setNombre(datos[0])
+
+        datos = datos[1].split(')')[0]
+
+        if "," in datos:
+            dato = datos.split(",")
+            tipo = ""
+
+            for i in dato:
+                if "int" in i:
+                  tipo ='int'
+                  nombre = i[3:]
+                elif "string" in i:
+                  tipo ='string'
+                  nombre = i[6:]
+                elif "float" in i:
+                  tipo ='float'
+                  nombre = i[5:]
+                elif "double" in i:
+                  tipo ='double'
+                  nombre = i[6:]
+                elif "long" in i:
+                  tipo ='long'
+                  nombre = i[4:]
+                else:
+                  nombre = i
+                funcion.addArg(nombre,tipo)
+        return funcion
+
+
+
     def existeVariable(self,nombre,variable,caso):
         i ,resultado = self.tabla.buscarId(nombre)
 
         if(resultado == False):
             if(str(caso) == 'uso'):
-                print("Error, la variable \""+str(nombre)+"\" no existe")
+                if ("(" in nombre):
+                    self.existeVariable(nombre.split("(")[0],variable,caso)
+                else:
+                    print("Error, la variable \""+str(nombre)+"\" no existe")
             if(str(caso) == 'creoInicializo'):
                 self.tabla.addId(str(nombre),variable)
             if(str(caso) == 'creo'):

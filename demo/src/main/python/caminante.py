@@ -80,17 +80,6 @@ class Caminante(compiladoresVisitor):
     def visitPi(self, ctx:compiladoresParser.PiContext):
         return self.visitChildren(ctx)
 
-
-    # Visit a parse tree produced by compiladoresParser#t.
-    def visitT(self, ctx:compiladoresParser.TContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by compiladoresParser#termino.
-    def visitTermino(self, ctx:compiladoresParser.TerminoContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by compiladoresParser#multiDivi.
     def visitMultiDivi(self, ctx:compiladoresParser.MultiDiviContext):
         return self.visitChildren(ctx)
@@ -177,11 +166,6 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.
     def visitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by compiladoresParser#operacion.
-    def visitOperacion(self, ctx:compiladoresParser.OperacionContext):
         return self.visitChildren(ctx)
 
 

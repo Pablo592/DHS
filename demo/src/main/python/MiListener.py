@@ -132,31 +132,12 @@ class MiListener(ParseTreeListener):
     def exitPo(self, ctx:compiladoresParser.PoContext):
         pass
 
-
-    # Enter a parse tree produced by compiladoresParser#relaciono.
-    def enterRelaciono(self, ctx:compiladoresParser.RelacionoContext):
-        pass
-
-    # Exit a parse tree produced by compiladoresParser#relaciono.
-    def exitRelaciono(self, ctx:compiladoresParser.RelacionoContext):
-        pass
-
-
     # Enter a parse tree produced by compiladoresParser#pi.
     def enterPi(self, ctx:compiladoresParser.PiContext):
         pass
 
     # Exit a parse tree produced by compiladoresParser#pi.
     def exitPi(self, ctx:compiladoresParser.PiContext):
-        pass
-
-
-    # Enter a parse tree produced by compiladoresParser#t.
-    def enterT(self, ctx:compiladoresParser.TContext):
-        pass
-
-    # Exit a parse tree produced by compiladoresParser#t.
-    def exitT(self, ctx:compiladoresParser.TContext):
         pass
 
 
@@ -447,16 +428,6 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#desarrolloFuncion.
     def exitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
         pass
-
-
-    # Enter a parse tree produced by compiladoresParser#operacion.
-    def enterOperacion(self, ctx:compiladoresParser.OperacionContext):
-        pass
-
-    # Exit a parse tree produced by compiladoresParser#operacion.
-    def exitOperacion(self, ctx:compiladoresParser.OperacionContext):
-        pass
-
 
     # Enter a parse tree produced by compiladoresParser#retorno.
     def enterRetorno(self, ctx:compiladoresParser.RetornoContext):

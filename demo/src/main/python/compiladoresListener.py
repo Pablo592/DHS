@@ -296,15 +296,6 @@ class compiladoresListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by compiladoresParser#operacion.
-    def enterOperacion(self, ctx:compiladoresParser.OperacionContext):
-        pass
-
-    # Exit a parse tree produced by compiladoresParser#operacion.
-    def exitOperacion(self, ctx:compiladoresParser.OperacionContext):
-        pass
-
-
     # Enter a parse tree produced by compiladoresParser#retorno.
     def enterRetorno(self, ctx:compiladoresParser.RetornoContext):
         pass

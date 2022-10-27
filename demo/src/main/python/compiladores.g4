@@ -11,14 +11,14 @@ CORCHETEABRE: '[';
 CORCHETECIERRA: ']';
 PARENTESISCIERRA: ')';
 PARENTESISABRE: '(';
-OP: MAS|MENOS|PRODUCTO|DIVISION;
+//OP: MAS|MENOS|PRODUCTO|DIVISION;
 MAS: '+';
 MENOS: '-';
 PRODUCTO: '*';
 DIVISION: '/';
 RESTO:'%';
-CONDICIONAL: MENOR | MAYOR | IGUALDAD | DISTINTO;
-OPIGUAL: IGUAL | PRODUCTOIGUAL | DIVIDIDOIGUAL | RESTOIGUAL | MASIGUAL | MENOSIGUAL;
+//CONDICIONAL: MENOR | MAYOR | IGUALDAD | DISTINTO;
+//OPIGUAL: IGUAL | PRODUCTOIGUAL | DIVIDIDOIGUAL | RESTOIGUAL | MASIGUAL | MENOSIGUAL;
 IGUAL: '=';
 PRODUCTOIGUAL:'*=';
 IGUALDAD: '==';
@@ -82,7 +82,6 @@ oparit : expo
 expo : tie coma;
 
 coma: COMA tie coma
-    | PUNTOYCOMA tie coma
     |
     ;
 
@@ -154,6 +153,8 @@ prefijo:RESTAUNO VARIABLE factor prefijo
 factor : VARIABLE
        | NUMERO
        | PARENTESISABRE expo PARENTESISCIERRA
+       | VARIABLE SUMAUNO
+       | VARIABLE RESTAUNO
        ;
        
   
@@ -166,7 +167,6 @@ instruccion : bloque
             | llamadoAFunciones PUNTOYCOMA
             | declaracion PUNTOYCOMA
             | declaroAsigno PUNTOYCOMA
-            | operacion PUNTOYCOMA
             | asignacion PUNTOYCOMA
             | prototipadoFuncion PUNTOYCOMA
             | desarrolloFuncion
@@ -178,18 +178,17 @@ instruccion : bloque
 variable:VARIABLE;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
 declaracion : TDATO (COMA|variable)+;
-declaroAsigno : TDATO (COMA|(variable ((OPIGUAL (NUMERO|variable|llamadoAFunciones|operacion))| SUMAUNO)| variable|NUMERO))+;
+declaroAsigno : TDATO itop;
 
 
-asignacion :  (variable ((OPIGUAL (operacion|NUMERO|variable|llamadoAFunciones))| SUMAUNO))+;
+asignacion :  itop;
 prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instruccion;
-operacion: ( (variable|NUMERO|) OP (variable|NUMERO))+;
 retorno: 'return' (NUMERO|variable);
-bloqueif: IF PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instruccion ((ELSE instruccion)|);
-bloquewhile: WHILE PARENTESISABRE (((NUMERO|variable)CONDICIONAL(NUMERO|variable))|BOOLEANOS) PARENTESISCIERRA instruccion;
-bloquefor: FOR PARENTESISABRE (asignacion|declaracion) PUNTOYCOMA (((NUMERO|variable)CONDICIONAL(NUMERO|variable))*|BOOLEANOS) PUNTOYCOMA (asignacion|OP)* PARENTESISCIERRA bloque;
+bloqueif: IF PARENTESISABRE (itop) PARENTESISCIERRA instruccion ((ELSE instruccion)|);
+bloquewhile: WHILE PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
+bloquefor: FOR PARENTESISABRE (itop) PUNTOYCOMA itop PUNTOYCOMA itop PARENTESISCIERRA bloque;
  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

@@ -169,11 +169,6 @@ class compiladoresVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by compiladoresParser#operacion.
-    def visitOperacion(self, ctx:compiladoresParser.OperacionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by compiladoresParser#retorno.
     def visitRetorno(self, ctx:compiladoresParser.RetornoContext):
         return self.visitChildren(ctx)

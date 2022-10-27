@@ -165,7 +165,6 @@ instrucciones : instruccion instrucciones
 
 instruccion : bloque
             | llamadoAFunciones PUNTOYCOMA
-            | declaracion PUNTOYCOMA
             | declaroAsigno PUNTOYCOMA
             | asignacion PUNTOYCOMA
             | prototipadoFuncion PUNTOYCOMA
@@ -177,7 +176,6 @@ instruccion : bloque
             ;
 variable:VARIABLE;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
-declaracion : TDATO (COMA|variable)+;
 declaroAsigno : TDATO itop;
 
 

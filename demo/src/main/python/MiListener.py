@@ -233,6 +233,7 @@ class MiListener(ParseTreeListener):
         self.f.write("\n")
         self.f.write(str(self.tabla.diccionario))
         print (self.tabla.diccionario)
+        print ("\n")
         self.tabla.delContexto()
         self.f.write("\n")
         self.f.write(str(self.tabla.diccionario))
@@ -251,60 +252,7 @@ class MiListener(ParseTreeListener):
     # Exit a parse tree produced by compiladoresParser#variable.
     def exitVariable(self, ctx:compiladoresParser.VariableContext):
         pass
-       
-
-
-
-
-    # Enter a parse tree produced by compiladoresParser#declaracion.
-    def enterDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
-        pass
     
-    
-
-
-    # Exit a parse tree produced by compiladoresParser#declaracion.
-    def exitDeclaracion(self, ctx:compiladoresParser.DeclaracionContext):
-      #   print("Salgo exitDeclaracion "+ctx.getText())
-         variable = Id()
-
-         datos = ctx.getText()
-         variable.setInicializada(True)
-
-         if "int" in datos:
-            variable.setTipo('int')
-            datos = datos[3:]
-         elif "string" in datos:
-            variable.setTipo('string')
-            datos = datos[6:]
-         elif "float" in datos:
-            variable.setTipo('float')
-            datos = datos[5:]
-         elif "double" in datos:
-            variable.setTipo('double')
-            datos = datos[6:]
-         elif "long" in datos:
-            variable.setTipo('long')
-            datos = datos[4:]
-
-        # print(datos)
-
-         if "," in datos:
-            dato = datos.split(",")
-
-            for i in dato:
-                v = variable.clone()
-                v.setNombre(i)
-                self.existeVariable(i,v.toJson(),'creo')
-                    
-
-         else:
-            v = variable.clone()
-            v.setNombre(datos)
-            self.existeVariable(datos,v.toJson(),'creo')
-         #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-         #   print(d)
-         #   print(v.toJson())
 
     # Enter a parse tree produced by compiladoresParser#declaroAsigno.
     def enterDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):

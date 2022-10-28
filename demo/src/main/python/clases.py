@@ -13,9 +13,6 @@ class Tabla:
     def buscarId(self,nombre):
 
         for i in range(0,len(self.diccionario)):
-      #   print(len(self.diccionario))
-      #   print(i)
-      #   print(self.diccionario[-i].values())
          if(("nombre-"+str(nombre)) in self.diccionario[-i]):
           return i, self.diccionario[-i].get("variable-"+str(nombre))
         return i, False

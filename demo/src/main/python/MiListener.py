@@ -258,19 +258,19 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         variable.setInicializada(True)
 
-        if "int" in datos:
+        if  datos.startswith("int"):
             variable.setTipo('int')
             datos = datos[3:]
-        elif "string" in datos:
+        elif datos.startswith("string"):
             variable.setTipo('string')
             datos = datos[6:]
-        elif "float" in datos:
+        elif datos.startswith("float"):
             variable.setTipo('float')
             datos = datos[5:]
-        elif "double" in datos:
+        elif datos.startswith("double"):
             variable.setTipo('double')
             datos = datos[6:]
-        elif "long" in datos:
+        elif datos.startswith("long"):
             variable.setTipo('long')
             datos = datos[4:]
 
@@ -283,23 +283,13 @@ class MiListener(ParseTreeListener):
                 v.setNombre(d[0])
                 if(len(d)> 1):
                     self.existeVariable(d[0],v.toJson(),'creoInicializo')
-            #        print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-            #        print(d[1])
-            #        print(v.toJson())
                 else:
                     self.existeVariable(d[0],v.toJson(),'creo')
-             #       print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-             #       print(v.toJson())
         else:
             d = datos.split("=")
             v = variable.clone()
             v.setNombre(d[0])
             self.existeVariable(d[0],v.toJson(),'creoInicializo')
-
-            #self.tabla.addId(d[0],v.toJson())
-         #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-         #   print(d[1])
-         #   print(v.toJson())
 
     # Enter a parse tree produced by compiladoresParser#asignacion.
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):
@@ -316,9 +306,6 @@ class MiListener(ParseTreeListener):
         v.setNombre(d[0])
         if(len(d)> 1):
             self.existeVariable(d[0],v.toJson(),'uso')
-         #   self.tabla.addId(d[0],v.toJson())
-         #   print("d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+-d+d-")
-        #    print(d[1])
             valor = d[1]
             posiblesVariables = []
 
@@ -336,10 +323,8 @@ class MiListener(ParseTreeListener):
                      posiblesVariables.append(m)
             
             for i  in posiblesVariables:
-           #     print("variable: "+ i)
                 self.existeVariable(i,"algo",'uso')
             
-         #   print(v.toJson())
 
 
     # Enter a parse tree produced by compiladoresParser#prototipadoFuncion.

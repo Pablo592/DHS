@@ -14,9 +14,17 @@ class MiListener(ParseTreeListener):
 
 
     f = open("output/Tabla_De_Simbolos.txt", "w")
-    
+    f.write("Tipo\t")
+    f.write("Nombre\t")
+    f.write("Inicializada\t")
+    f.write("Usada\t")
+    f.write("Argumentos de la funcion\t")
+    f.write("\n")
+    f.write("-------------------------------------------------------------------\n")
+    f.write("\n")    
 
     tabla = Tabla()
+    contexto = 0
     
     # Exit a parse tree produced by compiladoresParser#itop.
     def exitItop(self, ctx:compiladoresParser.ItopContext):
@@ -214,20 +222,24 @@ class MiListener(ParseTreeListener):
 
     # Enter a parse tree produced by compiladoresParser#bloque.
     def enterBloque(self, ctx:compiladoresParser.BloqueContext):
-        self.tabla.addContexto()
+         self.f.write("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+         self.f.write("\t\t\t\tContexto: " + str(self.contexto)+"\n")
+         self.f.write("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+         self.contexto +=1
+         self.tabla.addContexto()
      #   print ("contenido llave: "+ctx.getText())
 
         
 
     # Exit a parse tree produced by compiladoresParser#bloque.
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
-        self.f.write("\n")
-        self.f.write(str(self.tabla.diccionario))
+    #    self.f.write("\n")
+    #    self.f.write(str(self.tabla.diccionario))
         print (self.tabla.diccionario)
         print ("\n")
         self.tabla.delContexto()
-        self.f.write("\n")
-        self.f.write(str(self.tabla.diccionario))
+    #    self.f.write("\n")
+    #    self.f.write(str(self.tabla.diccionario))
 
         if (len(self.tabla.diccionario) == 0 ):
             self.f.close()
@@ -282,14 +294,50 @@ class MiListener(ParseTreeListener):
                 v = variable.clone()
                 v.setNombre(d[0])
                 if(len(d)> 1):
-                    self.existeVariable(d[0],v.toJson(),'creoInicializo')
+                   resul = self.existeVariable(d[0],v.toJson(),'creoInicializo')
+                   if resul:
+                       self.f.write(v.getTipo())
+                       self.f.write("\t\t")
+                       self.f.write(v.getNombre())
+                       if len(v.getNombre()) > 1:                                     
+                        self.f.write("\t")
+                       else:
+                        self.f.write("\t\t")
+                       self.f.write(str(v.getInicializada()))
+                       self.f.write("\t\t\t")
+                       self.f.write(str(v.getUsada()))
+                       self.f.write("\n")
                 else:
-                    self.existeVariable(d[0],v.toJson(),'creo')
+                   resul = self.existeVariable(d[0],v.toJson(),'creo')
+                   if resul:
+                       self.f.write(v.getTipo())
+                       self.f.write("\t\t")
+                       self.f.write(v.getNombre())
+                       if len(v.getNombre()) > 1:                                     
+                        self.f.write("\t")
+                       else:
+                        self.f.write("\t\t")
+                       self.f.write(str(v.getInicializada()))
+                       self.f.write("\t\t\t")
+                       self.f.write(str(v.getUsada()))
+                       self.f.write("\n")
         else:
             d = datos.split("=")
             v = variable.clone()
             v.setNombre(d[0])
-            self.existeVariable(d[0],v.toJson(),'creoInicializo')
+            resul = self.existeVariable(d[0],v.toJson(),'creoInicializo')
+            if resul:
+                       self.f.write(v.getTipo())
+                       self.f.write("\t\t")
+                       self.f.write(v.getNombre())
+                       if len(v.getNombre()) > 1:                                     
+                        self.f.write("\t")
+                       else:
+                        self.f.write("\t\t")
+                       self.f.write(str(v.getInicializada()))
+                       self.f.write("\t\t\t")
+                       self.f.write(str(v.getUsada()))
+                       self.f.write("\n")
 
     # Enter a parse tree produced by compiladoresParser#asignacion.
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):
@@ -305,7 +353,19 @@ class MiListener(ParseTreeListener):
         v = variable.clone()
         v.setNombre(d[0])
         if(len(d)> 1):
-            self.existeVariable(d[0],v.toJson(),'uso')
+            resul = self.existeVariable(d[0],v.toJson(),'uso')
+            if resul:
+                       self.f.write(v.getTipo())
+                       self.f.write("\t\t")
+                       self.f.write(v.getNombre())
+                       if len(v.getNombre()) > 1:                                     
+                        self.f.write("\t")
+                       else:
+                        self.f.write("\t\t")
+                       self.f.write("True")
+                       self.f.write("\t\t\t")
+                       self.f.write("True")
+                       self.f.write("\n")
             valor = d[1]
             posiblesVariables = []
 
@@ -323,8 +383,19 @@ class MiListener(ParseTreeListener):
                      posiblesVariables.append(m)
             
             for i  in posiblesVariables:
-                self.existeVariable(i,"algo",'uso')
-            
+              resul = self.existeVariable(i,"algo",'uso')
+              if resul:
+                       self.f.write(v.getTipo())
+                       self.f.write("\t\t")
+                       self.f.write(v.getNombre())
+                       if len(v.getNombre()) > 1:                                     
+                        self.f.write("\t")
+                       else:
+                        self.f.write("\t\t")
+                       self.f.write("True")
+                       self.f.write("\t\t\t")
+                       self.f.write("True")
+                       self.f.write("\n")
 
 
     # Enter a parse tree produced by compiladoresParser#prototipadoFuncion.
@@ -336,8 +407,72 @@ class MiListener(ParseTreeListener):
         funcion = Funcion()
         datos = ctx.getText()
         funcion.setInicializada(True)
-        funcion = self.obtenerFuncion(funcion,datos)  
-        self.existeVariable(funcion.getNombre(),funcion.toJson(),'creo')
+
+        if  datos.startswith("int"):
+            funcion.setTipo('int')
+            datos = datos[3:]
+        elif datos.startswith("string"):
+            funcion.setTipo('string')
+            datos = datos[6:]
+        elif datos.startswith("float"):
+            funcion.setTipo('float')
+            datos = datos[5:]
+        elif datos.startswith("double"):
+            funcion.setTipo('double')
+            datos = datos[6:]
+        elif datos.startswith("long"):
+            funcion.setTipo('long')
+            datos = datos[4:]
+
+        datos = datos.split('(')
+        funcion.setNombre(datos[0])
+
+        datos = datos[1].split(')')[0]
+
+        if "," in datos:
+            dato = datos.split(",")
+            tipo = ""
+
+            for i in dato:
+                if "int" in i:
+                  tipo ='int'
+                  nombre = i[3:]
+                elif "string" in i:
+                  tipo ='string'
+                  nombre = i[6:]
+                elif "float" in i:
+                  tipo ='float'
+                  nombre = i[5:]
+                elif "double" in i:
+                  tipo ='double'
+                  nombre = i[6:]
+                elif "long" in i:
+                  tipo ='long'
+                  nombre = i[4:]
+                else:
+                  nombre = i
+                funcion.addArg(nombre,tipo)
+         
+
+        resul = self.existeVariable(funcion.getNombre(),funcion.toJson(),'creo')
+        if resul:
+                       self.f.write(funcion.getTipo())
+                       self.f.write("\t\t")
+                       self.f.write(funcion.getNombre())
+                       if len(funcion.getNombre()) > 1:                                     
+                        self.f.write("\t")
+                       else:
+                        self.f.write("\t\t")
+                       self.f.write(str(funcion.getInicializada()))
+                       self.f.write("\t\t\t")
+                       self.f.write(str(funcion.getUsada()))
+                       self.f.write("\t")
+                       for i in funcion.getArgumentos():
+                        self.f.write(i['tipo'])
+                        self.f.write("\t\t")
+                        self.f.write(i['nombre'])
+                        self.f.write("\t\t")
+                       self.f.write("\n")
 
 
     # Enter a parse tree produced by compiladoresParser#llamadoAFunciones.
@@ -392,53 +527,6 @@ class MiListener(ParseTreeListener):
     def exitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
         pass
 
-    def obtenerFuncion(self,funcion,datos):
-        if  datos.startswith("int"):
-            funcion.setTipo('int')
-            datos = datos[3:]
-        elif datos.startswith("string"):
-            funcion.setTipo('string')
-            datos = datos[6:]
-        elif datos.startswith("float"):
-            funcion.setTipo('float')
-            datos = datos[5:]
-        elif datos.startswith("double"):
-            funcion.setTipo('double')
-            datos = datos[6:]
-        elif datos.startswith("long"):
-            funcion.setTipo('long')
-            datos = datos[4:]
-
-        datos = datos.split('(')
-        funcion.setNombre(datos[0])
-
-        datos = datos[1].split(')')[0]
-
-        if "," in datos:
-            dato = datos.split(",")
-            tipo = ""
-
-            for i in dato:
-                if "int" in i:
-                  tipo ='int'
-                  nombre = i[3:]
-                elif "string" in i:
-                  tipo ='string'
-                  nombre = i[6:]
-                elif "float" in i:
-                  tipo ='float'
-                  nombre = i[5:]
-                elif "double" in i:
-                  tipo ='double'
-                  nombre = i[6:]
-                elif "long" in i:
-                  tipo ='long'
-                  nombre = i[4:]
-                else:
-                  nombre = i
-                funcion.addArg(nombre,tipo)
-        return funcion
-
 
 
     def existeVariable(self,nombre,variable,caso):
@@ -452,12 +540,15 @@ class MiListener(ParseTreeListener):
                     print("Error, la variable \""+str(nombre)+"\" no existe")
             if(str(caso) == 'creoInicializo'):
                 self.tabla.addId(str(nombre),variable)
+                return True
             if(str(caso) == 'creo'):
                 self.tabla.addId(str(nombre),variable)
+                return True
         else:
             if(str(caso) == 'uso'):
              resultado['usada'] = True
              self.tabla.addIdi(str(nombre),resultado,i)
+             return True
             else:
              print("Error, la variable "+str(nombre)+" ya se encuentra creada")
 

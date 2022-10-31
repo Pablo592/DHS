@@ -102,6 +102,10 @@ class Funcion(Id):
         self.argumentos[-1].get("nombre")
         self.argumentos[-1]["nombre"] = nombre
 
+    def getArgumentos(self):
+        return self.argumentos
+        
+
 
     def toJson(self):
         diccionario = dict()

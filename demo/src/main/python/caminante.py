@@ -176,6 +176,9 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
     def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
+        print("")
+        print("")
+        print("")
         print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
         for i in range(0,ctx.getChildCount()):
             print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
@@ -187,6 +190,9 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquefor.
     def visitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
+        print("")
+        print("")
+        print("")
         print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
         for i in range(0,ctx.getChildCount()):
             print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")

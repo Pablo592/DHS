@@ -173,7 +173,7 @@ def serializedATN():
         buf.write("\7,\2\2\u016b\u016c\7\f\2\2\u016c\u016d\5\2\2\2\u016d")
         buf.write("\u016e\7\4\2\2\u016e\u016f\5\2\2\2\u016f\u0170\7\4\2\2")
         buf.write("\u0170\u0171\5\2\2\2\u0171\u0172\7\13\2\2\u0172\u0173")
-        buf.write("\5\64\33\2\u0173G\3\2\2\2\32LXv\u0080\u008a\u0098\u00ae")
+        buf.write("\5\60\31\2\u0173G\3\2\2\2\32LXv\u0080\u008a\u0098\u00ae")
         buf.write("\u00bc\u00ce\u00e2\u00f0\u00f9\u010f\u0122\u0126\u012a")
         buf.write("\u0133\u0137\u013b\u0146\u014a\u014e\u0158\u0162")
         return buf.getvalue()
@@ -2941,8 +2941,8 @@ class compiladoresParser ( Parser ):
         def PARENTESISCIERRA(self):
             return self.getToken(compiladoresParser.PARENTESISCIERRA, 0)
 
-        def bloque(self):
-            return self.getTypedRuleContext(compiladoresParser.BloqueContext,0)
+        def instruccion(self):
+            return self.getTypedRuleContext(compiladoresParser.InstruccionContext,0)
 
 
         def getRuleIndex(self):
@@ -2989,7 +2989,7 @@ class compiladoresParser ( Parser ):
             self.state = 367
             self.match(compiladoresParser.PARENTESISCIERRA)
             self.state = 368
-            self.bloque()
+            self.instruccion()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

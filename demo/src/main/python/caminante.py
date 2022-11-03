@@ -8,7 +8,7 @@ class Caminante(compiladoresVisitor):
     
     # Visit a parse tree produced by compiladoresParser#itop.
     def visitItop(self, ctx:compiladoresParser.ItopContext):
-        return self.visitChildren(ctx)
+        pass
 
 
     # Visit a parse tree produced by compiladoresParser#oparit.
@@ -127,14 +127,14 @@ class Caminante(compiladoresVisitor):
     # Visit a parse tree produced by compiladoresParser#bloque.
     def visitBloque(self, ctx:compiladoresParser.BloqueContext):
         self.contexto += 1
-        print("\t Entramos al contexto " + str(self.contexto))     
-        print("\t\t Contenido |" + ctx.getText() + "|")
-        print("\t\t Bloque tiene " + str(ctx.getChildCount()) + " hijos")     
-        print("\t\t\t Hijo 0 " + ctx.getChild(0).getText() + " hijos")     
-        print("\t\t\t Hijo 1 " + ctx.getChild(1).getText() + " hijos")     
-        print("\t\t\t Hijo 2 " + ctx.getChild(2).getText() + " hijos")     
+  #      print("\t Entramos al contexto " + str(self.contexto))     
+  #      print("\t\t Contenido |" + ctx.getText() + "|")
+  #      print("\t\t Bloque tiene " + str(ctx.getChildCount()) + " hijos")     
+  #      print("\t\t\t Hijo 0 " + ctx.getChild(0).getText() + " hijos")     
+  #      print("\t\t\t Hijo 1 " + ctx.getChild(1).getText() + " hijos")     
+  #      print("\t\t\t Hijo 2 " + ctx.getChild(2).getText() + " hijos")     
         r =  super().visitBloque(ctx)
-        print("\t Salimos del contexto " + str(self.contexto))     
+  #      print("\t Salimos del contexto " + str(self.contexto))     
         self.contexto -= 1
         return r
 
@@ -176,12 +176,24 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
     def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
+        print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
+        for i in range(0,ctx.getChildCount()):
+            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+            print(ctx.getChild(i).getText())
+            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         return self.visitChildren(ctx)
+
 
 
     # Visit a parse tree produced by compiladoresParser#bloquefor.
     def visitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
+        print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
+        for i in range(0,ctx.getChildCount()):
+            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+            print(ctx.getChild(i).getText())
+            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         return self.visitChildren(ctx)
+
 
 
 

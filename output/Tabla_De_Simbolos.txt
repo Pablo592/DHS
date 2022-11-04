@@ -18,37 +18,40 @@ int		b		True			False
 int		c		True			False
 int		d		True			False
 		y		True			True
-		a		True			True
-		a		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 1
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		a		True			True
 		a		True			True
-		a		True			True
-		i		True			True
-		i		True			True
-		i		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 2
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		a		True			True
-		b		True			True
-		b		True			True
-		b		True			True
+		a		True			True
+		a		True			True
+		i		True			True
+		i		True			True
+		i		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+		a		True			True
+		b		True			True
+		b		True			True
+		b		True			True
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+				Contexto: 4
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		x		True			True
 		x		True			True
 		y		True			True
 		y		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-				Contexto: 4
+				Contexto: 5
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		y		True			True
 		global	True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-				Contexto: 5
+				Contexto: 6
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 int		r		True			False

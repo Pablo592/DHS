@@ -1,0 +1,8 @@
+label l0
+t0 = a!=x
+ifnot t0 jump l1
+a=a+1
+t2 = 2
+a = a * t2
+jump l0
+l1

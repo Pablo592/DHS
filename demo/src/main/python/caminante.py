@@ -6,6 +6,8 @@ from compiladoresParser import *
 class Caminante(compiladoresVisitor):
     contexto = 0
     
+    f = open("output/Codigo_Intermedio.txt", "w")
+
     # Visit a parse tree produced by compiladoresParser#itop.
     def visitItop(self, ctx:compiladoresParser.ItopContext):
         pass
@@ -176,6 +178,10 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
     def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
+        numeroRegistro = 0
+        numeroLabel = 0
+
+
         print("")
         print("")
         print("")
@@ -184,6 +190,43 @@ class Caminante(compiladoresVisitor):
             print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
             print(ctx.getChild(i).getText())
             print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        
+        label = "l" + str(numeroLabel)
+        puntoIni =  label
+        self.f.write("label " + puntoIni + "\n")
+        numeroLabel+=1
+        label = "l" + str(numeroLabel)
+        registro = "t"+ str(numeroRegistro)
+        condicion = ctx.getChild(2).getText()
+        self.f.write(registro + " = " + str(condicion) + "\n")
+        self.f.write("ifnot " + registro + " jump " + label + "\n")
+        cuerpo = ctx.getChild(4).getText()
+        if "{" in cuerpo:
+            cuerpo = cuerpo[1:-1]
+        for i in cuerpo.split(";"):
+            numeroRegistro +=1
+            registro = "t"+ str(numeroRegistro)
+
+            if "*=" in i:
+                partes = i.split("*=")
+                self.f.write(registro + " = " + partes[1]  + "\n")
+                self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")
+            elif "/=" in i:
+                self.f.write(i + "\n")
+            elif "%=" in i:
+                self.f.write(i + "\n")
+            elif "+=" in i:
+                self.f.write(i + "\n")
+            elif "-=" in i:
+                self.f.write(i + "\n")
+            elif "=" in i:
+                self.f.write(i + "\n")
+
+        label = "l" + str(numeroLabel)
+        self.f.write("jump " + puntoIni + "\n")
+        self.f.write(label + "\n")
+
+
         return self.visitChildren(ctx)
 
 

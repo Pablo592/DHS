@@ -11,8 +11,10 @@ int main()
 
     y = sumar(x, 10);
 
-    while (a != x)
+    while (a != x){
         a = a + 1;
+        a *= 2;
+    }
 
     for (i = 0; i < x; i++)
     {

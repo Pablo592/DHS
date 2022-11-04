@@ -209,16 +209,48 @@ class Caminante(compiladoresVisitor):
 
             if "*=" in i:
                 partes = i.split("*=")
-                self.f.write(registro + " = " + partes[1]  + "\n")
-                self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")
+                if "+" in partes[1]:
+                    if len(partes[1].split("+")) > 2:
+                        registros = []
+                        n = 0
+                        for m in range(0,len(partes[1].split("+"))):
+                          
+                            l = partes[1].split("+")
+                            if m == 0:
+                                self.f.write(registro + " = " + l[n]+" + "+ l[n+1] + "\n")
+                                n+=2
+                            elif n <= (len(partes[1].split("+"))-1):
+                                self.f.write(registro + " = " + l[n]+ " + t"+ str(numeroRegistro-1)  + "\n")
+                                n+=1
+                         
+                            registros.append(registro)
+                            numeroRegistro +=1
+                            registro = "t"+ str(numeroRegistro)
+                        numeroRegistro -=2
+                        registro = "t"+ str(numeroRegistro)                    
+                        self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")
+                        registro = "t"+ str(numeroRegistro-1)     
+                    else:
+                        self.f.write(registro + " = " + partes[1]  + "\n")
+                        self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")
+                    
+                       
             elif "/=" in i:
-                self.f.write(i + "\n")
+                partes = i.split("/=")
+                self.f.write(registro + " = " + partes[1]  + "\n")
+                self.f.write(partes[0] + " = " + partes[0] + " / " + registro  + "\n")
             elif "%=" in i:
-                self.f.write(i + "\n")
+                partes = i.split("%=")
+                self.f.write(registro + " = " + partes[1]  + "\n")
+                self.f.write(partes[0] + " = " + partes[0] + " % " + registro  + "\n")
             elif "+=" in i:
-                self.f.write(i + "\n")
+                partes = i.split("+=")
+                self.f.write(registro + " = " + partes[1]  + "\n")
+                self.f.write(partes[0] + " = " + partes[0] + " + " + registro  + "\n")
             elif "-=" in i:
-                self.f.write(i + "\n")
+                partes = i.split("-=")
+                self.f.write(registro + " = " + partes[1]  + "\n")
+                self.f.write(partes[0] + " = " + partes[0] + " - " + registro  + "\n")
             elif "=" in i:
                 self.f.write(i + "\n")
 

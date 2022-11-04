@@ -10,11 +10,7 @@ t4 = 2
 a = a + t4
 t5 = 2
 a = a - t5
-t6 = 2 + 2
-t7 = a + t6
-t8 = 1 + t7
-a = a * t8
-t9 = 3+3
-a = a * t9
+t7 = 3+3
+a = a * t7
 jump l0
 l1

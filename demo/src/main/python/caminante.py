@@ -203,6 +203,7 @@ class Caminante(compiladoresVisitor):
         cuerpo = ctx.getChild(4).getText()
         if "{" in cuerpo:
             cuerpo = cuerpo[1:-1]
+        posiblesVariables = []
         for i in cuerpo.split(";"):
             numeroRegistro +=1
             registro = "t"+ str(numeroRegistro)
@@ -211,25 +212,45 @@ class Caminante(compiladoresVisitor):
                 partes = i.split("*=")
                 if "+" in partes[1]:
                     if len(partes[1].split("+")) > 2:
-                        registros = []
-                        n = 0
-                        for m in range(0,len(partes[1].split("+"))):
-                          
-                            l = partes[1].split("+")
-                            if m == 0:
-                                self.f.write(registro + " = " + l[n]+" + "+ l[n+1] + "\n")
-                                n+=2
-                            elif n <= (len(partes[1].split("+"))-1):
-                                self.f.write(registro + " = " + l[n]+ " + t"+ str(numeroRegistro-1)  + "\n")
-                                n+=1
-                         
-                            registros.append(registro)
-                            numeroRegistro +=1
-                            registro = "t"+ str(numeroRegistro)
-                        numeroRegistro -=2
-                        registro = "t"+ str(numeroRegistro)                    
-                        self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")
-                        registro = "t"+ str(numeroRegistro-1)     
+                        op = partes[1]
+                        operadores = []
+                        aux1 = op.split('+')
+                        for i in aux1:
+                            if len(aux1) > 1:
+                                operadores.append("+")
+                            aux2 = i.split('-')
+                            for j in aux2:
+                                if len(aux2) > 1:
+                                    operadores.append("-")
+                                aux3 = j.split('*')
+                                for k in aux3:
+                                    if len(aux3) > 1:
+                                        operadores.append("*")
+                                    aux4 = k.split('/')
+                                    for m in aux4:
+                                        if len(aux4) > 1:
+                                            operadores.append("/")
+                                        posiblesVariables.append(m)
+
+                        operadores.append("#")
+                        contador = 0
+                        filtrado = []
+                        for p in range(0,len(operadores)-1):
+                            
+                            if(operadores[p] == "+"):
+                                filtrado.append("+")
+
+                            if(operadores[p] != "+"):
+                                if(operadores[p] == operadores[p+1]):
+                                    contador+=1
+                                else:
+                                    for i in range(0,contador):
+                                        filtrado.append(operadores[p])
+                                    contador = 0
+
+                        print(str(posiblesVariables))
+                        print(str(filtrado))
+
                     else:
                         self.f.write(registro + " = " + partes[1]  + "\n")
                         self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")

@@ -112,6 +112,15 @@ class Caminante(compiladoresVisitor):
 
     def visitT(self, ctx:compiladoresParser.TContext):
         r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitT +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         return r
 
 
@@ -187,7 +196,17 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#llamadoAFunciones.
     def visitLlamadoAFunciones(self, ctx:compiladoresParser.LlamadoAFuncionesContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitLlamadoAFunciones +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.

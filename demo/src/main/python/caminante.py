@@ -10,7 +10,16 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#itop.
     def visitItop(self, ctx:compiladoresParser.ItopContext):
-        pass
+        r = super().visitChildren(ctx)
+ #       print("")
+ #       print("")
+ #       print("")
+ #       print("+-+-+-+-+-+ visitItop +-+-+-+-+-+")
+ #       for i in range(0,ctx.getChildCount()):
+ #           print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+ #           print(ctx.getChild(i).getText())
+ #           print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#oparit.
@@ -27,10 +36,23 @@ class Caminante(compiladoresVisitor):
     def visitComa(self, ctx:compiladoresParser.ComaContext):
         return self.visitChildren(ctx)
 
-
+    def visitTermino(self, ctx:compiladoresParser.TerminoContext):
+        r = super().visitChildren(ctx)
+        
+        return r
     # Visit a parse tree produced by compiladoresParser#tie.
     def visitTie(self, ctx:compiladoresParser.TieContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitTie +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#igualOperaciones.
@@ -80,11 +102,17 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#pi.
     def visitPi(self, ctx:compiladoresParser.PiContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        return r
 
     # Visit a parse tree produced by compiladoresParser#multiDivi.
     def visitMultiDivi(self, ctx:compiladoresParser.MultiDiviContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        return r
+
+    def visitT(self, ctx:compiladoresParser.TContext):
+        r = super().visitChildren(ctx)
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#pe.
@@ -99,7 +127,8 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#factor.
     def visitFactor(self, ctx:compiladoresParser.FactorContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#prog.
@@ -178,123 +207,30 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
     def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
-        numeroRegistro = 0
-        numeroLabel = 0
-
-
         print("")
         print("")
         print("")
-        print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
-        for i in range(0,ctx.getChildCount()):
-            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
-            print(ctx.getChild(i).getText())
-            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+   #     print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
+   #     for i in range(0,ctx.getChildCount()):
+   #         print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+   #         print(ctx.getChild(i).getText())
+   #         print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         
-        label = "l" + str(numeroLabel)
-        puntoIni =  label
-        self.f.write("label " + puntoIni + "\n")
-        numeroLabel+=1
-        label = "l" + str(numeroLabel)
-        registro = "t"+ str(numeroRegistro)
-        condicion = ctx.getChild(2).getText()
-        self.f.write(registro + " = " + str(condicion) + "\n")
-        self.f.write("ifnot " + registro + " jump " + label + "\n")
-        cuerpo = ctx.getChild(4).getText()
-        if "{" in cuerpo:
-            cuerpo = cuerpo[1:-1]
-        posiblesVariables = []
-        for i in cuerpo.split(";"):
-            numeroRegistro +=1
-            registro = "t"+ str(numeroRegistro)
-
-            if "*=" in i:
-                partes = i.split("*=")
-                if "+" in partes[1]:
-                    if len(partes[1].split("+")) > 2:
-                        op = partes[1]
-                        operadores = []
-                        aux1 = op.split('+')
-                        for i in aux1:
-                            if len(aux1) > 1:
-                                operadores.append("+")
-                            aux2 = i.split('-')
-                            for j in aux2:
-                                if len(aux2) > 1:
-                                    operadores.append("-")
-                                aux3 = j.split('*')
-                                for k in aux3:
-                                    if len(aux3) > 1:
-                                        operadores.append("*")
-                                    aux4 = k.split('/')
-                                    for m in aux4:
-                                        if len(aux4) > 1:
-                                            operadores.append("/")
-                                        posiblesVariables.append(m)
-
-                        operadores.append("#")
-                        contador = 0
-                        filtrado = []
-                        for p in range(0,len(operadores)-1):
-                            
-                            if(operadores[p] == "+"):
-                                filtrado.append("+")
-
-                            if(operadores[p] != "+"):
-                                if(operadores[p] == operadores[p+1]):
-                                    contador+=1
-                                else:
-                                    for i in range(0,contador):
-                                        filtrado.append(operadores[p])
-                                    contador = 0
-
-                        print(str(posiblesVariables))
-                        print(str(filtrado))
-
-                    else:
-                        self.f.write(registro + " = " + partes[1]  + "\n")
-                        self.f.write(partes[0] + " = " + partes[0] + " * " + registro  + "\n")
-                    
-                       
-            elif "/=" in i:
-                partes = i.split("/=")
-                self.f.write(registro + " = " + partes[1]  + "\n")
-                self.f.write(partes[0] + " = " + partes[0] + " / " + registro  + "\n")
-            elif "%=" in i:
-                partes = i.split("%=")
-                self.f.write(registro + " = " + partes[1]  + "\n")
-                self.f.write(partes[0] + " = " + partes[0] + " % " + registro  + "\n")
-            elif "+=" in i:
-                partes = i.split("+=")
-                self.f.write(registro + " = " + partes[1]  + "\n")
-                self.f.write(partes[0] + " = " + partes[0] + " + " + registro  + "\n")
-            elif "-=" in i:
-                partes = i.split("-=")
-                self.f.write(registro + " = " + partes[1]  + "\n")
-                self.f.write(partes[0] + " = " + partes[0] + " - " + registro  + "\n")
-            elif "=" in i:
-                self.f.write(i + "\n")
-
-        label = "l" + str(numeroLabel)
-        self.f.write("jump " + puntoIni + "\n")
-        self.f.write(label + "\n")
-
-
         return self.visitChildren(ctx)
 
 
 
     # Visit a parse tree produced by compiladoresParser#bloquefor.
     def visitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
-        print("")
-        print("")
-        print("")
-        print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
-        for i in range(0,ctx.getChildCount()):
-            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
-            print(ctx.getChild(i).getText())
-            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
-        return self.visitChildren(ctx)
+  #      print("")
+  #      print("")
+  #      print("")
+  #      print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
+  #      for i in range(0,ctx.getChildCount()):
+  #          print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+  #          print(ctx.getChild(i).getText())
+  #          print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return  super().visitBloque(ctx)
 
 
 

@@ -140,13 +140,12 @@ multiDivi:PRODUCTO pe multiDivi
          |
          ;
 
-pe: factor prefijo;
+pe: factor | prefijo;
 
 
 prefijo:RESTAUNO VARIABLE factor prefijo
        |SUMAUNO VARIABLE factor prefijo
        |NEGACION factor prefijo
-       |
        ;
 
 

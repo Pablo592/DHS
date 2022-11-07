@@ -149,15 +149,19 @@ prefijo:RESTAUNO VARIABLE factor prefijo
        ;
 
 
-factor : VARIABLE
+factor : llamadoAFunciones 
+       | VARIABLE
        | NUMERO
        | FLOTANTES
        | FLOTANTESNEGATIVOS
-       | PARENTESISABRE expo PARENTESISCIERRA
+       | parentesis
        | VARIABLE SUMAUNO
        | VARIABLE RESTAUNO
        ;
-       
+
+parentesis: PARENTESISABRE expo PARENTESISCIERRA
+          ;
+
   
 prog : instrucciones EOF ;
 instrucciones : instruccion instrucciones

@@ -7,6 +7,11 @@ class Caminante(compiladoresVisitor):
     contexto = 0
     
     f = open("output/Codigo_Intermedio.txt", "w")
+    numeroVariable = 0
+    ultimaVariable = ""
+    parentesis = False
+    instruccionParte = ""
+
 
     # Visit a parse tree produced by compiladoresParser#itop.
     def visitItop(self, ctx:compiladoresParser.ItopContext):
@@ -52,6 +57,35 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+            self.ultimaVariable = "t"+str(self.numeroVariable)
+            
+
+            if(self.instruccionParte == ""):
+              
+
+              if(ctx.getChild(1).getText() != ""):
+                self.instruccionParte =   ctx.getChild(1).getText().split("=")[1]
+                
+            if "*=" in ctx.getChild(1).getText():
+                self.f.write(str(ctx.getChild(0).getText().split("*=")[0]) + " = " + str(ctx.getChild(0).getText().split("*=")[0]) + " * " + str(self.instruccionParte))
+                self.f.write("\n")
+
+            elif "/=" in ctx.getChild(1).getText():
+                pass
+            elif "%=" in ctx.getChild(1).getText():
+                pass
+            elif "+=" in ctx.getChild(1).getText():
+                pass
+            elif "-=" in ctx.getChild(1).getText():
+                pass
+            elif "=" in ctx.getChild(1).getText():
+                self.f.write(str(ctx.getChild(0).getText())+ " = " + self.instruccionParte)
+                self.f.write("\n")
+
+            self.instruccionParte = ""
+            self.numeroVariable +=1
+
         return r
 
 
@@ -110,6 +144,21 @@ class Caminante(compiladoresVisitor):
         r = super().visitChildren(ctx)
         return r
 
+    # Visit a parse tree produced by compiladoresParser#parentesis.
+    def visitParentesis(self, ctx:compiladoresParser.ParentesisContext):
+        r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitParentesis +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return r
+
+
     def visitT(self, ctx:compiladoresParser.TContext):
         r = super().visitChildren(ctx)
         if(ctx.getChildCount() > 0):
@@ -121,6 +170,8 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+            self.instruccionParte =" 54"
         return r
 
 
@@ -235,7 +286,7 @@ class Caminante(compiladoresVisitor):
    #         print(ctx.getChild(i).getText())
    #         print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         
-        return self.visitChildren(ctx)
+        return super().visitChildren(ctx)
 
 
 
@@ -250,8 +301,5 @@ class Caminante(compiladoresVisitor):
   #          print(ctx.getChild(i).getText())
   #          print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         return  super().visitBloque(ctx)
-
-
-
 
 del compiladoresParser

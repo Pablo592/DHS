@@ -69,27 +69,27 @@ class Caminante(compiladoresVisitor):
                 self.instruccionParte = self.ultimaVariable
                 
             if "*=" in ctx.getChild(1).getText():
-                self.f.write(str(ctx.getChild(0).getText().split("*=")[0]) + " = " + str(ctx.getChild(0).getText().split("*=")[0]) + " * " + str(self.signo) + str(self.instruccionParte))
+                self.f.write(str(ctx.getChild(0).getText().split("*=")[0]) + " = " + str(ctx.getChild(0).getText().split("*=")[0]) + " * " + "(" + str(self.signo) + ")" + str(self.instruccionParte))
                 self.f.write("\n")
 
             elif "/=" in ctx.getChild(1).getText():
-                self.f.write(str(ctx.getChild(0).getText().split("/=")[0]) + " = " + str(ctx.getChild(0).getText().split("/=")[0]) + " / " + str(self.signo) + str(self.instruccionParte))
+                self.f.write(str(ctx.getChild(0).getText().split("/=")[0]) + " = " + str(ctx.getChild(0).getText().split("/=")[0]) + " / " + "(" + str(self.signo) + ")"  + str(self.instruccionParte))
                 self.f.write("\n")
             elif "%=" in ctx.getChild(1).getText():
-                self.f.write(str(ctx.getChild(0).getText().split("%=")[0]) + " = " + str(ctx.getChild(0).getText().split("%=")[0]) + " % " + str(self.signo) + str(self.instruccionParte))
+                self.f.write(str(ctx.getChild(0).getText().split("%=")[0]) + " = " + str(ctx.getChild(0).getText().split("%=")[0]) + " % " + "(" + str(self.signo) + ")"  + str(self.instruccionParte))
                 self.f.write("\n")
             elif "+=" in ctx.getChild(1).getText():
-                self.f.write(str(ctx.getChild(0).getText().split("+=")[0]) + " = " + str(ctx.getChild(0).getText().split("+=")[0]) + " + " + str(self.signo) + str(self.instruccionParte))
+                self.f.write(str(ctx.getChild(0).getText().split("+=")[0]) + " = " + str(ctx.getChild(0).getText().split("+=")[0]) + " + " + "(" + str(self.signo) + ")"  + str(self.instruccionParte))
                 self.f.write("\n")
             elif "-=" in ctx.getChild(1).getText():
-                self.f.write(str(ctx.getChild(0).getText().split("-=")[0]) + " = " + str(ctx.getChild(0).getText().split("-=")[0]) + " - " + str(self.signo) + str(self.instruccionParte))
+                self.f.write(str(ctx.getChild(0).getText().split("-=")[0]) + " = " + str(ctx.getChild(0).getText().split("-=")[0]) + " - " + "(" + str(self.signo) + ")"  + str(self.instruccionParte))
                 self.f.write("\n")
             elif "=" in ctx.getChild(1).getText():
                 self.f.write(str(ctx.getChild(0).getText())+ " = " + self.instruccionParte)
                 self.f.write("\n")
 
             self.instruccionParte = ""
-            self.numeroVariable +=1
+            self.numeroVariable = 0
 
         return r
 

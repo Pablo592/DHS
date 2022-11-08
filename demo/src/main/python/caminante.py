@@ -13,6 +13,7 @@ class Caminante(compiladoresVisitor):
     instruccionParte = ""
     signo = ""
     instruccionLarga = ""
+    primerInstruccion = ""
 
 
     # Visit a parse tree produced by compiladoresParser#itop.
@@ -209,6 +210,7 @@ class Caminante(compiladoresVisitor):
                         self.ultimaVariable = "t" + str(self.numeroVariable)
 
                         self.f.write(self.primerInstruccion)
+                        self.primerInstruccion = ""
 
                         if(("*" in str(ctx.getChild(1).getText())) | ("/" in str(ctx.getChild(1).getText()))):
              

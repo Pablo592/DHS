@@ -174,7 +174,7 @@ def serializedATN():
         buf.write("\3\2\2\2\u0167E\3\2\2\2\u0168\u0169\7-\2\2\u0169\u016a")
         buf.write("\7\f\2\2\u016a\u016b\5\2\2\2\u016b\u016c\7\13\2\2\u016c")
         buf.write("\u016d\5\62\32\2\u016dG\3\2\2\2\u016e\u016f\7,\2\2\u016f")
-        buf.write("\u0170\7\f\2\2\u0170\u0171\7\62\2\2\u0171\u0172\7\22\2")
+        buf.write("\u0170\7\f\2\2\u0170\u0171\t\2\2\2\u0171\u0172\7\22\2")
         buf.write("\2\u0172\u0173\t\2\2\2\u0173\u0174\3\2\2\2\u0174\u0175")
         buf.write("\7\4\2\2\u0175\u0176\7\62\2\2\u0176\u0177\t\3\2\2\u0177")
         buf.write("\u0178\t\2\2\2\u0178\u0179\3\2\2\2\u0179\u0181\7\4\2\2")
@@ -3015,17 +3015,17 @@ class compiladoresParser ( Parser ):
             return self.getTypedRuleContext(compiladoresParser.InstruccionContext,0)
 
 
-        def VARIABLE(self, i:int=None):
-            if i is None:
-                return self.getTokens(compiladoresParser.VARIABLE)
-            else:
-                return self.getToken(compiladoresParser.VARIABLE, i)
-
         def IGUAL(self, i:int=None):
             if i is None:
                 return self.getTokens(compiladoresParser.IGUAL)
             else:
                 return self.getToken(compiladoresParser.IGUAL, i)
+
+        def VARIABLE(self, i:int=None):
+            if i is None:
+                return self.getTokens(compiladoresParser.VARIABLE)
+            else:
+                return self.getToken(compiladoresParser.VARIABLE, i)
 
         def NUMERO(self, i:int=None):
             if i is None:
@@ -3084,7 +3084,12 @@ class compiladoresParser ( Parser ):
             self.match(compiladoresParser.PARENTESISABRE)
 
             self.state = 366
-            self.match(compiladoresParser.VARIABLE)
+            _la = self._input.LA(1)
+            if not(_la==compiladoresParser.NUMERO or _la==compiladoresParser.VARIABLE):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
             self.state = 367
             self.match(compiladoresParser.IGUAL)
             self.state = 368

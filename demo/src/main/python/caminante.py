@@ -130,6 +130,7 @@ class Caminante(compiladoresVisitor):
                 self.f.write(self.finalBloque)
                 self.bloque = False
                 self.numeroInstruccion = -2
+                self.numeroVariableReservado = -1
 
             
             self.instruccionParte = ""
@@ -409,7 +410,19 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloqueif.
     def visitBloqueif(self, ctx:compiladoresParser.BloqueifContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitBloqueif +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+            self.f.write("IF \n")
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
@@ -493,10 +506,19 @@ class Caminante(compiladoresVisitor):
         self.f.write("\n")
         self.numeroTagReservado+=1
 
-        print(len(ctx.getChild(10).getText().split(";")))
-        self.numeroBloque = (len(ctx.getChild(10).getText().split(";")))
-        self.numeroInstruccion = 0
-
+        if(ctx.getChildCount() - 1 < 14):
+            if("{" in ctx.getChild(13).getText()):
+                print(len(ctx.getChild(13).getText().split(";")))
+                self.numeroBloque = (len(ctx.getChild(13).getText().split(";"))) -1
+                self.numeroInstruccion = 0
+            else:
+                print(len(ctx.getChild(13).getText().split(";")))
+                self.numeroBloque = (len(ctx.getChild(13).getText().split(";")))
+                self.numeroInstruccion = 0
+        else:
+            print(len(ctx.getChild(14).getText().split(";")))
+            self.numeroBloque = (len(ctx.getChild(14).getText().split(";"))) - 1
+            self.numeroInstruccion = 0
 
         return  super().visitBloque(ctx)
 

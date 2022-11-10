@@ -23,15 +23,15 @@ int		d		True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		a		True			True
 		a		True			True
-		a		True			True
-		a		True			True
-		a		True			True
-		i		True			True
-		i		True			True
-		i		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 2
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+		a		True			True
+		a		True			True
+		a		True			True
+		i		True			True
+		i		True			True
+		i		True			True
 		a		True			True
 		b		True			True
 		b		True			True

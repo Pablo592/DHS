@@ -24,16 +24,14 @@ int main()
         a /= (8 + 5 - 7 / 4);
     }
 
-    for (i = 0; i < x; --i)
+    for (i = 0; i < x; i+=7){
         a = a + x;
-
         i = a + i;
+        a = 5;
+        }
+        b = a + x;
     
 
-    {
-        a = 5;
-        b = a + x;
-    }
 
     if (y == 14)
     {

@@ -42,17 +42,18 @@ jump l0
 l1
 i = 0
 label l2
-t1 = i<x
-ifnot t1 jump l3
+t0 = i<x
+ifnot t0 jump l3
 a = a+x
-i = i - 1
-jump l2
-l3
 i = a+i
 a = 5
+i = i + 7
+jump l2
+l3
 b = a+x
 x = 2*x
 y = x+2
 y = -2
 global = 0
+IF 
 r = a+b

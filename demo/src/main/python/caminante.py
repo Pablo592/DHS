@@ -9,11 +9,11 @@ class Caminante(compiladoresVisitor):
     f = open("output/Codigo_Intermedio.txt", "w")
     numeroVariable = 0
     ultimaVariable = ""
-    parentesis = False
     instruccionParte = ""
     signo = ""
     instruccionLarga = ""
     primerInstruccion = ""
+    ultimoParentesis = ""
 
 
     # Visit a parse tree produced by compiladoresParser#itop.
@@ -61,6 +61,10 @@ class Caminante(compiladoresVisitor):
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
 
+            if(self.instruccionParte != ""):
+                if(self.instruccionParte in ctx.getChild(0).getText()):
+                    return
+
             self.ultimaVariable = "t"+str(self.numeroVariable - 1)
             
 
@@ -77,9 +81,12 @@ class Caminante(compiladoresVisitor):
                     varAnterior = self.ultimaVariable
                     self.numeroVariable +=1
                     self.ultimaVariable = "t" + str(self.numeroVariable)
-                    self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnterior))
-                    self.f.write("\n")
-
+                    if(str(self.ultimoParentesis)!= (str(aux)+ " "  + str(self.signo) + " " + str(varAnterior))):
+                        self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnterior))
+                        self.f.write("\n")
+                    else:
+                        self.numeroVariable -=1
+                        self.ultimaVariable = "t" + str(self.numeroVariable)
                 
             if "*=" in ctx.getChild(1).getText():
                 self.f.write(str(ctx.getChild(0).getText().split("*=")[0]) + " = " + str(ctx.getChild(0).getText().split("*=")[0]) + " * " + str(self.ultimaVariable))
@@ -176,6 +183,16 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+            self.ultimaVariable = "t" + str(self.numeroVariable - 1)
+            varAnteriorr = self.ultimaVariable
+            self.ultimaVariable = "t" + str(self.numeroVariable)
+            aux = ctx.getChild(1).getText()
+          
+            aux = aux.split(self.signo)[0]
+            self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr))
+            self.ultimoParentesis = str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr)
+            self.f.write("\n")
         return r
 
 
@@ -198,6 +215,7 @@ class Caminante(compiladoresVisitor):
 
                 self.primerInstruccion = str(self.ultimaVariable) + " = " + str(ctx.getChild(1).getText()) + "\n"
                 self.instruccionParte =str(ctx.getChild(0).getText()) + str(ctx.getChild(1).getText())
+            #    self.f.write(str(self.instruccionParte) + "  +-+-+-+-+-+-+-+-+--+\n")
                 self.instruccionLarga = 0
                 self.numeroVariable +=1
             else:
@@ -205,14 +223,42 @@ class Caminante(compiladoresVisitor):
                     self.instruccionLarga = 1
                     if( str(self.ultimaVariable) == str("t" + str(self.numeroVariable - 1))):
                         self.instruccionParte = str(ctx.getChild(0).getText()) + str(ctx.getChild(1).getText()) + str(ctx.getChild(2).getText())
-
+             #           self.f.write(str(self.instruccionParte) + "  +-+-+-+-+-+-+-+-+--+\n")
                         varAnterior = "t" + str(self.numeroVariable - 1)
                         self.ultimaVariable = "t" + str(self.numeroVariable)
 
-                        self.f.write(self.primerInstruccion)
+                        self.f.write(str(self.primerInstruccion))
                         self.primerInstruccion = ""
 
-                        if(("*" in str(ctx.getChild(1).getText())) | ("/" in str(ctx.getChild(1).getText()))):
+                    if("(" in str(ctx.getChild(1).getText())):
+                        self.signo = ctx.getChild(0).getText()
+
+                        aux = ctx.getChild(1).getText().split("(")[0]
+                        
+                        if(("*" in aux)| ("/" in aux)):
+                            
+                            varAnteriorr = self.ultimaVariable
+                            self.numeroVariable +=1
+                            self.ultimaVariable = "t" + str(self.numeroVariable)   
+
+                            self.f.write(str(self.ultimaVariable) + " = " + str(aux)  +  str(varAnteriorr))
+                            self.f.write("\n")
+                            self.numeroVariable +=1
+                            return r
+                        else:
+                            if("(" not in ctx.getChild(1).getText()):
+                                self.f.write(str(ctx.getChild(1).getText()))
+                                self.f.write("\n")
+
+                            varAnteriorr = self.ultimaVariable
+                        
+                            self.ultimaVariable = "t" + str(self.numeroVariable)
+                       
+                            self.numeroVariable +=1
+                            return r
+
+
+                    if(("*" in str(ctx.getChild(1).getText())) | ("/" in str(ctx.getChild(1).getText()))):
              
                             self.f.write(str(self.ultimaVariable) + " = " + str(ctx.getChild(1).getText()))
                             self.f.write("\n")
@@ -224,13 +270,11 @@ class Caminante(compiladoresVisitor):
                             self.f.write("\n")
                             self.signo = ctx.getChild(0).getText()
                             self.numeroVariable +=1
-                        else:
+                    else:
                             self.f.write(str(self.ultimaVariable) + " = " + str(ctx.getChild(1).getText())+ " "  + str(self.signo) + " " + str(varAnterior))
                             self.f.write("\n")
                             self.signo = ctx.getChild(0).getText()
-                            self.numeroVariable +=1
-    
-            
+                            self.numeroVariable +=1       
         return r
 
 
@@ -336,9 +380,9 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
     def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
-        print("")
-        print("")
-        print("")
+   #     print("")
+   #     print("")
+   #     print("")
    #     print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
    #     for i in range(0,ctx.getChildCount()):
    #         print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")

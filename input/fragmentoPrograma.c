@@ -24,7 +24,7 @@ int main()
         a /= (8 + 5 - 7 / 4);
     }
 
-    for (i = 0; i < x; i-=5)   
+    for (i = 0; i < x; --i)
         a = a + x;
 
         i = a + i;

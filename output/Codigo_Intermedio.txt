@@ -44,12 +44,10 @@ i = 0
 label l2
 t1 = i<x
 ifnot t1 jump l3
-i = i - 5
-jump l0
-l1
+a = a+x
+i = i - 1
 jump l2
 l3
-a = a+x
 i = a+i
 a = 5
 b = a+x

@@ -454,16 +454,27 @@ class Caminante(compiladoresVisitor):
             print(ctx.getChild(i).getText())
             print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
 
+        m = 10
+        finFor = ""
+        while(str(ctx.getChild(m)) != ")"):
+            finFor += str(ctx.getChild(m))
+            m+=1
 
-        finFor = ctx.getChild(8).getText()
+        print("+-+-+-+-+finFor+-+-+-+\n")
+        print(str(finFor) + "\n")
+        print("+-+-+-+-+finFor+-+-+-+\n")
 
         if(finFor.endswith("++")):
             self.finalBloque = finFor.split("++")[0] + " = " + finFor.split("++")[0] + " + 1" + "\n"
-        if(finFor.endswith("--")):
+        elif(finFor.endswith("--")):
             self.finalBloque = finFor.split("--")[0] + " = " + finFor.split("--")[0] + " - 1" + "\n"
-        if(finFor.endswith("+=")):
+        elif(finFor.startswith("++")):
+            self.finalBloque = finFor.split("++")[1] + " = " + finFor.split("++")[1] + " + 1" + "\n"
+        elif(finFor.startswith("--")):
+            self.finalBloque = finFor.split("--")[1] + " = " + finFor.split("--")[1] + " - 1" + "\n"
+        elif("+=" in finFor):
             self.finalBloque = finFor.split("+=")[0] + " = " + finFor.split("+=")[0] + " + " + finFor.split("+=")[1] + "\n"
-        if(finFor.endswith("-=")):
+        elif("-=" in finFor):
             self.finalBloque = finFor.split("-=")[0] + " = " + finFor.split("-=")[0] + " - " + finFor.split("-=")[1] + "\n"
 
 
@@ -475,7 +486,7 @@ class Caminante(compiladoresVisitor):
         self.finalBloque += "jump l" + str(self.numeroTagReservado) + "\n"
         self.numeroTagReservado+=1
         self.f.write("\n")
-        self.f.write("t" + str(self.numeroVariableReservado) + " = " + str(ctx.getChild(6).getText()))
+        self.f.write("t" + str(self.numeroVariableReservado) + " = " + str(ctx.getChild(6).getText()) + str(ctx.getChild(7).getText())  + str(ctx.getChild(8).getText()))
         self.f.write("\n")
         self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
         self.finalBloque += "l" + str(self.numeroTagReservado) + "\n"
@@ -483,7 +494,7 @@ class Caminante(compiladoresVisitor):
         self.numeroTagReservado+=1
 
         print(len(ctx.getChild(10).getText().split(";")))
-        self.numeroBloque = (len(ctx.getChild(8).getText().split(";")))
+        self.numeroBloque = (len(ctx.getChild(10).getText().split(";")))
         self.numeroInstruccion = 0
 
 

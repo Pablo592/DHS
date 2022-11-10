@@ -508,15 +508,12 @@ class Caminante(compiladoresVisitor):
 
         if(ctx.getChildCount() - 1 < 14):
             if("{" in ctx.getChild(13).getText()):
-                print(len(ctx.getChild(13).getText().split(";")))
                 self.numeroBloque = (len(ctx.getChild(13).getText().split(";"))) -1
                 self.numeroInstruccion = 0
             else:
-                print(len(ctx.getChild(13).getText().split(";")))
                 self.numeroBloque = (len(ctx.getChild(13).getText().split(";")))
                 self.numeroInstruccion = 0
         else:
-            print(len(ctx.getChild(14).getText().split(";")))
             self.numeroBloque = (len(ctx.getChild(14).getText().split(";"))) - 1
             self.numeroInstruccion = 0
 

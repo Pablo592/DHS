@@ -191,7 +191,7 @@ desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|
 retorno: 'return' (NUMERO|variable|);
 bloqueif: IF PARENTESISABRE (itop) PARENTESISCIERRA instruccion ((ELSE instruccion)|);
 bloquewhile: WHILE PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
-bloquefor: FOR PARENTESISABRE (itop) PUNTOYCOMA itop PUNTOYCOMA itop PARENTESISCIERRA instruccion;
+bloquefor: FOR PARENTESISABRE  (VARIABLE IGUAL (VARIABLE|NUMERO)) PUNTOYCOMA itop PUNTOYCOMA itop PARENTESISCIERRA instruccion;
  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

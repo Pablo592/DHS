@@ -14,6 +14,12 @@ class Caminante(compiladoresVisitor):
     instruccionLarga = ""
     primerInstruccion = ""
     ultimoParentesis = ""
+    numeroInstruccion = 0
+    numeroVariableReservado = -1
+    numeroTagReservado = 0
+    numeroBloque = 0
+    bloque = False
+    finalBloque = ""
 
 
     # Visit a parse tree produced by compiladoresParser#itop.
@@ -88,28 +94,46 @@ class Caminante(compiladoresVisitor):
                         self.numeroVariable -=1
                         self.ultimaVariable = "t" + str(self.numeroVariable)
                 
+
             if "*=" in ctx.getChild(1).getText():
+                self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText().split("*=")[0]) + " = " + str(ctx.getChild(0).getText().split("*=")[0]) + " * " + str(self.ultimaVariable))
                 self.f.write("\n")
 
             elif "/=" in ctx.getChild(1).getText():
+                self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText().split("/=")[0]) + " = " + str(ctx.getChild(0).getText().split("/=")[0]) + " / " + str(self.ultimaVariable))
                 self.f.write("\n")
             elif "%=" in ctx.getChild(1).getText():
+                self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText().split("%=")[0]) + " = " + str(ctx.getChild(0).getText().split("%=")[0]) + " % " + str(self.ultimaVariable))
                 self.f.write("\n")
             elif "+=" in ctx.getChild(1).getText():
+                self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText().split("+=")[0]) + " = " + str(ctx.getChild(0).getText().split("+=")[0]) + " + " + str(self.ultimaVariable))
                 self.f.write("\n")
             elif "-=" in ctx.getChild(1).getText():
+                self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText().split("-=")[0]) + " = " + str(ctx.getChild(0).getText().split("-=")[0]) + " - " + str(self.ultimaVariable))
                 self.f.write("\n")
             elif "=" in ctx.getChild(1).getText():
+                self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText())+ " = " + self.ultimaVariable)
                 self.f.write("\n")
 
+
+        #    self.f.write("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+        #    self.f.write(str(self.numeroInstruccion) + "\n")
+        #    self.f.write("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+
+            if((self.numeroBloque == self.numeroInstruccion) & (self.bloque)):
+                self.f.write(self.finalBloque)
+                self.bloque = False
+                self.numeroInstruccion = -2
+
+            
             self.instruccionParte = ""
-            self.numeroVariable = 0
+            self.numeroVariable = self.numeroVariableReservado + 1
             self.instruccionLarga = 0
             self.signo = ""
 
@@ -310,7 +334,17 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#instruccion.
     def visitInstruccion(self, ctx:compiladoresParser.InstruccionContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+    #    if(ctx.getChildCount() > 0):
+    #        print("")
+    #        print("")
+    #        print("")
+    #        print("+-+-+-+-+-+ visitInstruccion +-+-+-+-+-+")
+    #        for i in range(0,ctx.getChildCount()):
+    #            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+    #            print(ctx.getChild(i).getText())
+    #            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#variable.
@@ -320,16 +354,16 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloque.
     def visitBloque(self, ctx:compiladoresParser.BloqueContext):
-        self.contexto += 1
-  #      print("\t Entramos al contexto " + str(self.contexto))     
-  #      print("\t\t Contenido |" + ctx.getText() + "|")
-  #      print("\t\t Bloque tiene " + str(ctx.getChildCount()) + " hijos")     
-  #      print("\t\t\t Hijo 0 " + ctx.getChild(0).getText() + " hijos")     
-  #      print("\t\t\t Hijo 1 " + ctx.getChild(1).getText() + " hijos")     
-  #      print("\t\t\t Hijo 2 " + ctx.getChild(2).getText() + " hijos")     
+   #     self.contexto += 1
+   #     print("\t Entramos al contexto " + str(self.contexto))     
+   #     print("\t\t Contenido |" + ctx.getText() + "|")
+   #     print("\t\t Bloque tiene " + str(ctx.getChildCount()) + " hijos")     
+   #     print("\t\t\t Hijo 0 " + ctx.getChild(0).getText() + " hijos")     
+   #     print("\t\t\t Hijo 1 " + ctx.getChild(1).getText() + " hijos")     
+   #     print("\t\t\t Hijo 2 " + ctx.getChild(2).getText() + " hijos")     
         r =  super().visitBloque(ctx)
-  #      print("\t Salimos del contexto " + str(self.contexto))     
-        self.contexto -= 1
+   #     print("\t Salimos del contexto " + str(self.contexto))     
+   #     self.contexto -= 1
         return r
 
 
@@ -380,29 +414,79 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#bloquewhile.
     def visitBloquewhile(self, ctx:compiladoresParser.BloquewhileContext):
-   #     print("")
-   #     print("")
-   #     print("")
-   #     print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
-   #     for i in range(0,ctx.getChildCount()):
-   #         print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
-   #         print(ctx.getChild(i).getText())
-   #         print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        print("")
+        print("")
+        print("")
+        print("+-+-+-+-+-+ WHILE +-+-+-+-+-+")
+        for i in range(0,ctx.getChildCount()):
+            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+            print(ctx.getChild(i).getText())
+            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         
+        self.bloque = True
+        self.numeroVariableReservado+=1 
+        self.f.write("label l" + str(self.numeroTagReservado))
+        self.finalBloque = "jump l" + str(self.numeroTagReservado) + "\n"
+        self.numeroTagReservado+=1
+        self.f.write("\n")
+        self.f.write("t" + str(self.numeroVariableReservado) + " = " + str(ctx.getChild(2).getText()))
+        self.f.write("\n")
+        self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
+        self.finalBloque += "l" + str(self.numeroTagReservado) + "\n"
+        self.f.write("\n")
+        self.numeroTagReservado+=1
+
+        print(len(ctx.getChild(4).getText().split(";")) - 1)
+        self.numeroBloque = (len(ctx.getChild(4).getText().split(";")) - 1)
+        self.numeroInstruccion = 0
         return super().visitChildren(ctx)
 
 
 
     # Visit a parse tree produced by compiladoresParser#bloquefor.
     def visitBloquefor(self, ctx:compiladoresParser.BloqueforContext):
-  #      print("")
-  #      print("")
-  #      print("")
-  #      print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
-  #      for i in range(0,ctx.getChildCount()):
-  #          print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
-  #          print(ctx.getChild(i).getText())
-  #          print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        print("")
+        print("")
+        print("")
+        print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
+        for i in range(0,ctx.getChildCount()):
+            print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+            print(ctx.getChild(i).getText())
+            print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+
+        finFor = ctx.getChild(8).getText()
+
+        if(finFor.endswith("++")):
+            self.finalBloque = finFor.split("++")[0] + " = " + finFor.split("++")[0] + " + 1" + "\n"
+        if(finFor.endswith("--")):
+            self.finalBloque = finFor.split("--")[0] + " = " + finFor.split("--")[0] + " - 1" + "\n"
+        if(finFor.endswith("+=")):
+            self.finalBloque = finFor.split("+=")[0] + " = " + finFor.split("+=")[0] + " + " + finFor.split("+=")[1] + "\n"
+        if(finFor.endswith("-=")):
+            self.finalBloque = finFor.split("-=")[0] + " = " + finFor.split("-=")[0] + " - " + finFor.split("-=")[1] + "\n"
+
+
+        self.bloque = True
+        self.numeroVariableReservado+=1
+        self.f.write(str(ctx.getChild(2).getText()) + " " + str(ctx.getChild(3).getText()) + " " + str(ctx.getChild(4).getText()))
+        self.f.write("\n")
+        self.f.write("label l" + str(self.numeroTagReservado))
+        self.finalBloque += "jump l" + str(self.numeroTagReservado) + "\n"
+        self.numeroTagReservado+=1
+        self.f.write("\n")
+        self.f.write("t" + str(self.numeroVariableReservado) + " = " + str(ctx.getChild(6).getText()))
+        self.f.write("\n")
+        self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
+        self.finalBloque += "l" + str(self.numeroTagReservado) + "\n"
+        self.f.write("\n")
+        self.numeroTagReservado+=1
+
+        print(len(ctx.getChild(10).getText().split(";")))
+        self.numeroBloque = (len(ctx.getChild(8).getText().split(";")))
+        self.numeroInstruccion = 0
+
+
         return  super().visitBloque(ctx)
 
 del compiladoresParser

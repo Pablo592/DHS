@@ -51,9 +51,7 @@ i = i + 7
 jump l2
 l3
 b = a+x
-x = 2*x
-y = x+2
-y = -2
-global = 0
+b = 3
+b = 7
 IF 
 r = a+b

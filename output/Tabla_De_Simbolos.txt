@@ -39,15 +39,11 @@ int		d		True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		x		True			True
-		x		True			True
-		y		True			True
-		y		True			True
+		b		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 4
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		y		True			True
-		global	True			True
+		b		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 5
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+

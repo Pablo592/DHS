@@ -31,17 +31,10 @@ int main()
         }
         b = a + x;
     
-
-
-    if (y == 14)
-    {
-        x = 2 * x;
-        y = x + 2;
-    }
-    else
-    {
-        y = -2;
-        global = 0;
+    if(i < 5){
+        b = 3;
+    }else{
+        b = 7;
     }
 
     return 0;

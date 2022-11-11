@@ -20,6 +20,8 @@ class Caminante(compiladoresVisitor):
     numeroBloque = 0
     bloque = False
     finalBloque = ""
+    direccionFunciones = dict()
+    ultimaFuncionNombre = ""
 
 
     # Visit a parse tree produced by compiladoresParser#itop.
@@ -66,6 +68,14 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+            if(ctx.getChildCount() > 1):
+                if((ctx.getChild(1).getText() != "") & (ctx.getChild(0).getText() != "")):
+                    if(("(" in str(ctx.getChild(1).getText())) & (")" in str(ctx.getChild(1).getText()))):
+                        if(str(ctx.getChild(1).getText()).split("=")[1].startswith(self.ultimaFuncionNombre)):
+                            self.f.write("pop " + str(ctx.getChild(0).getText()))
+                            self.f.write("\n")
+                            return r
 
             if(self.instruccionParte != ""):
                 if(self.instruccionParte in ctx.getChild(0).getText()):
@@ -120,7 +130,6 @@ class Caminante(compiladoresVisitor):
                 self.numeroInstruccion +=1
                 self.f.write(str(ctx.getChild(0).getText())+ " = " + self.ultimaVariable)
                 self.f.write("\n")
-
 
         #    self.f.write("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
         #    self.f.write(str(self.numeroInstruccion) + "\n")
@@ -395,12 +404,69 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+
+            m = 2
+            while(ctx.getChild(m - 1).getText() != ")"):
+                self.f.write("push " + str(ctx.getChild(m).getText()))
+                self.f.write("\n")
+                m+=2
+            
+
+            self.ultimaFuncionNombre = ctx.getChild(0).getText()
+            self.direccionFunciones[str(ctx.getChild(0).getText())+"-llamo"] = "l" + str(self.numeroTagReservado)
+            self.numeroTagReservado +=1
+            self.direccionFunciones[str(ctx.getChild(0).getText())+"-desarrollo"] = "l" + str(self.numeroTagReservado)
+            self.numeroTagReservado +=1
+
+
+            self.f.write("push " + str( self.direccionFunciones.get(str(ctx.getChild(0).getText())+"-llamo")))
+            self.f.write("\n")
+            self.f.write("jmp " + str( self.direccionFunciones.get(str(ctx.getChild(0).getText())+"-desarrollo")))
+            self.f.write("\n")
+            self.f.write("label " + str( self.direccionFunciones.get(str(ctx.getChild(0).getText())+"-llamo")))
+            self.f.write("\n")
+
         return r
 
 
     # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.
     def visitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitDesarrolloFuncion +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+            
+            if(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
+                return r
+
+            self.f.write(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo"))
+            self.f.write("\n")
+            self.f.write("pop " + str(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-llamo")))
+            self.f.write("\n")
+
+            m = 4
+            while(ctx.getChild(m-2).getText() != ")"):
+                self.f.write("pop " + str(ctx.getChild(m).getText()))
+                self.f.write("\n")
+                m +=3
+
+            self.f.write("\n")
+            self.f.write("\n")
+
+            position = str(ctx.getChild(9).getText()).split('return')[1]
+            position = position[0:position.index(";")]
+            self.f.write("push " + str(position))
+            self.f.write("\n")
+            self.f.write("jmp " + str(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-llamo")))
+            self.f.write("\n")
+
+        return r
 
 
     # Visit a parse tree produced by compiladoresParser#retorno.

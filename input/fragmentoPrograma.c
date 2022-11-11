@@ -9,7 +9,7 @@ int main()
     int p, q, r, t, i;
     int a = 1, b = 2, c = 3, d;
 
-    y = sumar(x, 10);
+    y = sumar(x, p);
 
     while (a != x){
         a *= 3 + 1 - 5 * 8 + 5 - 7 / 4;

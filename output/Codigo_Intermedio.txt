@@ -3,10 +3,15 @@ x = 5
 a = 1
 b = 2
 c = 3
-y = sumar(x,10)
+push x
+push p
+push l0
+jmp l1
 label l0
+pop y
+label l2
 t0 = a!=x
-ifnot t0 jump l1
+ifnot t0 jump l3
 t1 = 7/4
 t2 = 5 - t1
 t3 = 5*8
@@ -38,20 +43,28 @@ t1 = 7/4
 t2 = 5 - t1
 t3 = 8 + t2
 a = a / t3
-jump l0
-l1
+jump l2
+l3
 i = 0
-label l2
+label l4
 t0 = i<x
-ifnot t0 jump l3
+ifnot t0 jump l5
 a = a+x
 i = a+i
 a = 5
 i = i + 7
-jump l2
-l3
+jump l4
+l5
 b = a+x
 b = 3
 b = 7
 IF 
 r = a+b
+l1
+pop l0
+pop a
+pop b
+
+
+push r
+jmp l0

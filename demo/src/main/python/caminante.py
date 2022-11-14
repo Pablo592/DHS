@@ -21,6 +21,7 @@ class Caminante(compiladoresVisitor):
     bloque = False
     finalBloque = ""
     direccionFunciones = dict()
+    finBloque = dict()
     ultimaFuncionNombre = ""
     elseIf = "" 
     elseIflen = 0
@@ -140,23 +141,16 @@ class Caminante(compiladoresVisitor):
         #self.elseIf = ("label"+ " l" + str(self.numeroTagReservado))
         #self.elseIflen = (len(ctx.getChild(6).getText().split(";"))) - 1
 
-            if((self.numeroBloque == self.numeroInstruccion) & (self.bloque)):
-                if((self.elseIf == "")|(self.numeroInstruccion != -2)):
-                    self.f.write(self.finalBloque)
-                    self.bloque = False
-                    self.numeroInstruccion = -2
-                    self.numeroVariableReservado = -1
+            print(str(self.finBloque.keys()) + "\n")
+            print(str(self.numeroInstruccion) + "\n")
+            for i in self.finBloque.keys():
+                print(str(self.numeroInstruccion == i) + "\n")
+                print(str(i) + "\n")
+                print(str(self.numeroInstruccion) + "\n")
+                if( self.numeroInstruccion - int(i) == 0):
+                    self.f.write(str(self.finBloque[str(self.numeroInstruccion)]))
+                    print("+-+-+-+- ENTRO +-+-+-+-+ \n")
                 
-                if((self.elseIflen != 0)&(self.numeroInstruccion == -2)):
-                    self.numeroInstruccion = 0
-                    self.numeroBloque = self.elseIflen
-                    self.finalBloque = self.elseIf
-                    self.elseIf = ""
-                    self.elseIflen = 0
-                    self.bloque = True
-                    self.numeroVariableReservado = -1
-                    print("\n ENTRO AL ELSE \n")
-
             
             self.instruccionParte = ""
             self.numeroVariable = self.numeroVariableReservado + 1
@@ -473,9 +467,8 @@ class Caminante(compiladoresVisitor):
             position = str(ctx.getChild(9).getText()).split('return')[1]
             position = position[0:position.index(";")]
             self.finalBloque = "push " + str(position) + "\n" + "jmp " + str(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
-            self.bloque = True
             self.numeroBloque = (len(ctx.getChild(ctx.getChildCount() - 1).getText().split(";"))) - 2
-            self.numeroInstruccion = 0
+            self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
 
         r = super().visitChildren(ctx)
         return r
@@ -504,15 +497,18 @@ class Caminante(compiladoresVisitor):
         self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
         self.f.write("\n")
         self.numeroTagReservado +=1
-        self.bloque = True
         self.finalBloque = ("jump"+ " l" + str(self.numeroTagReservado))
         self.finalBloque += ("\n")
         self.finalBloque += ("label" + " l" + str(self.numeroTagReservado - 1))
         self.finalBloque += ("\n")
         self.numeroBloque = (len(ctx.getChild(4).getText().split(";"))) - 1
-        self.numeroInstruccion = 0
+
+        self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
+
         self.elseIf = ("label"+ " l" + str(self.numeroTagReservado)+ "\n")
         self.elseIflen = (len(ctx.getChild(6).getText().split(";"))) - 1
+        self.finBloque[str(self.numeroInstruccion + self.numeroBloque + self.elseIflen)] = self.elseIf
+
 
         r = super().visitChildren(ctx)
         return r
@@ -528,8 +524,7 @@ class Caminante(compiladoresVisitor):
             print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
             print(ctx.getChild(i).getText())
             print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
-        
-        self.bloque = True
+
         self.numeroVariableReservado+=1 
         self.f.write("label l" + str(self.numeroTagReservado))
         self.finalBloque = "jump l" + str(self.numeroTagReservado) + "\n"
@@ -544,7 +539,8 @@ class Caminante(compiladoresVisitor):
 
         print(len(ctx.getChild(4).getText().split(";")) - 1)
         self.numeroBloque = (len(ctx.getChild(4).getText().split(";")) - 1)
-        self.numeroInstruccion = 0
+        self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
+
         return super().visitChildren(ctx)
 
 
@@ -583,8 +579,6 @@ class Caminante(compiladoresVisitor):
         elif("-=" in finFor):
             self.finalBloque = finFor.split("-=")[0] + " = " + finFor.split("-=")[0] + " - " + finFor.split("-=")[1] + "\n"
 
-
-        self.bloque = True
         self.numeroVariableReservado+=1
         self.f.write(str(ctx.getChild(2).getText()) + " " + str(ctx.getChild(3).getText()) + " " + str(ctx.getChild(4).getText()))
         self.f.write("\n")
@@ -602,13 +596,13 @@ class Caminante(compiladoresVisitor):
         if(ctx.getChildCount() - 1 < 14):
             if("{" in ctx.getChild(13).getText()):
                 self.numeroBloque = (len(ctx.getChild(13).getText().split(";"))) -1
-                self.numeroInstruccion = 0
+                self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
             else:
                 self.numeroBloque = (len(ctx.getChild(13).getText().split(";")))
-                self.numeroInstruccion = 0
+                self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
         else:
             self.numeroBloque = (len(ctx.getChild(14).getText().split(";"))) - 1
-            self.numeroInstruccion = 0
+            self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
 
         return  super().visitBloque(ctx)
 

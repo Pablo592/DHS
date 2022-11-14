@@ -54,8 +54,8 @@ jump l2
 label l3
 i = 0
 label l4
-t1 = i<x
-ifnot t1 jump l5
+t0 = i<x
+ifnot t0 jump l5
 a = a+x
 i = a+i
 a = 5
@@ -63,8 +63,8 @@ i = i + 7
 jump l4
 label l5
 b = a+x
-t2 = i<5
-ifnot t2 jump l6
+t0 = i<5
+ifnot t0 jump l6
 b = 3
 jump l7
 label l6
@@ -74,9 +74,9 @@ label l1
 pop l0
 pop a
 pop b
-t3 = 8
-t4 = b + t3
-t6 = a + t4
-r = t6
+t0 = 8
+t1 = b + t0
+t3 = a + t1
+r = t3
 push r
 jmp l0

@@ -51,7 +51,7 @@ t2 = 5 - t1
 t3 = 8 + t2
 a = a / t3
 jump l2
-l3
+label l3
 i = 0
 label l4
 t0 = i<x
@@ -61,17 +61,20 @@ i = a+i
 a = 5
 i = i + 7
 jump l4
-l5
+label l5
 b = a+x
+t0 = i<5
+ifnot t0 jump l6
 b = 3
+jump l7
+label l6
 b = 7
-IF 
+label l7
 r = a+b
-l1
+label l1
 pop l0
 pop a
 pop b
-
-
+r = a+b
 push r
 jmp l0

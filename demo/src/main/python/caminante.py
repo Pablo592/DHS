@@ -447,7 +447,6 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.
     def visitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
-        r = super().visitChildren(ctx)
         if(ctx.getChildCount() > 0):
             print("")
             print("")
@@ -459,7 +458,7 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
             
             if(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
-                return r
+                return super().visitChildren(ctx)
 
             self.f.write("label " + self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo"))
             self.f.write("\n")

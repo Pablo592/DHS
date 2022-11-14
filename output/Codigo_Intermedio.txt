@@ -70,11 +70,13 @@ jump l7
 label l6
 b = 7
 label l7
-r = a+b
 label l1
 pop l0
 pop a
 pop b
-r = a+b
+t0 = 8
+t1 = b + t0
+t3 = a + t1
+r = t3
 push r
 jmp l0

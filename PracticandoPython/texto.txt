@@ -56,4 +56,11 @@ https://es.wikipedia.org/wiki/Analizador_sint%C3%A1ctico
 
 Generacion de codigo intermedio, codigo en tres dimensiones
 
-Falta combinar lo que tengo con la precedencia de operadores
+
+
+En el "caminante" falta hacer que pueda haber un un bloque adentro de otro, como una funcion adentro de otra o un for adentro de un while
+Se puede solucionar guardando todos los finales de bloques en una lista de diccionarios y usarlos cuando les llegue el momento
+
+Falta el return 0 del int main()
+
+Puede que me haya olvidado algo

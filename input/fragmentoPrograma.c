@@ -11,7 +11,8 @@ int main()
 
     y = sumar(x, p);
 
-    while (a != x){
+    while (a != x)
+    {
         a *= 3 + 1 - 5 * 8 + 5 - 7 / 4;
         a = a + 1;
         a /= 2;
@@ -25,16 +26,21 @@ int main()
         a /= (8 + 5 - 7 / 4);
     }
 
-    for (i = 0; i < x; i+=7){
+    for (i = 0; i < x; i += 7)
+    {
         a = a + x;
         i = a + i;
         a = 5;
-        }
-        b = a + x;
-    
-    if(i < 5){
+    }
+    b = a + x;
+
+    if (i < 5)
+    {
         b = 3;
-    }else{
+        b = a + x;
+    }
+    else
+    {
         b = 7;
     }
 

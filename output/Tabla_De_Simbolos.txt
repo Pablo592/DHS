@@ -40,6 +40,9 @@ int		d		True			False
 				Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		b		True			True
+		b		True			True
+		b		True			True
+		b		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 4
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+

@@ -18,7 +18,7 @@ class Caminante(compiladoresVisitor):
     numeroVariableReservado = -1
     numeroTagReservado = 0
     numeroBloque = 0
-    bloque = False
+    funcionMain = ""
     finalBloque = ""
     direccionFunciones = dict()
     finBloque = dict()
@@ -141,16 +141,10 @@ class Caminante(compiladoresVisitor):
         #self.elseIf = ("label"+ " l" + str(self.numeroTagReservado))
         #self.elseIflen = (len(ctx.getChild(6).getText().split(";"))) - 1
 
-            print(str(self.finBloque.keys()) + "\n")
-            print(str(self.numeroInstruccion) + "\n")
+            self.f.write("+-+-+-+-+-+-+" + str(self.numeroInstruccion) + "+-+-+-+-+-+-+\n")
             for i in self.finBloque.keys():
-                print(str(self.numeroInstruccion == i) + "\n")
-                print(str(i) + "\n")
-                print(str(self.numeroInstruccion) + "\n")
                 if( self.numeroInstruccion - int(i) == 0):
                     self.f.write(str(self.finBloque[str(self.numeroInstruccion)]))
-                    print("+-+-+-+- ENTRO +-+-+-+-+ \n")
-                
             
             self.instruccionParte = ""
             self.numeroVariable = self.numeroVariableReservado + 1
@@ -441,6 +435,14 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#desarrolloFuncion.
     def visitDesarrolloFuncion(self, ctx:compiladoresParser.DesarrolloFuncionContext):
+
+        self.numeroInstruccion +=1
+
+        for i in self.finBloque.keys():
+                if( self.numeroInstruccion - int(i) == 0):
+                    self.f.write(str(self.finBloque[str(self.numeroInstruccion)]))
+                  
+
         if(ctx.getChildCount() > 0):
             print("")
             print("")
@@ -452,7 +454,20 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
             
             if(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
+
+                position = str(ctx.getChild(4).getText()).split('return')[1]
+                position = position[0:position.index(";")]
+                self.finalBloque = "push " + str(position) + "\n"
+                
+                self.funcionMain = self.finalBloque
+                print(str(self.numeroInstruccion + self.numeroBloque) + "\n")
+
                 return super().visitChildren(ctx)
+
+
+            if(str(self.funcionMain) != "-1"):
+                self.f.write(self.funcionMain)
+                self.funcionMain = "-1"
 
             self.f.write("label " + self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo"))
             self.f.write("\n")
@@ -502,13 +517,21 @@ class Caminante(compiladoresVisitor):
         self.finalBloque += ("label" + " l" + str(self.numeroTagReservado - 1))
         self.finalBloque += ("\n")
         self.numeroBloque = (len(ctx.getChild(4).getText().split(";"))) - 1
+        if("for(" in ctx.getChild(4).getText()):
+            print("+-+-+-+-+  self.numeroBloque -=2  +-+-+-+ \n")
+            self.numeroBloque -=2
 
         self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
 
         self.elseIf = ("label"+ " l" + str(self.numeroTagReservado)+ "\n")
         self.elseIflen = (len(ctx.getChild(6).getText().split(";"))) - 1
-        self.finBloque[str(self.numeroInstruccion + self.numeroBloque + self.elseIflen)] = self.elseIf
 
+        if("for(" in ctx.getChild(6).getText()):
+            print("+-+-+-+-+  self.numeroBloque -=2  +-+-+-+ \n")
+            self.elseIflen -=1
+
+        self.finBloque[str(self.numeroInstruccion + self.numeroBloque + self.elseIflen)] = self.elseIf
+        print(str(self.numeroInstruccion + self.numeroBloque + self.elseIflen) + "\n")
 
         r = super().visitChildren(ctx)
         return r
@@ -579,6 +602,7 @@ class Caminante(compiladoresVisitor):
         elif("-=" in finFor):
             self.finalBloque = finFor.split("-=")[0] + " = " + finFor.split("-=")[0] + " - " + finFor.split("-=")[1] + "\n"
 
+        self.numeroTagReservado+=1
         self.numeroVariableReservado+=1
         self.f.write(str(ctx.getChild(2).getText()) + " " + str(ctx.getChild(3).getText()) + " " + str(ctx.getChild(4).getText()))
         self.f.write("\n")
@@ -596,13 +620,15 @@ class Caminante(compiladoresVisitor):
         if(ctx.getChildCount() - 1 < 14):
             if("{" in ctx.getChild(13).getText()):
                 self.numeroBloque = (len(ctx.getChild(13).getText().split(";"))) -1
-                self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
+                
             else:
                 self.numeroBloque = (len(ctx.getChild(13).getText().split(";")))
-                self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
         else:
             self.numeroBloque = (len(ctx.getChild(14).getText().split(";"))) - 1
-            self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
+
+        self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] = self.finalBloque
+
+
 
         return  super().visitBloque(ctx)
 

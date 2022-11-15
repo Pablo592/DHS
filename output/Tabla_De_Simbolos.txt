@@ -26,7 +26,13 @@ int		d		True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 2
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		b		True			True
+		a		True			True
+		a		True			True
+		a		True			True
+		i		True			True
+		i		True			True
+		i		True			True
+		a		True			True
 		b		True			True
 		b		True			True
 		b		True			True
@@ -34,31 +40,14 @@ int		d		True			False
 				Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		b		True			True
+		b		True			True
+		b		True			True
+		b		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 4
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		a		True			True
-		a		True			True
-		a		True			True
-		i		True			True
-		i		True			True
-		i		True			True
-		a		True			True
-		b		True			True
-		b		True			True
 		b		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 5
--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		b		True			True
-		b		True			True
-		b		True			True
-		b		True			True
--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-				Contexto: 6
--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		b		True			True
--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-				Contexto: 7
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 int		r		True			False

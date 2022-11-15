@@ -531,7 +531,7 @@ class Caminante(compiladoresVisitor):
         self.numeroBloque = (len(ctx.getChild(4).getText().split(";"))) - 1
         if("for(" in ctx.getChild(4).getText()):
             print("+-+-+-+-+  self.numeroBloque -=2  +-+-+-+ \n")
-            self.numeroBloque -=2
+            self.numeroBloque -= int(2* int(len(ctx.getChild(4).getText().split("for("))-1))
 
         self.noExiste = True
         for i in self.finBloque.keys():
@@ -595,6 +595,19 @@ class Caminante(compiladoresVisitor):
         if("for(" in ctx.getChild(4).getText()):
             print("+-+-+-+-+  self.numeroBloque -=2  +-+-+-+ \n")
             self.numeroBloque +=1
+        if(len(ctx.getChild(4).getText().split("for("))> 2):
+            if("for(" in ctx.getChild(4).getText()):
+                self.numeroBloque -= int(2* int(len(ctx.getChild(4).getText().split("for("))-1)) + 1
+                print("+-+-+-+-+  int(2* int(len(ctx.getChild(4)  +-+-+-+ \n")
+
+
+
+
+
+
+
+
+
 
 
         self.noExiste = True

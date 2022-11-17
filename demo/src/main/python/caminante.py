@@ -484,8 +484,14 @@ class Caminante(compiladoresVisitor):
             position = position[0:position.index(";")]
             self.finalBloque = "push " + str(position) + "\n" + "jmp " + str(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
             self.numeroBloque = (len(ctx.getChild(ctx.getChildCount() - 1).getText().split(";"))) - 2
-
             self.noExiste = True
+
+            if("for(" in ctx.getChild(9).getText()):
+                print("+-+-+-+-+  self.numeroBloque -=2  +-+-+-+ \n")
+                self.numeroBloque -= int(2* int(len(ctx.getChild(9).getText().split("for("))-1))
+
+            print(self.numeroInstruccion + self.numeroBloque)
+
             for i in self.finBloque.keys():
                 if( self.numeroInstruccion + self.numeroBloque - int(i) == 0):
                     self.finBloque[str(self.numeroInstruccion + self.numeroBloque)] =  self.finalBloque + self.finBloque[str(self.numeroInstruccion + self.numeroBloque)]
@@ -599,16 +605,6 @@ class Caminante(compiladoresVisitor):
             if("for(" in ctx.getChild(4).getText()):
                 self.numeroBloque -= int(2* int(len(ctx.getChild(4).getText().split("for("))-1)) + 1
                 print("+-+-+-+-+  int(2* int(len(ctx.getChild(4)  +-+-+-+ \n")
-
-
-
-
-
-
-
-
-
-
 
         self.noExiste = True
         for i in self.finBloque.keys():

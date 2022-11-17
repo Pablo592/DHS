@@ -1,4 +1,5 @@
 int sumar(int a, int b);
+int restar(int a, int b);
 
 int global = 5;
 
@@ -10,6 +11,7 @@ int main()
     int a = 1, b = 2, c = 3, d;
 
     y = sumar(x, p);
+    p = restar(a,b);
 
     while (a != x)
     {
@@ -50,6 +52,32 @@ int main()
 
 int sumar(int a, int b)
 {
+    int i, x = 5;
+    for (i = 0; i < x; i += 7)
+    {
+        a = a + x;
+        i = a + i;
+        a = 5;
+
+        if (b < 5)
+        {
+            b = 3;
+            b = a + b;
+        }
+        else
+        {
+            b = 7;
+        }
+    }
+
     int r = a + b + 8;
     return r;
+}
+
+
+int restar(int a, int b)
+{
+
+    int mo = a - b - 8;
+    return mo;
 }

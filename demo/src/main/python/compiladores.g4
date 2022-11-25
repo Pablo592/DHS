@@ -176,6 +176,7 @@ instruccion : bloque
             | desarrolloFuncion
             | retorno PUNTOYCOMA
             | bloqueif
+            | bloqueElse
             | bloquefor
             | bloquewhile
             ;
@@ -188,7 +189,8 @@ prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COM
 llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instruccion;
 retorno: 'return' (NUMERO|variable|);
-bloqueif: IF PARENTESISABRE (itop) PARENTESISCIERRA instruccion (ELSE instruccion|);
+bloqueif: IF PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
+bloqueElse: ELSE instruccion;
 bloquewhile: WHILE PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
 bloquefor: FOR PARENTESISABRE  ((VARIABLE|NUMERO) IGUAL (VARIABLE|NUMERO)) PUNTOYCOMA (VARIABLE (IGUAL|MAYOR|MENOR) (VARIABLE|NUMERO)) PUNTOYCOMA ((VARIABLE (SUMAUNO | RESTAUNO)) | ((SUMAUNO | RESTAUNO) VARIABLE) | (VARIABLE (MASIGUAL | MENOSIGUAL) (VARIABLE|NUMERO))) PARENTESISCIERRA instruccion;
  

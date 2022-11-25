@@ -21,7 +21,7 @@ class Caminante(compiladoresVisitor):
     numeroBloque = 0
     funcionMain = ""
     finalBloque = ""
-    direccionFunciones = dict()
+    direccionFunciones = [dict()]
     finBloque = dict()
     ultimaFuncionNombre = ""
     elseIf = "" 
@@ -416,19 +416,21 @@ class Caminante(compiladoresVisitor):
                 self.f.write("\n")
                 m+=2
             
+           
+            self.direccionFunciones.append(dict())
 
             self.ultimaFuncionNombre = ctx.getChild(0).getText()
-            self.direccionFunciones[str(ctx.getChild(0).getText())+"-llamo"] = "l" + str(self.numeroTagReservado)
+            self.direccionFunciones[-1][str(ctx.getChild(0).getText())+"-llamo"] = "l" + str(self.numeroTagReservado)
             self.numeroTagReservado +=1
-            self.direccionFunciones[str(ctx.getChild(0).getText())+"-desarrollo"] = "l" + str(self.numeroTagReservado)
+            self.direccionFunciones[-1][str(ctx.getChild(0).getText())+"-desarrollo"] = "l" + str(self.numeroTagReservado)
             self.numeroTagReservado +=1
 
 
-            self.f.write("push " + str( self.direccionFunciones.get(str(ctx.getChild(0).getText())+"-llamo")))
+            self.f.write("push " + str( self.direccionFunciones[-1].get(str(ctx.getChild(0).getText())+"-llamo")))
             self.f.write("\n")
-            self.f.write("jmp " + str( self.direccionFunciones.get(str(ctx.getChild(0).getText())+"-desarrollo")))
+            self.f.write("jmp " + str( self.direccionFunciones[-1].get(str(ctx.getChild(0).getText())+"-desarrollo")))
             self.f.write("\n")
-            self.f.write("label " + str( self.direccionFunciones.get(str(ctx.getChild(0).getText())+"-llamo")))
+            self.f.write("label " + str( self.direccionFunciones[-1].get(str(ctx.getChild(0).getText())+"-llamo")))
             self.f.write("\n")
 
         return r
@@ -455,7 +457,9 @@ class Caminante(compiladoresVisitor):
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
 
             
-                if(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
+            #if(self.direccionFunciones[0].get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
+            if(len(self.direccionFunciones) == 1):
+                    print("len(self.direccionFunciones)" + str(len(self.direccionFunciones)) + "len(self.direccionFunciones")
 
                     position = str(ctx.getChild(4).getText()).split('return')[1]
                     position = position[0:position.index(";")]
@@ -466,16 +470,21 @@ class Caminante(compiladoresVisitor):
 
                     return super().visitChildren(ctx)
 
-            for i in range(0,5):
-                print("Funcion pasada "+ str(i))
+            for funcion in self.direccionFunciones:
+                if (funcion.get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
+                    continue
+
+
+                print(self.direccionFunciones)
+                print("Funcion pasada "+ str(funcion))
 
                 if(str(self.funcionMain) != "-1"):
                     self.f.write(self.funcionMain)
                     self.funcionMain = "-1"
 
-                self.f.write("label " + self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-desarrollo"))
+                self.f.write("label " + str( funcion.get(str(ctx.getChild(1).getText())+"-desarrollo")))
                 self.f.write("\n")
-                self.f.write("pop " + str(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-llamo")))
+                self.f.write("pop " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")))
                 self.f.write("\n")
 
                 m = 4
@@ -485,7 +494,7 @@ class Caminante(compiladoresVisitor):
                     m +=3
                 position = str(ctx.getChild(9).getText()).split('return')[1]
                 position = position[0:position.index(";")]
-                self.finalBloque = "push " + str(position) + "\n" + "jmp " + str(self.direccionFunciones.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
+                self.finalBloque = "push " + str(position) + "\n" + "jmp " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
                 self.numeroBloque = (len(ctx.getChild(ctx.getChildCount() - 1).getText().split(";"))) - 2
                 self.noExiste = True
 

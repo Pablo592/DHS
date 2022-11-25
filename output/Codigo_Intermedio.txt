@@ -127,102 +127,25 @@ r = t6
 +-+-+-+-+-+-+26+-+-+-+-+-+-+
 push r
 jmp l0
-label l1
-pop l0
-pop a
-pop b
+label l3
+pop l2
+pop ar
+pop br
 t3 = 8
-t4 = b + t3
-t6 = a + t4
-r = t6
-+-+-+-+-+-+-+27+-+-+-+-+-+-+
-push r
-jmp l0
-label l1
-pop l0
-pop a
-pop b
-t3 = 8
-t4 = b + t3
-t6 = a + t4
-r = t6
+t4 = br - t3
+t6 = r - t4
+mo = t6
 +-+-+-+-+-+-+28+-+-+-+-+-+-+
-push r
-jmp l0
-label l1
-pop l0
-pop a
-pop b
+push mo
+jmp l2
+label l7
+pop l6
+pop ar
+pop br
 t3 = 8
-t4 = b + t3
-t6 = a + t4
-r = t6
+t4 = br - t3
+t6 = r - t4
+mo = t6
 +-+-+-+-+-+-+29+-+-+-+-+-+-+
-push r
-jmp l0
-label l1
-pop l0
-pop a
-pop b
-t3 = 8
-t4 = b + t3
-t6 = a + t4
-r = t6
-+-+-+-+-+-+-+30+-+-+-+-+-+-+
-push r
-jmp l0
-label l7
-pop l6
-pop a
-pop b
-t3 = 8
-t4 = b - t3
-t6 = a - t4
-mo = t6
-+-+-+-+-+-+-+32+-+-+-+-+-+-+
-push mo
-jmp l6
-label l7
-pop l6
-pop a
-pop b
-t3 = 8
-t4 = b - t3
-t6 = a - t4
-mo = t6
-+-+-+-+-+-+-+33+-+-+-+-+-+-+
-push mo
-jmp l6
-label l7
-pop l6
-pop a
-pop b
-t3 = 8
-t4 = b - t3
-t6 = a - t4
-mo = t6
-+-+-+-+-+-+-+34+-+-+-+-+-+-+
-push mo
-jmp l6
-label l7
-pop l6
-pop a
-pop b
-t3 = 8
-t4 = b - t3
-t6 = a - t4
-mo = t6
-+-+-+-+-+-+-+35+-+-+-+-+-+-+
-push mo
-jmp l6
-label l7
-pop l6
-pop a
-pop b
-t3 = 8
-t4 = b - t3
-t6 = a - t4
-mo = t6
-+-+-+-+-+-+-+36+-+-+-+-+-+-+
 push mo
 jmp l6

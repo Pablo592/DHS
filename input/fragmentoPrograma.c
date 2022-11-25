@@ -9,6 +9,7 @@ int main()
     int x = 5;
     int p, q, r, t, i;
     int a = 1, b = 2, c = 3, d;
+
     y = sumar(x, p);
     p = restar(a,b);
 
@@ -57,9 +58,9 @@ int sumar(int a, int b)
 }
 
 
-int restar(int a, int b)
+int restar(int ar, int br)
 {
 
-    int mo = a - b - 8;
+    int mo = ar - br - 8;
     return mo;
 }

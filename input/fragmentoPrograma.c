@@ -9,7 +9,6 @@ int main()
     int x = 5;
     int p, q, r, t, i;
     int a = 1, b = 2, c = 3, d;
-
     y = sumar(x, p);
     p = restar(a,b);
 
@@ -27,6 +26,7 @@ int main()
         a -= 3 + 3 - 5 - (8 + 5 - 7 / 4);
         a /= (8 + 5 - 7 / 4);
     }
+     p = restar(a,b);
 
     for (i = 0; i < x; i += 7)
     {
@@ -52,24 +52,6 @@ int main()
 
 int sumar(int a, int b)
 {
-    int i, x = 5;
-    for (i = 0; i < x; i += 7)
-    {
-        a = a + x;
-        i = a + i;
-        a = 5;
-
-        if (b < 5)
-        {
-            b = 3;
-            b = a + b;
-        }
-        else
-        {
-            b = 7;
-        }
-    }
-
     int r = a + b + 8;
     return r;
 }

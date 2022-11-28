@@ -1,70 +1,585 @@
 Tipo	Nombre	Inicializada	Usada	Argumentos de la funcion	
 -------------------------------------------------------------------
 
-int		sumar	int		a		int		b		
-int		restar	int		p		int		q		int		t		
-int		global	True			False
+
+int--> exitTdato
+
+
+sumar--> exitVariable
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+int--> exitTdato
+
+
+b--> exitVariable
+
+
+intsumar(inta,intb)--> exitPrototipadoFuncion
+
+
+int--> exitTdato
+
+
+restar--> exitVariable
+
+
+int--> exitTdato
+
+
+p--> exitVariable
+
+
+int--> exitTdato
+
+
+q--> exitVariable
+
+
+int--> exitTdato
+
+
+t--> exitVariable
+
+
+intrestar(intp,intq,intt)--> exitPrototipadoFuncion
+
+
+int--> exitTdato
+
+
+global--> exitVariable
+
+
+5--> exitNumero
+
+
+global=5--> exitItop
+
+
+int--> exitTdato
+
+
+main--> exitVariable
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 0
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-int		y		True			False
-int		x		True			False
-int		p		True			False
-int		q		True			False
-int		r		True			False
-int		t		True			False
-int		i		True			False
-int		a		True			False
-int		b		True			False
-int		c		True			False
-int		d		True			False
-		y		True			True
-		p		True			True
+
+int--> exitTdato
+
+
+y--> exitVariable
+
+
+y--> exitItop
+
+
+int--> exitTdato
+
+
+x--> exitVariable
+
+
+5--> exitNumero
+
+
+x=5--> exitItop
+
+
+int--> exitTdato
+
+
+p--> exitVariable
+
+
+q--> exitVariable
+
+
+r--> exitVariable
+
+
+t--> exitVariable
+
+
+i--> exitVariable
+
+
+p,q,r,t,i--> exitItop
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+1--> exitNumero
+
+
+b--> exitVariable
+
+
+2--> exitNumero
+
+
+c--> exitVariable
+
+
+3--> exitNumero
+
+
+d--> exitVariable
+
+
+a=1,b=2,c=3,d--> exitItop
+
+
+y--> exitVariable
+
+
+sumar--> exitVariable
+
+
+x--> exitVariable
+
+
+p--> exitVariable
+
+
+sumar(x,p)--> exitLlamadoAFunciones
+
+
+y=sumar(x,p)--> exitItop
+
+
+p--> exitVariable
+
+
+restar--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+c--> exitVariable
+
+
+restar(a,b,c)--> exitLlamadoAFunciones
+
+
+p=restar(a,b,c)--> exitItop
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+a!=x--> exitItop
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 1
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		a		True			True
-		a		True			True
-		a		True			True
-		a		True			True
-		a		True			True
-		a		True			True
-		b		True			True
-		a		True			True
-		a		True			True
-		a		True			True
-		a		True			True
-		a		True			True
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+1--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a*=3+1-5*8+5-7/4--> exitItop
+
+
+a--> exitVariable
+
+
+a--> exitVariable
+
+
+1--> exitNumero
+
+
+a=a+1--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a/=2--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a%=2--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a+=2--> exitItop
+
+
+b--> exitVariable
+
+
+2--> exitNumero
+
+
+b*=2--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a-=2--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+1--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+b--> exitVariable
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a%=3+1-5*8+b-7/4--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+3--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a%=3+3-5*(8+5-7/4)--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+3--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a-=3+3-5-(8+5-7/4)--> exitItop
+
+
+a--> exitVariable
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a/=(8+5-7/4)--> exitItop
+
+
+0--> exitNumero
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 2
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		a		True			True
-		a		True			True
-		a		True			True
-		i		True			True
-		i		True			True
-		i		True			True
-		a		True			True
-		b		True			True
-		b		True			True
-		b		True			True
+
+a--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+a=a+x--> exitItop
+
+
+i--> exitVariable
+
+
+a--> exitVariable
+
+
+i--> exitVariable
+
+
+i=a+i--> exitItop
+
+
+a--> exitVariable
+
+
+5--> exitNumero
+
+
+a=5--> exitItop
+
+
+b--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+b=a+x--> exitItop
+
+
+i--> exitVariable
+
+
+5--> exitNumero
+
+
+i<5--> exitItop
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		b		True			True
-		p		True			True
-		b		True			True
-		b		True			True
-		b		True			True
+
+b--> exitVariable
+
+
+3--> exitNumero
+
+
+b=3--> exitItop
+
+
+p--> exitVariable
+
+
+restar--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+c--> exitVariable
+
+
+restar(a,b,c)--> exitLlamadoAFunciones
+
+
+p=restar(a,b,c)--> exitItop
+
+
+b--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+b=a+x--> exitItop
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 4
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-		b		True			True
+
+b--> exitVariable
+
+
+7--> exitNumero
+
+
+b=7--> exitItop
+
+
+0--> exitNumero
+
+
+int--> exitTdato
+
+
+sumar--> exitVariable
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+int--> exitTdato
+
+
+b--> exitVariable
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 5
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-int		r		True			False
+
+int--> exitTdato
+
+
+r--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+8--> exitNumero
+
+
+r=a+b+8--> exitItop
+
+
+r--> exitVariable
+
+
+int--> exitTdato
+
+
+restar--> exitVariable
+
+
+int--> exitTdato
+
+
+ar--> exitVariable
+
+
+int--> exitTdato
+
+
+br--> exitVariable
+
+
+int--> exitTdato
+
+
+cr--> exitVariable
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 6
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-int		mo	True			False
+
+int--> exitTdato
+
+
+mo--> exitVariable
+
+
+ar--> exitVariable
+
+
+br--> exitVariable
+
+
+cr--> exitVariable
+
+
+mo=ar-br-cr--> exitItop
+
+
+mo--> exitVariable
+

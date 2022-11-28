@@ -143,20 +143,20 @@ multiDivi:PRODUCTO pe multiDivi
 pe: factor | prefijo;
 
 
-prefijo:RESTAUNO VARIABLE factor prefijo
-       |SUMAUNO VARIABLE factor prefijo
+prefijo:RESTAUNO variable factor prefijo
+       |SUMAUNO variable factor prefijo
        |NEGACION factor prefijo
        ;
 
 
 factor : llamadoAFunciones 
-       | VARIABLE
-       | NUMERO
+       | variable
+       | numero
        | FLOTANTES
        | FLOTANTESNEGATIVOS
        | parentesis
-       | VARIABLE SUMAUNO
-       | VARIABLE RESTAUNO
+       | variable SUMAUNO
+       | variable RESTAUNO
        ;
 
 parentesis: PARENTESISABRE expo PARENTESISCIERRA
@@ -181,18 +181,20 @@ instruccion : bloque
             | bloquewhile
             ;
 variable:VARIABLE;
+numero:NUMERO;
 bloque : LLAVEABRE instrucciones LLAVECIERRA;
-declaroAsigno : TDATO itop;
+declaroAsigno : tdato itop;
+tdato : TDATO;
 
 asignacion :  itop;
-prototipadoFuncion : TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA;
-llamadoAFunciones: variable PARENTESISABRE ((variable|NUMERO) (COMA|))* PARENTESISCIERRA;
-desarrolloFuncion: TDATO variable PARENTESISABRE (TDATO (variable|NUMERO) (COMA|))* PARENTESISCIERRA instruccion;
-retorno: 'return' (NUMERO|variable|);
+prototipadoFuncion : tdato variable PARENTESISABRE (tdato (variable|numero) (COMA|))* PARENTESISCIERRA;
+llamadoAFunciones: variable PARENTESISABRE ((variable|numero) (COMA|))* PARENTESISCIERRA;
+desarrolloFuncion: tdato variable PARENTESISABRE (tdato (variable|numero) (COMA|))* PARENTESISCIERRA instruccion;
+retorno: 'return' (numero|variable|);
 bloqueif: IF PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
 bloqueElse: ELSE instruccion;
 bloquewhile: WHILE PARENTESISABRE (itop) PARENTESISCIERRA instruccion;
-bloquefor: FOR PARENTESISABRE  ((VARIABLE|NUMERO) IGUAL (VARIABLE|NUMERO)) PUNTOYCOMA (VARIABLE (IGUAL|MAYOR|MENOR) (VARIABLE|NUMERO)) PUNTOYCOMA ((VARIABLE (SUMAUNO | RESTAUNO)) | ((SUMAUNO | RESTAUNO) VARIABLE) | (VARIABLE (MASIGUAL | MENOSIGUAL) (VARIABLE|NUMERO))) PARENTESISCIERRA instruccion;
+bloquefor: FOR PARENTESISABRE  ((VARIABLE|numero) IGUAL (VARIABLE|numero)) PUNTOYCOMA (VARIABLE (IGUAL|MAYOR|MENOR) (VARIABLE|NUMERO)) PUNTOYCOMA ((VARIABLE (SUMAUNO | RESTAUNO)) | ((SUMAUNO | RESTAUNO) VARIABLE) | (VARIABLE (MASIGUAL | MENOSIGUAL) (VARIABLE|NUMERO))) PARENTESISCIERRA instruccion;
  
 //bloquewhile: PARENTESISABRE IF PARENTESISCIERRA instruccion;
 

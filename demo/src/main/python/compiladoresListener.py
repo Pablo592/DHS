@@ -242,6 +242,15 @@ class compiladoresListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by compiladoresParser#numero.
+    def enterNumero(self, ctx:compiladoresParser.NumeroContext):
+        pass
+
+    # Exit a parse tree produced by compiladoresParser#numero.
+    def exitNumero(self, ctx:compiladoresParser.NumeroContext):
+        pass
+
+
     # Enter a parse tree produced by compiladoresParser#bloque.
     def enterBloque(self, ctx:compiladoresParser.BloqueContext):
         pass
@@ -257,6 +266,15 @@ class compiladoresListener(ParseTreeListener):
 
     # Exit a parse tree produced by compiladoresParser#declaroAsigno.
     def exitDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
+        pass
+
+
+    # Enter a parse tree produced by compiladoresParser#tdato.
+    def enterTdato(self, ctx:compiladoresParser.TdatoContext):
+        pass
+
+    # Exit a parse tree produced by compiladoresParser#tdato.
+    def exitTdato(self, ctx:compiladoresParser.TdatoContext):
         pass
 
 

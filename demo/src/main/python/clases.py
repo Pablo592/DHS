@@ -23,16 +23,12 @@ class Tabla:
     def delContexto(self):
         self.diccionario.pop()
 
-    def addIdi(self,nombre,variable,i):
-        self.diccionario[-i].get("nombre-"+str(nombre))
+    def updateId(self,nombre,variable,i):
         self.diccionario[-i]["nombre-"+str(nombre)] = nombre
-        self.diccionario[-i].get("variable-"+str(nombre))
         self.diccionario[-i]["variable-"+str(nombre)] = variable
 
     def addId(self,nombre,variable):
-        self.diccionario[-1].get("nombre-"+str(nombre))
         self.diccionario[-1]["nombre-"+str(nombre)] = nombre
-        self.diccionario[-1].get("variable-"+str(nombre))
         self.diccionario[-1]["variable-"+str(nombre)] = variable
 
 
@@ -95,15 +91,22 @@ class Funcion(Id):
 
     argumentos = []
 
-    def addArg(self,nombre,tipo,nomFun):
+    def addArg(self,nombre,tipo):
         self.argumentos.append(dict())
-        self.argumentos[-1][str(nomFun) +"tipo"] = tipo
-        self.argumentos[-1][str(nomFun) +"nombre"] = nombre
+        self.argumentos[-1]["tipo"] = tipo
+        self.argumentos[-1]["nombre"] = nombre
 
     def getArgumentos(self):
         return self.argumentos
         
+    def setArgumentos(self,arg):
+        self.argumentos = arg
 
+    def resetArgumentos(self):
+        self.argumentos = []
+
+    def setNombre(self,nombre):   
+        self.nombre = nombre
 
     def toJson(self):
         diccionario = dict()

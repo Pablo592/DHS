@@ -23,9 +23,6 @@ int main()
         b *= 2;
         a -= 2;
         a %= 3 + 1 - 5 * 8 + 5 - 7 / 4;
-        a %= 3 + 3 - 5 * (8 + 5 - 7 / 4);
-        a -= 3 + 3 - 5 - (8 + 5 - 7 / 4);
-        a /= (8 + 5 - 7 / 4);
     }
 
     for (i = 0; i < x; i += 7)
@@ -59,7 +56,6 @@ int sumar(int a, int b)
 
 int restar(int ar, int br)
 {
-
     int mo = ar - br - 8;
     return mo;
 }

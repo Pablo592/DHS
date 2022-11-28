@@ -11,20 +11,15 @@ class Caminante(compiladoresVisitor):
     ultimaVariable = ""
     instruccionParte = ""
     signo = ""
-    noExiste = True
     instruccionLarga = ""
     primerInstruccion = ""
-    ultimoParentesis = ""
     numeroInstruccion = 0
     numeroVariableReservado = -1
     numeroTagReservado = 0
-    numeroBloque = 0
     funcionMain = ""
     finalBloque = ""
     direccionFunciones = [dict()]
     ultimaFuncionNombre = ""
-    elseIf = "" 
-    elseIflen = 0
 
 
     # Visit a parse tree produced by compiladoresParser#itop.
@@ -100,13 +95,8 @@ class Caminante(compiladoresVisitor):
                     varAnterior = self.ultimaVariable
                     self.numeroVariable +=1
                     self.ultimaVariable = "t" + str(self.numeroVariable)
-                    if(str(self.ultimoParentesis)!= (str(aux)+ " "  + str(self.signo) + " " + str(varAnterior))):
-                        self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnterior))
-                        self.f.write("\n")
-                    else:
-                        self.numeroVariable -=1
-                        self.ultimaVariable = "t" + str(self.numeroVariable)
-                
+                    self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnterior))
+                    self.f.write("\n")
 
             if "*=" in ctx.getChild(1).getText():
                 self.numeroInstruccion +=1
@@ -137,9 +127,6 @@ class Caminante(compiladoresVisitor):
         #    self.f.write("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
         #    self.f.write(str(self.numeroInstruccion) + "\n")
         #    self.f.write("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
-
-        #self.elseIf = ("label"+ " l" + str(self.numeroTagReservado))
-        #self.elseIflen = (len(ctx.getChild(6).getText().split(";"))) - 1
 
             self.f.write("+-+-+-+-+-+-+" + str(self.numeroInstruccion) + "+-+-+-+-+-+-+\n")
             
@@ -208,7 +195,7 @@ class Caminante(compiladoresVisitor):
 
     # Visit a parse tree produced by compiladoresParser#parentesis.
     def visitParentesis(self, ctx:compiladoresParser.ParentesisContext):
-        r = super().visitChildren(ctx)
+        #r = super().visitChildren(ctx)
         if(ctx.getChildCount() > 0):
             print("")
             print("")
@@ -219,15 +206,7 @@ class Caminante(compiladoresVisitor):
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
 
-            self.ultimaVariable = "t" + str(self.numeroVariable - 1)
-            varAnteriorr = self.ultimaVariable
-            self.ultimaVariable = "t" + str(self.numeroVariable)
-            aux = ctx.getChild(1).getText()
-          
-            aux = aux.split(self.signo)[0]
-            self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr))
-            self.ultimoParentesis = str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr)
-            self.f.write("\n")
+        r = super().visitChildren(ctx)
         return r
 
 
@@ -264,34 +243,6 @@ class Caminante(compiladoresVisitor):
 
                         self.f.write(str(self.primerInstruccion))
                         self.primerInstruccion = ""
-
-                    if("(" in str(ctx.getChild(1).getText())):
-                        self.signo = ctx.getChild(0).getText()
-
-                        aux = ctx.getChild(1).getText().split("(")[0]
-                        
-                        if(("*" in aux)| ("/" in aux)):
-                            
-                            varAnteriorr = self.ultimaVariable
-                            self.numeroVariable +=1
-                            self.ultimaVariable = "t" + str(self.numeroVariable)   
-
-                            self.f.write(str(self.ultimaVariable) + " = " + str(aux)  +  str(varAnteriorr))
-                            self.f.write("\n")
-                            self.numeroVariable +=1
-                            return r
-                        else:
-                            if("(" not in ctx.getChild(1).getText()):
-                                self.f.write(str(ctx.getChild(1).getText()))
-                                self.f.write("\n")
-
-                            varAnteriorr = self.ultimaVariable
-                        
-                            self.ultimaVariable = "t" + str(self.numeroVariable)
-                       
-                            self.numeroVariable +=1
-                            return r
-
 
                     if(("*" in str(ctx.getChild(1).getText())) | ("/" in str(ctx.getChild(1).getText()))):
              

@@ -95,10 +95,10 @@ class Funcion(Id):
 
     argumentos = []
 
-    def addArg(self,nombre,tipo):
+    def addArg(self,nombre,tipo,nomFun):
         self.argumentos.append(dict())
-        self.argumentos[-1]["tipo"] = tipo
-        self.argumentos[-1]["nombre"] = nombre
+        self.argumentos[-1][str(nomFun) +"tipo"] = tipo
+        self.argumentos[-1][str(nomFun) +"nombre"] = nombre
 
     def getArgumentos(self):
         return self.argumentos

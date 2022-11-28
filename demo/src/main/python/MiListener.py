@@ -495,9 +495,7 @@ class MiListener(ParseTreeListener):
                   nombre = i[4:]
                 else:
                   nombre = i
-                funcion.addArg(nombre,tipo)
-
-        print(funcion.getArgumentos())
+                funcion.addArg(nombre,tipo,nomFun)
                 
         resul = self.existeVariable(funcion.getNombre(),funcion.toJson(),'creo')
         if resul:
@@ -513,10 +511,11 @@ class MiListener(ParseTreeListener):
                        self.f.write(str(funcion.getUsada()))
                        self.f.write("\t")
                     for i in funcion.getArgumentos():
-                        self.f.write(i['tipo'])
-                        self.f.write("\t\t")
-                        self.f.write(i['nombre'])
-                        self.f.write("\t\t")
+                        if((str(nomFun) +'tipo') in i.keys()):
+                            self.f.write(i[str(nomFun) +'tipo'])
+                            self.f.write("\t\t")
+                            self.f.write(i[str(nomFun) +'nombre'])
+                            self.f.write("\t\t")
                     self.f.write("\n")
 
 

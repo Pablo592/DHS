@@ -2,7 +2,7 @@ Tipo	Nombre	Inicializada	Usada	Argumentos de la funcion
 -------------------------------------------------------------------
 
 int		sumar	int		a		int		b		
-int		restar	int		a		int		b		int		p		int		q		int		t		
+int		restar	int		p		int		q		int		t		
 int		global	True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 0

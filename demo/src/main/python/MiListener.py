@@ -290,7 +290,19 @@ class MiListener(ParseTreeListener):
             dato = datos.split(",")
 
             for i in dato:
-                d = i.split("=")
+                
+                if "*=" in i:
+                    d = i.split("*=")
+                elif "/=" in i:
+                    d = i.split("/=")
+                elif "%=" in i:
+                    d = i.split("%=")
+                elif "+=" in i:
+                    d = i.split("+=")
+                elif "-=" in i:
+                    d = i.split("-=")
+                else:
+                    d = i.split("=")
                 v = variable.clone()
                 v.setNombre(d[0])
                 if(len(d)> 1):
@@ -322,7 +334,19 @@ class MiListener(ParseTreeListener):
                        self.f.write(str(v.getUsada()))
                        self.f.write("\n")
         else:
-            d = datos.split("=")
+
+            if "*=" in datos:
+               d = datos.split("*=")
+            elif "/=" in datos:
+               d = datos.split("/=")
+            elif "%=" in datos:
+               d = datos.split("%=")
+            elif "+=" in datos:
+               d = datos.split("+=")
+            elif "-=" in datos:
+               d = datos.split("-=")
+            else:
+               d = datos.split("=")
             v = variable.clone()
             v.setNombre(d[0])
             resul = self.existeVariable(d[0],v.toJson(),'creoInicializo')
@@ -349,7 +373,18 @@ class MiListener(ParseTreeListener):
         variable = Variable()
         variable.setUsada(True)
         datos = ctx.getText()
-        d = datos.split("=")
+        if "*=" in datos:
+               d = datos.split("*=")
+        elif "/=" in datos:
+            d = datos.split("/=")
+        elif "%=" in datos:
+            d = datos.split("%=")
+        elif "+=" in datos:
+            d = datos.split("+=")
+        elif "-=" in datos:
+            d = datos.split("-=")
+        else:
+            d = datos.split("=")
         v = variable.clone()
         v.setNombre(d[0])
         if(len(d)> 1):
@@ -383,6 +418,15 @@ class MiListener(ParseTreeListener):
                      posiblesVariables.append(m)
             
             for i  in posiblesVariables:
+              if(("(" in i) & (")" not in i)):
+                i = i[1:]
+
+              if(("(" not in i) & (")" in i)):
+                i = i[0:-1]
+
+              if(i.isnumeric()):
+                continue
+
               resul = self.existeVariable(i,"algo",'uso')
               if resul:
                        self.f.write(v.getTipo())
@@ -426,13 +470,13 @@ class MiListener(ParseTreeListener):
 
         datos = datos.split('(')
         funcion.setNombre(datos[0])
+        nomFun = datos[0]
 
         datos = datos[1].split(')')[0]
 
         if "," in datos:
             dato = datos.split(",")
             tipo = ""
-
             for i in dato:
                 if "int" in i:
                   tipo ='int'
@@ -452,27 +496,28 @@ class MiListener(ParseTreeListener):
                 else:
                   nombre = i
                 funcion.addArg(nombre,tipo)
-         
 
+        print(funcion.getArgumentos())
+                
         resul = self.existeVariable(funcion.getNombre(),funcion.toJson(),'creo')
         if resul:
-                       self.f.write(funcion.getTipo())
-                       self.f.write("\t\t")
-                       self.f.write(funcion.getNombre())
-                       if len(funcion.getNombre()) > 1:                                     
+                    self.f.write(funcion.getTipo())
+                    self.f.write("\t\t")
+                    self.f.write(funcion.getNombre())
+                    if len(funcion.getNombre()) > 1:                                     
                         self.f.write("\t")
-                       else:
-                        self.f.write("\t\t")
+                    else:
+                       self.f.write("\t\t")
                        self.f.write(str(funcion.getInicializada()))
                        self.f.write("\t\t\t")
                        self.f.write(str(funcion.getUsada()))
                        self.f.write("\t")
-                       for i in funcion.getArgumentos():
+                    for i in funcion.getArgumentos():
                         self.f.write(i['tipo'])
                         self.f.write("\t\t")
                         self.f.write(i['nombre'])
                         self.f.write("\t\t")
-                       self.f.write("\n")
+                    self.f.write("\n")
 
 
     # Enter a parse tree produced by compiladoresParser#llamadoAFunciones.

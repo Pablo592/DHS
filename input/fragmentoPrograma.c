@@ -1,5 +1,6 @@
 int sumar(int a, int b);
-int restar(int a, int b, int c);
+int restar(int p, int q, int t);
+
 
 int global = 5;
 
@@ -22,8 +23,8 @@ int main()
         a += 2;
         b *= 2;
         a -= 2;
-        a %= 3 + 1 - 5 * 87 + 5 - 7 / 4;
-        a %= 3 + 3 - 5 * (8 + 59 - 7 / 4);
+        a %= 3 + 1 - 5 * 8 + 5 - 7 / 4;
+        a %= 3 + 3 - 5 * (8 + 5 - 7 / 4);
         a -= 3 + 3 - 5 - (8 + 5 - 7 / 4);
         a /= (8 + 5 - 7 / 4);
     }

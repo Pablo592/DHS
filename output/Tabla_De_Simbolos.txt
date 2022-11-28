@@ -1,8 +1,8 @@
 Tipo	Nombre	Inicializada	Usada	Argumentos de la funcion	
 -------------------------------------------------------------------
 
-int		sumar	True			False	int		a		int		b		
-int		restar	True			False	int		a		int		b		int		a		int		b		int		c		
+int		sumar	int		a		int		b		
+int		restar	int		a		int		b		int		p		int		q		int		t		
 int		global	True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 0
@@ -23,6 +23,16 @@ int		d		True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 1
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+		a		True			True
+		a		True			True
+		a		True			True
+		a		True			True
+		a		True			True
+		a		True			True
+		b		True			True
+		a		True			True
+		a		True			True
+		a		True			True
 		a		True			True
 		a		True			True
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+

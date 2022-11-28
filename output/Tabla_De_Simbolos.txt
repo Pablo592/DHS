@@ -2,7 +2,7 @@ Tipo	Nombre	Inicializada	Usada	Argumentos de la funcion
 -------------------------------------------------------------------
 
 int		sumar	True			False	int		a		int		b		
-int		restar	True			False	int		a		int		b		int		a		int		b		
+int		restar	True			False	int		a		int		b		int		a		int		b		int		c		
 int		global	True			False
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 				Contexto: 0
@@ -42,6 +42,7 @@ int		d		True			False
 				Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 		b		True			True
+		p		True			True
 		b		True			True
 		b		True			True
 		b		True			True

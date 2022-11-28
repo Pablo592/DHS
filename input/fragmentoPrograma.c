@@ -1,5 +1,5 @@
 int sumar(int a, int b);
-int restar(int a, int b);
+int restar(int a, int b, int c);
 
 int global = 5;
 
@@ -11,7 +11,7 @@ int main()
     int a = 1, b = 2, c = 3, d;
 
     y = sumar(x, p);
-    p = restar(a,b);
+    p = restar(a,b,c);
 
     while (a != x)
     {
@@ -22,7 +22,10 @@ int main()
         a += 2;
         b *= 2;
         a -= 2;
-        a %= 3 + 1 - 5 * 8 + 5 - 7 / 4;
+        a %= 3 + 1 - 5 * 87 + 5 - 7 / 4;
+        a %= 3 + 3 - 5 * (8 + 59 - 7 / 4);
+        a -= 3 + 3 - 5 - (8 + 5 - 7 / 4);
+        a /= (8 + 5 - 7 / 4);
     }
 
     for (i = 0; i < x; i += 7)
@@ -37,6 +40,7 @@ int main()
     if (i < 5)
     {
         b = 3;
+        p = restar(a,b,c);
         b = a + x;
     }
     else
@@ -54,8 +58,8 @@ int sumar(int a, int b)
 }
 
 
-int restar(int ar, int br)
+int restar(int ar, int br,int cr)
 {
-    int mo = ar - br - 8;
+    int mo = ar - br - cr;
     return mo;
 }

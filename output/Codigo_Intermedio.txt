@@ -73,18 +73,12 @@ b = a+x
 t2 = i<5
 ifnot t2 jump l10
 b = 3
-push a
-push b
-push c
-push l11
-jmp l12
-label l11
-pop p
+global = p
 b = a+x
 jump l11
 label l10
 b = 7
-label l13
+label l11
 push 0
 label l1
 pop l0
@@ -107,14 +101,3 @@ t6 = ar - t4
 mo = t6
 push mo
 jmp l2
-label l12
-pop l11
-pop ar
-pop br
-pop cr
-t3 = cr
-t4 = br - t3
-t6 = ar - t4
-mo = t6
-push mo
-jmp l11

@@ -41,7 +41,7 @@ int main()
     if (i < 5)
     {
         b = 3;
-        p = restar(a,b,c);
+        global = p;
         b = a + x;
     }
     else

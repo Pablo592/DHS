@@ -85,7 +85,9 @@ class Id:
 
 
 class Variable(Id):
-    pass
+
+    def getTipoVariable(self):
+        return 'variable'
 
 class Funcion(Id):
 
@@ -107,6 +109,9 @@ class Funcion(Id):
 
     def setNombre(self,nombre):   
         self.nombre = nombre
+
+    def getTipoVariable(self):
+        return 'funcion'
 
     def toJson(self):
         diccionario = dict()

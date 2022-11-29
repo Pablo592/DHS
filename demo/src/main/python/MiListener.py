@@ -23,12 +23,12 @@ class MiListener(ParseTreeListener):
     f.write("-------------------------------------------------------------------\n")
     f.write("\n")    
 
+
+    variables = [dict()]
     tabla = Tabla()
     contexto = 0
-
     tipoDato = ""
     
-    variables = [dict()]
 
   # Enter a parse tree produced by compiladoresParser#itop.
     def enterItop(self, ctx:compiladoresParser.ItopContext):
@@ -39,10 +39,10 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         if(datos != ""):
             print(datos)
-            self.f.write("\n")
-            self.f.write(str(datos) + "--> exitItop")
-            self.f.write("\n")
-            self.f.write("\n")
+    #        self.f.write("\n")
+    #        self.f.write(str(datos) + "--> exitItop")
+    #        self.f.write("\n")
+    #        self.f.write("\n")
             id = Variable()
             id.setInicializada(True)
             for i in range(0,len(self.variables)-1):
@@ -50,6 +50,7 @@ class MiListener(ParseTreeListener):
                 id.setTipo(self.variables[i].get('tdato'))
                 self.tabla.addId(id.getNombre(),id)
 
+            self.variables = ""
             self.variables = [dict()]
             self.tipoDato = ""
      
@@ -280,25 +281,30 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         if(datos != ""):
             print(datos)
-            self.f.write("\n")
-            self.f.write(str(datos) + "--> exitVariable")
-            self.f.write("\n")
-            self.f.write("\n")
+    #        self.f.write("\n")
+    #        self.f.write(str(datos) + "--> exitVariable")
+    #        self.f.write("\n")
+    #        self.f.write("\n")
 
-            if(self.tipoDato == ""):
-                i, respuesta = self.tabla.buscarId(datos)
-                if(respuesta == False):
-                    print("La variable " + str(datos) + " no se encuentra declarada")
+            if(datos == 'main'):
+                self.variables = [dict()]
+                self.tipoDato = ""
+
+            else:
+                if(self.tipoDato == ""):
+                    i, respuesta = self.tabla.buscarId(datos)
+                    if(respuesta == False):
+                        self.f.write("La variable " + str(datos) + " no se encuentra declarada \n")
+                    else:
+                        respuesta.setUsada(True)
+                        self.tabla.updateId(self.variables[0].get('nombre'),respuesta,i)
+                        self.variables[-1]['tdato'] = respuesta.getTipo()
+                        self.variables[-1]['nombre'] = datos
+                        self.variables.append(dict())
                 else:
-                    respuesta.setUsada(True)
-                    self.tabla.updateId(self.variables[0].get('nombre'),respuesta,i)
-                    self.variables[-1]['tdato'] = respuesta.getTipo()
+                    self.variables[-1]['tdato'] = self.tipoDato
                     self.variables[-1]['nombre'] = datos
                     self.variables.append(dict())
-            else:
-                self.variables[-1]['tdato'] = self.tipoDato
-                self.variables[-1]['nombre'] = datos
-                self.variables.append(dict())
 
      # Enter a parse tree produced by compiladoresParser#tdato.
     def enterTdato(self, ctx:compiladoresParser.TdatoContext):
@@ -309,10 +315,10 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         if(datos != ""):
             print(datos)
-            self.f.write("\n")
-            self.f.write(str(datos) + "--> exitTdato")
-            self.f.write("\n")
-            self.f.write("\n")
+    #        self.f.write("\n")
+    #        self.f.write(str(datos) + "--> exitTdato")
+    #        self.f.write("\n")
+    #        self.f.write("\n")
             self.tipoDato = datos
 
 
@@ -326,10 +332,10 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         if(datos != ""):
             print(datos)
-            self.f.write("\n")
-            self.f.write(str(datos) + "--> exitNumero")
-            self.f.write("\n")
-            self.f.write("\n")
+    #        self.f.write("\n")
+    #        self.f.write(str(datos) + "--> exitNumero")
+    #        self.f.write("\n")
+    #        self.f.write("\n")
 
 
 
@@ -341,24 +347,45 @@ class MiListener(ParseTreeListener):
          print("\t\t\t\tContexto: " + str(self.contexto)+"\n")
          print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
 
-
-
-         self.f.write("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
-         self.f.write("\t\t\t\tContexto: " + str(self.contexto)+"\n")
-         self.f.write("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
-         self.contexto +=1
          self.tabla.addContexto()
 
     # Exit a parse tree produced by compiladoresParser#bloque.
     def exitBloque(self, ctx:compiladoresParser.BloqueContext):
 
+        self.f.write("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+        self.f.write("\t\t\t\t\t\t\tContexto: " + str(self.contexto)+"\n")
+        self.f.write("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+
+        self.contexto +=1
+
         for hoja in self.tabla.diccionario:
+            self.f.write("{\n\n")
             for key ,value in hoja.items():
                 if("variable-" in key):
                     print(value.toJson())
-                else:
-                    print(value)
+                    self.f.write(value.getTipo())
+                    self.f.write("\t\t")
+                    self.f.write(value.getNombre())
+                    if(len(value.getNombre())> 1):
+                        self.f.write("\t\t")
+                    else:
+                        self.f.write("\t\t\t")
+                    self.f.write(str(value.getInicializada()))
+                    self.f.write("\t\t")
+                    self.f.write(str(value.getUsada()))
+                    self.f.write("\t\t")
+                    if(value.getTipoVariable() == 'funcion'):
+                        for i in value.getArgumentos():
+                            self.f.write(i.get("tipo"))
+                            self.f.write("\t\t")
+                            self.f.write(i.get("nombre"))
+                            self.f.write("\t\t")
+                        self.f.write("\n")
+                    else:
+                        self.f.write("\n")
+            self.f.write("}\n")
 
+        self.tabla.delContexto()
 
     # Enter a parse tree produced by compiladoresParser#declaroAsigno.
     def enterDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
@@ -373,9 +400,9 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         if(datos != ""):
             print(datos)
-            self.f.write("\n")
-            self.f.write(str(datos) + "--> enterAsignacion")
-            self.f.write("\n")
+    #        self.f.write("\n")
+    #        self.f.write(str(datos) + "--> enterAsignacion")
+    #        self.f.write("\n")
             self.f.write("\n")
 
     # Exit a parse tree produced by compiladoresParser#asignacion.
@@ -407,6 +434,8 @@ class MiListener(ParseTreeListener):
                 funcion.addArg(self.variables[i]['nombre'], self.variables[i]['tdato'])
 
             self.tabla.addId(funcion.getNombre(),funcion)
+
+            self.variables = ""
             self.variables = [dict()]
             self.tipoDato = ""
             del funcion
@@ -422,21 +451,35 @@ class MiListener(ParseTreeListener):
         datos = ctx.getText()
         if(datos != ""):
             print(datos)
-            self.f.write("\n")
-            self.f.write(str(datos) + "--> exitLlamadoAFunciones")
-            self.f.write("\n")
-            self.f.write("\n")
+    #        self.f.write("\n")
+    #        self.f.write(str(datos) + "--> exitLlamadoAFunciones")
+    #        self.f.write("\n")
+    #        self.f.write("\n")
+            nombreFuncion = datos.split("(")[0]    
+            print(nombreFuncion)
+
+            for t in range(0,len(self.variables)-1):
+                if(nombreFuncion == self.variables[t]['nombre']):
+                    index = t
+
             m, respuesta = self.tabla.buscarId(self.variables[0].get('nombre'))
 
+
             if(respuesta == False):
-                print("La funcion " + str(self.variables[0].get('nombre')) + " no se encuentra declarada")
+                self.f.write("La funcion " + str(self.variables[0].get('nombre')) + " no se encuentra declarada \n")
             else:
-              respuesta.resetArgumentos()
-              for i in range(1,len(self.variables)-1):
-                j, vari = self.tabla.buscarId(self.variables[i].get('nombre'))
-                if(i>1):
+                respuesta.resetArgumentos()
+                for i in range(index + 1,len(self.variables)-1):
+                    j, vari = self.tabla.buscarId(self.variables[i]['nombre'])
+                
                     respuesta.addArg(self.variables[i]['nombre'], vari.getTipo())
-              self.tabla.updateId(self.variables[0].get('nombre'),respuesta,m)
+                self.tabla.updateId(self.variables[index].get('nombre'),respuesta,m)
+
+              
+        self.variables = ""
+        self.variables = [dict()]
+        self.tipoDato = ""
+     
 
 
 

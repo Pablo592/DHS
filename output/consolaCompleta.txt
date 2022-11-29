@@ -54,6 +54,7 @@ sumar
 x
 p
 sumar(x,p)
+sumar
 y=sumar(x,p)
 p
 restar
@@ -61,13 +62,14 @@ a
 b
 c
 restar(a,b,c)
+restar
 p=restar(a,b,c)
 a
 x
 a!=x
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-				Contexto: 1
+				Contexto: 0
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
@@ -132,56 +134,26 @@ a
 7
 4
 a/=(8+5-7/4)
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
 {'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': False}
-None
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
 {'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
 0
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-				Contexto: 2
+				Contexto: 1
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
@@ -196,59 +168,22 @@ i=a+i
 a
 5
 a=5
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
 {'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': False}
-x
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
+{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': False}
+{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 b
 a
@@ -259,7 +194,7 @@ i
 i<5
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-				Contexto: 3
+				Contexto: 2
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
@@ -272,247 +207,73 @@ a
 b
 c
 restar(a,b,c)
+restar
 p=restar(a,b,c)
+global
+p
+global=p
 b
 a
 x
 b=a+x
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-None
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-None
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': False}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
+{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': False}
+{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': False}
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': False}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': False}
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-				Contexto: 4
+				Contexto: 3
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 b
 7
 b=7
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-None
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-None
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': False}
 0
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-None
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 {'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-None
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
 {'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': False}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
+{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
 int
 sumar
 int
@@ -532,91 +293,12 @@ b
 8
 r=a+b+8
 r
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-None
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
 {'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-None
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': False}
-sumar
 {'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
 int
 restar
@@ -639,105 +321,14 @@ br
 cr
 mo=ar-br-cr
 mo
-sumar
 {'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-restar
 {'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-global
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-y
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-p
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-None
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-main
-{'nombre': 'y', 'tipo': 'int', 'inicializada': True, 'usada': True}
-y
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-q
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-t
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-d
 {'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-sumar
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-i
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-None
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-p
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-c
-{'nombre': 'c', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-x
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': False}
-sumar
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-a
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-b
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-r
 {'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-restar
 {'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-ar
 {'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-br
 {'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-cr
 {'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-mo
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-None
 {'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
 
 
@@ -769,7 +360,7 @@ main
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{inty;intx=5;intp,q,r,t,i;inta=1,b=2,c=3,d;y=sumar(x,p);p=restar(a,b,c);while(a!=x){a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*8+b-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}for(i=0;i<x;i+=7){a=a+x;i=a+i;a=5;}b=a+x;if(i<5){b=3;p=restar(a,b,c);b=a+x;}else{b=7;}return0;}
+{inty;intx=5;intp,q,r,t,i;inta=1,b=2,c=3,d;y=sumar(x,p);p=restar(a,b,c);while(a!=x){a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*8+b-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}for(i=0;i<x;i+=7){a=a+x;i=a+i;a=5;}b=a+x;if(i<5){b=3;p=restar(a,b,c);global=p;b=a+x;}else{b=7;}return0;}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 len(self.direccionFunciones)1len(self.direccionFunciones
 
@@ -1571,7 +1162,7 @@ i<5
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{b=3;p=restar(a,b,c);b=a+x;}
+{b=3;p=restar(a,b,c);global=p;b=a+x;}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 
 
@@ -1630,6 +1221,16 @@ p
 +-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 =restar(a,b,c)
++-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
+
+
+
++-+-+-+-+-+ visitTie +-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+global
++-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+=p
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 
 

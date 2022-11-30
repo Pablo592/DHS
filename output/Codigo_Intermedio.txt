@@ -32,31 +32,29 @@ a = a % 2
 a = a + 2
 b = b * 2
 a = a - 2
-t1 = 7/4
-t2 = b - t1
-t3 = 5*8
-t4 = t3 + t2
-t5 = 1 - t4
-t7 = 3 + t5
-a = a % t7
+t1 = b
+t2 = 7/4
+t3 = t2 + t1
+t5 = 5*t4
+t6 = 1 - t5
+t8 = 3 + t6
+a = a % t8
 t1 = 7/4
 t2 = 5 - t1
-t3 = 8 + t2
 t4 = 5*t3
 t5 = 3 - t4
 t7 = 3 + t5
 a = a % t7
 t1 = 7/4
 t2 = 5 - t1
-t3 = 8 + t2
 t4 = 5 - t3
 t5 = 3 - t4
 t7 = 3 + t5
 a = a - t7
 t1 = 7/4
 t2 = 5 - t1
-t3 = 8 + t2
-a = a / t3
+t4 = 8 + t2
+a = a / t4
 jump l4
 label l5
 i = 0
@@ -73,7 +71,6 @@ b = a+x
 t2 = i<5
 ifnot t2 jump l10
 b = 3
-global = p
 b = a+x
 jump l11
 label l10

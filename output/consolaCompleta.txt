@@ -109,7 +109,7 @@ a
 b
 7
 4
-a%=3+1-5*8+b-7/4
+a%=3+1-5*(8+b)-7/4
 a
 3
 3
@@ -134,22 +134,6 @@ a
 7
 4
 a/=(8+5-7/4)
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
 0
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
@@ -168,23 +152,6 @@ i=a+i
 a
 5
 a=5
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'global', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'a', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
 b
 a
 x
@@ -201,40 +168,10 @@ i<5
 b
 3
 b=3
-p
-restar
-a
-b
-c
-restar(a,b,c)
-restar
-p=restar(a,b,c)
-global
-p
-global=p
 b
 a
 x
 b=a+x
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'p', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': False}
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 3
@@ -244,36 +181,7 @@ b=a+x
 b
 7
 b=7
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': False}
 0
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'i', 'tipo': 'int', 'inicializada': True, 'usada': False}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'x', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
 int
 sumar
 int
@@ -293,13 +201,6 @@ b
 8
 r=a+b+8
 r
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'b', 'tipo': 'int', 'inicializada': True, 'usada': True}
 int
 restar
 int
@@ -321,15 +222,6 @@ br
 cr
 mo=ar-br-cr
 mo
-{'nombre': 'sumar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'x'}, {'tipo': 'int', 'nombre': 'p'}]}
-{'nombre': 'restar', 'tipo': 'int', 'inicializada': True, 'usada': True, 'argumentos': [{'tipo': 'int', 'nombre': 'a'}, {'tipo': 'int', 'nombre': 'b'}, {'tipo': 'int', 'nombre': 'c'}]}
-{'nombre': 'd', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
-{'nombre': 'cr', 'tipo': 'int', 'inicializada': True, 'usada': True}
 
 
 Comienza el recorrido del programa
@@ -360,7 +252,7 @@ main
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{inty;intx=5;intp,q,r,t,i;inta=1,b=2,c=3,d;y=sumar(x,p);p=restar(a,b,c);while(a!=x){a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*8+b-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}for(i=0;i<x;i+=7){a=a+x;i=a+i;a=5;}b=a+x;if(i<5){b=3;p=restar(a,b,c);global=p;b=a+x;}else{b=7;}return0;}
+{inty;intx=5;intp,q,r,t,i;inta=1,b=2,c=3,d;y=sumar(x,p);p=restar(a,b,c);while(a!=x){a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*(8+b)-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}for(i=0;i<x;i+=7){a=a+x;i=a+i;a=5;}b=a+x;if(i<5){b=3;b=a+x;}else{b=7;}return0;}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 len(self.direccionFunciones)1len(self.direccionFunciones
 
@@ -560,7 +452,7 @@ a!=x
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*8+b-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}
+{a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*(8+b)-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 
 
@@ -712,6 +604,39 @@ a
 
 +-+-+-+-+-+ visitT +-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
++
++-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+b
++-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+
++-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
+
+
+
++-+-+-+-+-+ visitTie +-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+8+b
++-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+
++-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ visitParentesis +-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+(
++-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+8+b
++-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+)
++-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
+
+
+
++-+-+-+-+-+ visitT +-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 -
 +-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
@@ -725,26 +650,13 @@ a
 
 +-+-+-+-+-+ visitT +-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-+
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-b
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
--7/4
-+-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitT +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 -
 +-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-5*8
+5*(8+b)
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-+b-7/4
+-7/4
 +-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
 
 
@@ -757,7 +669,7 @@ b
 1
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
--5*8+b-7/4
+-5*(8+b)-7/4
 +-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
 
 
@@ -767,7 +679,7 @@ b
 a
 +-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-%=3+1-5*8+b-7/4
+%=3+1-5*(8+b)-7/4
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 
 
@@ -805,9 +717,6 @@ a
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-
-
-
 +-+-+-+-+-+ visitParentesis +-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 (
@@ -890,9 +799,6 @@ a
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-
-
-
 +-+-+-+-+-+ visitParentesis +-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 (
@@ -988,9 +894,6 @@ a
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-
-
-
 +-+-+-+-+-+ visitParentesis +-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 (
@@ -1162,7 +1065,7 @@ i<5
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{b=3;p=restar(a,b,c);global=p;b=a+x;}
+{b=3;b=a+x;}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 
 
@@ -1183,54 +1086,6 @@ b
 +-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 =3
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitLlamadoAFunciones +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-restar
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-(
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-a
-+-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-,
-+-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-b
-+-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-,
-+-+-+-+-+-+-+-+ 5 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-c
-+-+-+-+-+-+-+-+ 6 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-)
-+-+-+-+-+-+-+-+ 7 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitTie +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-p
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-=restar(a,b,c)
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitTie +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-global
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-=p
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 
 
@@ -1388,42 +1243,6 @@ cr
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 {intmo=ar-br-cr;returnmo;}
 +-+-+-+-+-+-+-+ 12 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitT +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
--
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-cr
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-
-+-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitT +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
--
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-br
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
--cr
-+-+-+-+-+-+-+-+ 2 +-+-+-+-+-+-+-+-+
-
-
-
-+-+-+-+-+-+ visitTie +-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-mo
-+-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
-+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-=ar-br-cr
-+-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 
 
 

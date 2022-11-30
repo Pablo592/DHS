@@ -153,26 +153,26 @@ class Caminante(compiladoresVisitor):
         return r
     # Visit a parse tree produced by compiladoresParser#parentesis.
     def visitParentesis(self, ctx:compiladoresParser.ParentesisContext):
-        r = super().visitChildren(ctx)
-        if(ctx.getChildCount() > 0):
-            print("")
-            print("")
-            print("")
+            r = super().visitChildren(ctx)
+   #     if(ctx.getChildCount() > 0):
+   #         print("")
+   #         print("")
+   #         print("")
             print("+-+-+-+-+-+ visitParentesis +-+-+-+-+-+")
             for i in range(0,ctx.getChildCount()):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
-            self.ultimaVariable = "t" + str(self.numeroVariable - 1)
-            varAnteriorr = self.ultimaVariable
-            self.ultimaVariable = "t" + str(self.numeroVariable)
-            aux = ctx.getChild(1).getText()
-          
-            aux = aux.split(self.signo)[0]
-            self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr))
-            self.ultimoParentesis = str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr)
-            self.f.write("\n")
-        return r
+   #         self.ultimaVariable = "t" + str(self.numeroVariable - 1)
+   #         varAnteriorr = self.ultimaVariable
+   #         self.ultimaVariable = "t" + str(self.numeroVariable)
+   #         aux = ctx.getChild(1).getText()
+   #       
+   #         aux = aux.split(self.signo)[0]
+   #         self.f.write(str(self.ultimaVariable) + " = " + str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr))
+   #         self.ultimoParentesis = str(aux)+ " "  + str(self.signo) + " " + str(varAnteriorr)
+   #         self.f.write("\n")
+            return r
     def visitT(self, ctx:compiladoresParser.TContext):
         r = super().visitChildren(ctx)
         if(ctx.getChildCount() > 0):

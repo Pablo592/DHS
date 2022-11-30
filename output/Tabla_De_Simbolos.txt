@@ -2,209 +2,568 @@ Tipo	Nombre	Inicializada	Usada	Argumentos de la funcion
 -------------------------------------------------------------------
 
 
+int--> exitTdato
+
+
+sumar--> exitVariable
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+int--> exitTdato
+
+
+b--> exitVariable
+
+
 intsumar(inta,intb)--> exitPrototipadoFuncion
 
 
+int--> exitTdato
+
+
+restar--> exitVariable
+
+
+int--> exitTdato
+
+
+p--> exitVariable
+
+
+int--> exitTdato
+
+
+q--> exitVariable
+
+
+int--> exitTdato
+
+
+t--> exitVariable
+
+
 intrestar(intp,intq,intt)--> exitPrototipadoFuncion
+
+
+int--> exitTdato
+
+
+global--> exitVariable
+
+
+global=5--> exitItop
+
+
+int--> exitTdato
+
+
+main--> exitVariable
+
+
+int--> exitTdato
+
+
+y--> exitVariable
+
+
+y--> exitItop
+
+
+int--> exitTdato
+
+
+x--> exitVariable
+
+
+x=5--> exitItop
+
+
+int--> exitTdato
+
+
+p--> exitVariable
+
+
+q--> exitVariable
+
+
+r--> exitVariable
+
+
+t--> exitVariable
+
+
+i--> exitVariable
+
+
+p,q,r,t,i--> exitItop
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+c--> exitVariable
+
+
+d--> exitVariable
+
+
+a=1,b=2,c=3,d--> exitItop
+
+
+y--> exitVariable
+
+
+sumar--> exitVariable
+
+
+x--> exitVariable
+
+
+p--> exitVariable
+
+
+sumar(x,p)--> exitLlamadoAFunciones
+
+
+y=sumar(x,p)--> exitItop
+
+
+p--> exitVariable
+
+
+restar--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+c--> exitVariable
+
+
+restar(a,b,c)--> exitLlamadoAFunciones
+
+
+p=restar(a,b,c)--> exitItop
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+a!=x--> exitItop
+
+
+a--> exitVariable
+
+
+a*=3+1-5*8+5-7/4--> exitItop
+
+
+a--> exitVariable
+
+
+a--> exitVariable
+
+
+a=a+1--> exitItop
+
+
+a--> exitVariable
+
+
+a/=2--> exitItop
+
+
+a--> exitVariable
+
+
+a%=2--> exitItop
+
+
+a--> exitVariable
+
+
+a+=2--> exitItop
+
+
+b--> exitVariable
+
+
+b*=2--> exitItop
+
+
+a--> exitVariable
+
+
+a-=2--> exitItop
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+a%=3+1-5*(8+b)-7/4--> exitItop
+
+
+a--> exitVariable
+
+
+a%=3+3-5*(8+5-7/4)--> exitItop
+
+
+a--> exitVariable
+
+
+a-=3+3-5-(8+5-7/4)--> exitItop
+
+
+a--> exitVariable
+
+
+a/=(8+5-7/4)--> exitItop
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 0
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		False		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		d			True		True		
-int		d			True		True		
-int		d			True		True		
+y		int		y			True		True		
+x		int		x			True		True		
+p		int		p			True		True		
+q		int		q			True		False		
+r		int		r			True		False		
+t		int		t			True		False		
+i		int		i			True		False		
+a		int		a			True		True		
+b		int		b			True		True		
+c		int		c			True		True		
+d		int		d			True		False		
 }
 {
 
-int		a			True		False		
-int		a			True		True		
-int		b			True		True		
 }
+
+a--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+a=a+x--> exitItop
+
+
+i--> exitVariable
+
+
+a--> exitVariable
+
+
+i--> exitVariable
+
+
+i=a+i--> exitItop
+
+
+a--> exitVariable
+
+
+a=5--> exitItop
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 1
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		False		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		d			True		True		
-int		d			True		True		
-int		i			True		True		
+y		int		y			True		True		
+x		int		x			True		True		
+p		int		p			True		True		
+q		int		q			True		False		
+r		int		r			True		False		
+t		int		t			True		False		
+i		int		i			True		True		
+a		int		a			True		True		
+b		int		b			True		True		
+c		int		c			True		True		
+d		int		d			True		False		
 }
 {
 
-int		a			True		False		
-int		x			True		True		
-int		i			True		True		
-int		i			True		True		
 }
+
+b--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+b=a+x--> exitItop
+
+
+i--> exitVariable
+
+
+i<5--> exitItop
+
+
+b--> exitVariable
+
+
+b=3--> exitItop
+
+
+b--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+b=a+x--> exitItop
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 2
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		restar		True		True		int		a		int		b		int		c		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		True		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		False		
-int		x			True		True		
-int		x			True		True		
-int		d			True		True		
-int		d			True		True		
-int		x			True		True		
+y		int		y			True		True		
+x		int		x			True		True		
+p		int		p			True		True		
+q		int		q			True		False		
+r		int		r			True		False		
+t		int		t			True		False		
+i		int		i			True		True		
+a		int		a			True		True		
+b		int		b			True		True		
+c		int		c			True		True		
+d		int		d			True		False		
 }
 {
 
-int		x			True		False		
-int		p			True		False		
-int		p			True		False		
-int		b			True		True		
-int		x			True		False		
-int		x			True		False		
 }
+
+b--> exitVariable
+
+
+b=7--> exitItop
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 3
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		restar		True		True		int		a		int		b		int		c		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		True		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		False		
-int		x			True		True		
-int		x			True		True		
-int		d			True		True		
-int		d			True		True		
-int		x			True		True		
+y		int		y			True		True		
+x		int		x			True		True		
+p		int		p			True		True		
+q		int		q			True		False		
+r		int		r			True		False		
+t		int		t			True		False		
+i		int		i			True		True		
+a		int		a			True		True		
+b		int		b			True		True		
+c		int		c			True		True		
+d		int		d			True		False		
 }
 {
 
-int		b			True		False		
 }
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 4
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		restar		True		True		int		a		int		b		int		c		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		True		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		i			True		True		
-int		x			True		True		
-int		d			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		True		
-int		i			True		False		
-int		x			True		True		
-int		x			True		True		
-int		d			True		True		
-int		d			True		True		
-int		x			True		True		
+y		int		y			True		True		
+x		int		x			True		True		
+p		int		p			True		True		
+q		int		q			True		False		
+r		int		r			True		False		
+t		int		t			True		False		
+i		int		i			True		True		
+a		int		a			True		True		
+b		int		b			True		True		
+c		int		c			True		True		
+d		int		d			True		False		
 }
+
+int--> exitTdato
+
+
+sumar--> exitVariable
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+int--> exitTdato
+
+
+b--> exitVariable
+
+
+int--> exitTdato
+
+
+r--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+r=a+b+8--> exitItop
+
+
+r--> exitVariable
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 5
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		restar		True		True		int		a		int		b		int		c		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		True		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		b			True		True		
-int		b			True		True		
-int		b			True		True		
-int		b			True		True		
-int		b			True		True		
+a		int		a			True		False		
+b		int		b			True		False		
+r		int		r			True		True		
 }
+
+int--> exitTdato
+
+
+restar--> exitVariable
+
+
+int--> exitTdato
+
+
+ar--> exitVariable
+
+
+int--> exitTdato
+
+
+br--> exitVariable
+
+
+int--> exitTdato
+
+
+cr--> exitVariable
+
+
+int--> exitTdato
+
+
+mo--> exitVariable
+
+
+ar--> exitVariable
+
+
+br--> exitVariable
+
+
+cr--> exitVariable
+
+
+mo=ar-br-cr--> exitItop
+
+
+mo--> exitVariable
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 6
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 {
 
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		restar		True		True		int		a		int		b		int		c		
-int		sumar		True		True		int		x		int		p		
-int		restar		True		True		int		a		int		b		int		c		
-int		global		True		True		
+sumar		int		sumar		True		True		int		x		int		p		
+restar		int		restar		True		True		int		a		int		b		int		c		
+global		int		global		True		False		
+y		int		sumar		True		True		int		x		int		p		
+p		int		restar		True		True		int		a		int		b		int		c		
 }
 {
 
-int		cr		True		True		
-int		cr		True		True		
-int		cr		True		True		
-int		cr		True		True		
-int		cr		True		True		
-int		cr		True		True		
-int		cr		True		True		
+r		int		r			True		False		
+ar		int		ar		True		False		
+br		int		br		True		False		
+cr		int		cr		True		False		
+mo		int		mo		True		True		
 }

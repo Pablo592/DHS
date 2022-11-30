@@ -24,8 +24,9 @@ class Tabla:
         self.diccionario.pop()
 
     def updateId(self,nombre,variable,i):
-        self.diccionario[-i]["nombre-"+str(nombre)] = nombre
-        self.diccionario[-i]["variable-"+str(nombre)] = variable
+        if(nombre != None):
+            self.diccionario[-i]["nombre-"+str(nombre)] = nombre
+            self.diccionario[-i]["variable-"+str(nombre)] = variable
 
     def addId(self,nombre,variable):
         self.diccionario[-1]["nombre-"+str(nombre)] = nombre

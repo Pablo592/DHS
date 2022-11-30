@@ -33,11 +33,10 @@ class MiListener(ParseTreeListener):
         if(datos != ""):
             for i in self.tabla.diccionario:
                 i.items()
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> exitItop")
-    #        self.f.write("\n")
-    #        self.f.write("\n")
+ 
+            print(str(datos) + "--> exitItop")
+            print("\n")  
+
 
             if(not(("," in datos) & ("(" in datos))):
                 for i in range(0,len(self.variables)-1):
@@ -347,11 +346,10 @@ class MiListener(ParseTreeListener):
     def exitVariable(self, ctx:compiladoresParser.VariableContext):
         datos = ctx.getText()
         if(datos != ""):
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> exitVariable")
-    #        self.f.write("\n")
-    #        self.f.write("\n")
+ 
+            print(str(datos) + "--> exitVariable")
+            print("\n")
+
 
             if(datos == 'main'):
                 self.variables = [dict()]
@@ -385,11 +383,10 @@ class MiListener(ParseTreeListener):
     def exitTdato(self, ctx:compiladoresParser.TdatoContext):
         datos = ctx.getText()
         if(datos != ""):
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> exitTdato")
-    #        self.f.write("\n")
-    #        self.f.write("\n")
+
+            print(str(datos) + "--> exitTdato")
+            print("\n")
+
             self.tipoDato = datos
 
 
@@ -402,11 +399,10 @@ class MiListener(ParseTreeListener):
     def exitNumero(self, ctx:compiladoresParser.NumeroContext):
         datos = ctx.getText()
         if(datos != ""):
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> exitNumero")
-    #        self.f.write("\n")
-    #        self.f.write("\n")
+   
+            print(str(datos) + "--> exitNumero")
+            print("\n")
+  
 
     # Enter a parse tree produced by compiladoresParser#declaroAsigno.
     def enterDeclaroAsigno(self, ctx:compiladoresParser.DeclaroAsignoContext):
@@ -420,10 +416,8 @@ class MiListener(ParseTreeListener):
     def enterAsignacion(self, ctx:compiladoresParser.AsignacionContext):
         datos = ctx.getText()
         if(datos != ""):
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> enterAsignacion")
-    #        self.f.write("\n")
+
+            print(str(datos) + "--> enterAsignacion")
             self.f.write("\n")
 
     # Exit a parse tree produced by compiladoresParser#asignacion.
@@ -439,11 +433,10 @@ class MiListener(ParseTreeListener):
     def exitPrototipadoFuncion(self, ctx:compiladoresParser.PrototipadoFuncionContext):
         datos = ctx.getText()
         if(datos != ""):
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> exitPrototipadoFuncion")
-    #        self.f.write("\n")
-    #        self.f.write("\n")
+
+            print(str(datos) + "--> exitPrototipadoFuncion")
+            print("\n")
+
             funcion = Funcion()
 
             funcion.setNombre(self.variables[0].get('nombre'))
@@ -473,11 +466,10 @@ class MiListener(ParseTreeListener):
         if(datos != ""):
             for i in self.tabla.diccionario:
                 i.items()
-            print(datos)
-    #        self.f.write("\n")
-    #        self.f.write(str(datos) + "--> exitLlamadoAFunciones")
-    #        self.f.write("\n")
-    #        self.f.write("\n")
+
+            print(str(datos) + "--> exitLlamadoAFunciones")
+            print("\n")
+   
             nombreFuncion = datos.split("(")[0]    
             print(nombreFuncion)
 

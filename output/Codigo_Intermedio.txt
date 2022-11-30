@@ -64,25 +64,19 @@ t1 = i<x
 ifnot t1 jump l8
 a = a+x
 i = a+i
-push a
-push i
-push l9
-jmp l10
-label l9
-pop a
 a = 5
 i = i + 7
 jump l7
 label l8
 b = a+x
 t2 = i<5
-ifnot t2 jump l12
+ifnot t2 jump l10
 b = 3
 b = a+x
-jump l13
-label l12
+jump l11
+label l10
 b = 7
-label l13
+label l11
 push 0
 label l1
 pop l0

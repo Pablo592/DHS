@@ -1,227 +1,599 @@
-int
-sumar
-int
-a
-int
-b
-intsumar(inta,intb)
-int
-restar
-int
-p
-int
-q
-int
-t
-intrestar(intp,intq,intt)
-int
-global
-5
-global=5
-int
-main
+int--> exitTdato
+
+
+sumar--> exitVariable
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+int--> exitTdato
+
+
+b--> exitVariable
+
+
+intsumar(inta,intb)--> exitPrototipadoFuncion
+
+
+int--> exitTdato
+
+
+restar--> exitVariable
+
+
+int--> exitTdato
+
+
+p--> exitVariable
+
+
+int--> exitTdato
+
+
+q--> exitVariable
+
+
+int--> exitTdato
+
+
+t--> exitVariable
+
+
+intrestar(intp,intq,intt)--> exitPrototipadoFuncion
+
+
+int--> exitTdato
+
+
+global--> exitVariable
+
+
+5--> exitNumero
+
+
+global=5--> exitItop
+
+
+int--> exitTdato
+
+
+main--> exitVariable
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 0
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-int
-y
-y
-int
-x
-5
-x=5
-int
-p
-q
-r
-t
-i
-p,q,r,t,i
-int
-a
-1
-b
-2
-c
-3
-d
-a=1,b=2,c=3,d
-y
+int--> exitTdato
+
+
+y--> exitVariable
+
+
+y--> exitItop
+
+
+int--> exitTdato
+
+
+x--> exitVariable
+
+
+5--> exitNumero
+
+
+x=5--> exitItop
+
+
+int--> exitTdato
+
+
+p--> exitVariable
+
+
+q--> exitVariable
+
+
+r--> exitVariable
+
+
+t--> exitVariable
+
+
+i--> exitVariable
+
+
+p,q,r,t,i--> exitItop
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+1--> exitNumero
+
+
+b--> exitVariable
+
+
+2--> exitNumero
+
+
+c--> exitVariable
+
+
+3--> exitNumero
+
+
+d--> exitVariable
+
+
+a=1,b=2,c=3,d--> exitItop
+
+
+y--> exitVariable
+
+
+sumar--> exitVariable
+
+
+x--> exitVariable
+
+
+p--> exitVariable
+
+
+sumar(x,p)--> exitLlamadoAFunciones
+
+
 sumar
-x
-p
-sumar(x,p)
-sumar
-y=sumar(x,p)
-p
+y=sumar(x,p)--> exitItop
+
+
+p--> exitVariable
+
+
+restar--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+c--> exitVariable
+
+
+restar(a,b,c)--> exitLlamadoAFunciones
+
+
 restar
-a
-b
-c
-restar(a,b,c)
-restar
-p=restar(a,b,c)
-a
-x
-a!=x
+p=restar(a,b,c)--> exitItop
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+a!=x--> exitItop
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 0
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-a
-3
-1
-5
-8
-5
-7
-4
-a*=3+1-5*8+5-7/4
-a
-a
-1
-a=a+1
-a
-2
-a/=2
-a
-2
-a%=2
-a
-2
-a+=2
-b
-2
-b*=2
-a
-2
-a-=2
-a
-3
-1
-5
-8
-b
-7
-4
-a%=3+1-5*(8+b)-7/4
-a
-3
-3
-5
-8
-5
-7
-4
-a%=3+3-5*(8+5-7/4)
-a
-3
-3
-5
-8
-5
-7
-4
-a-=3+3-5-(8+5-7/4)
-a
-8
-5
-7
-4
-a/=(8+5-7/4)
-0
+int--> exitTdato
+
+
+variableNueva--> exitVariable
+
+
+10--> exitNumero
+
+
+variableNueva=10--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+1--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a*=3+1-5*8+5-7/4--> exitItop
+
+
+a--> exitVariable
+
+
+a--> exitVariable
+
+
+1--> exitNumero
+
+
+a=a+1--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a/=2--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a%=2--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a+=2--> exitItop
+
+
+b--> exitVariable
+
+
+2--> exitNumero
+
+
+b*=2--> exitItop
+
+
+a--> exitVariable
+
+
+2--> exitNumero
+
+
+a-=2--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+1--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+b--> exitVariable
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a%=3+1-5*(8+b)-7/4--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+3--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a%=3+3-5*(8+5-7/4)--> exitItop
+
+
+a--> exitVariable
+
+
+3--> exitNumero
+
+
+3--> exitNumero
+
+
+5--> exitNumero
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a-=3+3-5-(8+5-7/4)--> exitItop
+
+
+a--> exitVariable
+
+
+8--> exitNumero
+
+
+5--> exitNumero
+
+
+7--> exitNumero
+
+
+4--> exitNumero
+
+
+a/=(8+5-7/4)--> exitItop
+
+
+0--> exitNumero
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 1
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-a
-a
-x
-a=a+x
-i
-a
-i
-i=a+i
-a
-5
-a=5
-b
-a
-x
-b=a+x
-i
-5
-i<5
+a--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+a=a+x--> exitItop
+
+
+i--> exitVariable
+
+
+a--> exitVariable
+
+
+i--> exitVariable
+
+
+i=a+i--> exitItop
+
+
+a--> exitVariable
+
+
+5--> exitNumero
+
+
+a=5--> exitItop
+
+
+b--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+b=a+x--> exitItop
+
+
+i--> exitVariable
+
+
+5--> exitNumero
+
+
+i<5--> exitItop
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 2
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-b
-3
-b=3
-b
-a
-x
-b=a+x
+b--> exitVariable
+
+
+3--> exitNumero
+
+
+b=3--> exitItop
+
+
+b--> exitVariable
+
+
+a--> exitVariable
+
+
+x--> exitVariable
+
+
+b=a+x--> exitItop
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 3
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-b
-7
-b=7
-0
-int
-sumar
-int
-a
-int
-b
+b--> exitVariable
+
+
+7--> exitNumero
+
+
+b=7--> exitItop
+
+
+0--> exitNumero
+
+
+int--> exitTdato
+
+
+sumar--> exitVariable
+
+
+int--> exitTdato
+
+
+a--> exitVariable
+
+
+int--> exitTdato
+
+
+b--> exitVariable
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 5
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-int
-r
-a
-b
-8
-r=a+b+8
-r
-int
-restar
-int
-ar
-int
-br
-int
-cr
+int--> exitTdato
+
+
+r--> exitVariable
+
+
+a--> exitVariable
+
+
+b--> exitVariable
+
+
+8--> exitNumero
+
+
+r=a+b+8--> exitItop
+
+
+r--> exitVariable
+
+
+int--> exitTdato
+
+
+restar--> exitVariable
+
+
+int--> exitTdato
+
+
+ar--> exitVariable
+
+
+int--> exitTdato
+
+
+br--> exitVariable
+
+
+int--> exitTdato
+
+
+cr--> exitVariable
+
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 				Contexto: 6
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-int
-mo
-ar
-br
-cr
-mo=ar-br-cr
-mo
+int--> exitTdato
+
+
+mo--> exitVariable
+
+
+ar--> exitVariable
+
+
+br--> exitVariable
+
+
+cr--> exitVariable
+
+
+mo=ar-br-cr--> exitItop
+
+
+mo--> exitVariable
+
+
 
 
 Comienza el recorrido del programa
@@ -252,7 +624,7 @@ main
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{inty;intx=5;intp,q,r,t,i;inta=1,b=2,c=3,d;y=sumar(x,p);p=restar(a,b,c);while(a!=x){a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*(8+b)-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}for(i=0;i<x;i+=7){a=a+x;i=a+i;a=5;}b=a+x;if(i<5){b=3;b=a+x;}else{b=7;}return0;}
+{inty;intx=5;intp,q,r,t,i;inta=1,b=2,c=3,d;y=sumar(x,p);p=restar(a,b,c);while(a!=x){intvariableNueva=10;a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*(8+b)-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}for(i=0;i<x;i+=7){a=a+x;i=a+i;a=5;}b=a+x;if(i<5){b=3;b=a+x;}else{b=7;}return0;}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 len(self.direccionFunciones)1len(self.direccionFunciones
 
@@ -452,7 +824,7 @@ a!=x
 )
 +-+-+-+-+-+-+-+ 3 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
-{a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*(8+b)-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}
+{intvariableNueva=10;a*=3+1-5*8+5-7/4;a=a+1;a/=2;a%=2;a+=2;b*=2;a-=2;a%=3+1-5*(8+b)-7/4;a%=3+3-5*(8+5-7/4);a-=3+3-5-(8+5-7/4);a/=(8+5-7/4);}
 +-+-+-+-+-+-+-+ 4 +-+-+-+-+-+-+-+-+
 
 
@@ -463,6 +835,16 @@ a!=x
 +-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
 
++-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
+
+
+
++-+-+-+-+-+ visitTie +-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+variableNueva
++-+-+-+-+-+-+-+ 0 +-+-+-+-+-+-+-+-+
++-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+
+=10
 +-+-+-+-+-+-+-+ 1 +-+-+-+-+-+-+-+-+
 
 

@@ -19,6 +19,7 @@ pop p
 label l4
 t0 = a!=x
 ifnot t0 jump l5
+variableNueva = 10
 t1 = 7/4
 t2 = 5 - t1
 t3 = 5*8
@@ -63,19 +64,25 @@ t1 = i<x
 ifnot t1 jump l8
 a = a+x
 i = a+i
+push a
+push i
+push l9
+jmp l10
+label l9
+pop a
 a = 5
 i = i + 7
 jump l7
 label l8
 b = a+x
 t2 = i<5
-ifnot t2 jump l10
+ifnot t2 jump l12
 b = 3
 b = a+x
-jump l11
-label l10
+jump l13
+label l12
 b = 7
-label l11
+label l13
 push 0
 label l1
 pop l0

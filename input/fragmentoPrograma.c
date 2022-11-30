@@ -16,6 +16,7 @@ int main()
 
     while (a != x)
     {
+        int variableNueva = 10;
         a *= 3 + 1 - 5 * 8 + 5 - 7 / 4;
         a = a + 1;
         a /= 2;

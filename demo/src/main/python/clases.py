@@ -14,7 +14,7 @@ class Tabla:
 
         for i in range(0,len(self.diccionario)):
          if(("nombre-"+str(nombre)) in self.diccionario[-i]):
-          return i, self.diccionario[-i].get("variable-"+str(nombre))
+            return i, self.diccionario[-i].get("variable-"+str(nombre))
         return i, False
 
     def addContexto(self):
@@ -29,8 +29,9 @@ class Tabla:
             self.diccionario[-i]["variable-"+str(nombre)] = variable
 
     def addId(self,nombre,variable):
-        self.diccionario[-1]["nombre-"+str(nombre)] = nombre
-        self.diccionario[-1]["variable-"+str(nombre)] = variable
+        if(nombre != None):
+            self.diccionario[-1]["nombre-"+str(nombre)] = nombre
+            self.diccionario[-1]["variable-"+str(nombre)] = variable
 
 
 

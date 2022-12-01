@@ -19,7 +19,6 @@ pop p
 label l4
 t0 = a!=x
 ifnot t0 jump l5
-variableNueva = 10
 t1 = 7/4
 t2 = 5 - t1
 t3 = 5*8
@@ -33,16 +32,16 @@ a = a % 2
 a = a + 2
 b = b * 2
 a = a - 2
-t1 = b
-t2 = 7/4
-t3 = t2 + t1
-t5 = 5*t4
-t6 = 1 - t5
-t8 = 3 + t6
-a = a % t8
 t1 = 7/4
 t2 = 5 - t1
-t4 = 5*t3
+t3 = 5*8
+t4 = t3 + t2
+t5 = 1 - t4
+t7 = 3 + t5
+a = a % t7
+t1 = 5
+t2 = 7/4
+t3 = t2 + t1
 t5 = 3 - t4
 t7 = 3 + t5
 a = a % t7
@@ -72,11 +71,18 @@ b = a+x
 t2 = i<5
 ifnot t2 jump l10
 b = 3
+push a
+push b
+push c
+push l11
+jmp l12
+label l11
+pop p
 b = a+x
 jump l11
 label l10
 b = 7
-label l11
+label l13
 push 0
 label l1
 pop l0
@@ -99,3 +105,14 @@ t6 = ar - t4
 mo = t6
 push mo
 jmp l2
+label l12
+pop l11
+pop ar
+pop br
+pop cr
+t3 = cr
+t4 = br - t3
+t6 = ar - t4
+mo = t6
+push mo
+jmp l11

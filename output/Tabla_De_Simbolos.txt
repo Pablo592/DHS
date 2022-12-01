@@ -26,7 +26,6 @@ int		d			True		False
 }
 {
 
-int		variableNueva		True		False		
 }
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 							Contexto: 1

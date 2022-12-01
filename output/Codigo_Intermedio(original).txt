@@ -16,9 +16,13 @@ push l2
 jmp l3
 label l2
 pop p
+push l4
+jmp l5
 label l4
+pop d
+label l6
 t0 = a!=x
-ifnot t0 jump l5
+ifnot t0 jump l7
 t1 = 7/4
 t2 = 5 - t1
 t3 = 5*8
@@ -57,43 +61,54 @@ t1 = 7/4
 t2 = 5 - t1
 t3 = 8 + t2
 a = a / t3
-jump l4
-label l5
-i = 0
+jump l6
 label l7
+i = 0
+label l9
 t1 = i<x
-ifnot t1 jump l8
+ifnot t1 jump l10
 a = a+x
 i = a+i
 a = 5
-i = i + 7
-jump l7
-label l8
+j = 0
+label l12
+t2 = j<x
+ifnot t2 jump l13
+a = a+x
+variable = 5
+j = a+j
+a = 5
+j = j + 7
+jump l12
+label l13
+j = j + 7
+jump l12
+label l13
 b = a+x
-t2 = i<5
-ifnot t2 jump l10
+t3 = i<5
+ifnot t3 jump l15
 b = 3
 push a
-push b
+push x
 push c
-push l11
-jmp l12
-label l11
+push l16
+jmp l17
+label l16
 pop p
 b = a+x
-jump l11
-label l10
+jump l16
+label l15
 b = 7
-label l13
+label l18
 push 0
 label l1
 pop l0
 pop a
 pop b
-t3 = 8
-t4 = b + t3
-t6 = a + t4
-r = t6
+t4 = 8
+t5 = b + t4
+t7 = a + t5
+r = t7
 push r
 jmp l0
 label l3
@@ -101,20 +116,25 @@ pop l2
 pop ar
 pop br
 pop cr
-t3 = cr
-t4 = br - t3
-t6 = ar - t4
-mo = t6
+t4 = cr
+t5 = br - t4
+t7 = ar - t5
+mo = t7
 push mo
 jmp l2
-label l12
-pop l11
+label l17
+pop l16
 pop ar
 pop br
 pop cr
-t3 = cr
-t4 = br - t3
-t6 = ar - t4
-mo = t6
+t4 = cr
+t5 = br - t4
+t7 = ar - t5
+mo = t7
 push mo
-jmp l11
+jmp l16
+label l5
+pop l4
+p = 5+6
+push p
+jmp l4

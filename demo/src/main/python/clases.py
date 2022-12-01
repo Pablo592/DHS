@@ -94,6 +94,7 @@ class Variable(Id):
 class Funcion(Id):
 
     argumentos = []
+    desarrollada = False
 
     def addArg(self,nombre,tipo):
         self.argumentos.append(dict())
@@ -105,6 +106,12 @@ class Funcion(Id):
         
     def setArgumentos(self,arg):
         self.argumentos = arg
+
+    def getDesarrollada(self):
+        return self.desarrollada
+        
+    def setDesarrollada(self,desa):
+        self.desarrollada = desa
 
     def resetArgumentos(self):
         self.argumentos = []

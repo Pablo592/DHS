@@ -1,6 +1,6 @@
 int sumar(int a, int b);
 int restar(int p, int q, int t);
-
+int sinParametros();
 
 int global = 5;
 
@@ -8,11 +8,12 @@ int main()
 {
     int y;
     int x = 5;
-    int p, q, r, t, i;
+    int p, q, r, t, i, j;
     int a = 1, b = 2, c = 3, d;
 
     y = sumar(x, p);
-    p = restar(a,b,c);
+    p = restar(a, b, c);
+    d = sinParametros();
 
     while (a != x)
     {
@@ -33,7 +34,15 @@ int main()
     {
         a = a + x;
         i = a + i;
+        int estoyFor;
         a = 5;
+        for (j = 0; j < x; j += 7)
+        {
+            a = a + x;
+            int variable = 5;
+            j = a + j;
+            a = 5;
+        }
     }
 
     b = a + x;
@@ -41,7 +50,7 @@ int main()
     if (i < 5)
     {
         b = 3;
-        p = restar(a,b,c);
+        p = restar(a, x, c);
         b = a + x;
     }
     else
@@ -58,9 +67,15 @@ int sumar(int a, int b)
     return r;
 }
 
-
-int restar(int ar, int br,int cr)
+int restar(int ar, int br, int cr)
 {
     int mo = ar - br - cr;
     return mo;
+}
+
+int sinParametros()
+{
+    int p;
+    p = 5 + 6;
+    return p;
 }

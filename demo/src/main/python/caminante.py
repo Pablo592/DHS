@@ -17,7 +17,6 @@ class Caminante(compiladoresVisitor):
     numeroTagReservado = 0
     numeroBloque = 0
     funcionMain = ""
-    finalBloque = ""
     direccionFunciones = [dict()]
     ultimaFuncionNombre = ""
     elseIf = "" 
@@ -314,10 +313,12 @@ class Caminante(compiladoresVisitor):
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
             m = 2
-            while(ctx.getChild(m - 1).getText() != ")"):
-                self.f.write("push " + str(ctx.getChild(m).getText()))
-                self.f.write("\n")
-                m+=2
+            print(ctx.getChildCount())
+            if(ctx.getChildCount() > 3):
+                while(ctx.getChild(m - 1).getText() != ")"):
+                    self.f.write("push " + str(ctx.getChild(m).getText()))
+                    self.f.write("\n")
+                    m+=2
             
            
             self.direccionFunciones.append(dict())
@@ -369,17 +370,18 @@ class Caminante(compiladoresVisitor):
                 self.f.write("pop " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")))
                 self.f.write("\n")
                 m = 4
-                while(ctx.getChild(m-2).getText() != ")"):
-                    self.f.write("pop " + str(ctx.getChild(m).getText()))
-                    self.f.write("\n")
-                    m +=3
+                if(ctx.getChildCount() > 5):
+                    while(ctx.getChild(m-2).getText() != ")"):
+                        self.f.write("pop " + str(ctx.getChild(m).getText()))
+                        self.f.write("\n")
+                        m +=3
                 position = str(ctx.getChild(ctx.getChildCount() - 1).getText()).split('return')[1]
                 position = position[0:position.index(";")]
-                self.finalBloque = "push " + str(position) + "\n" + "jmp " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
+                finalBloque = "push " + str(position) + "\n" + "jmp " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
 
                 r = super().visitChildren(ctx)
 
-                self.f.write(str(self.finalBloque))
+                self.f.write(str(finalBloque))
             return r
 
 
@@ -404,14 +406,14 @@ class Caminante(compiladoresVisitor):
         self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
         self.f.write("\n")
         self.numeroTagReservado +=1
-        self.finalBloque = ("jump"+ " l" + str(self.numeroTagReservado))
-        self.finalBloque += ("\n")
-        self.finalBloque += ("label" + " l" + str(self.numeroTagReservado - 1))
-        self.finalBloque += ("\n")
+        finalBloque = ("jump"+ " l" + str(self.numeroTagReservado))
+        finalBloque += ("\n")
+        finalBloque += ("label" + " l" + str(self.numeroTagReservado - 1))
+        finalBloque += ("\n")
 
         r = super().visitChildren(ctx)
 
-        self.f.write(self.finalBloque)
+        self.f.write(finalBloque)
 
         return r
 
@@ -447,20 +449,20 @@ class Caminante(compiladoresVisitor):
             print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
         self.numeroVariableReservado+=1 
         self.f.write("label l" + str(self.numeroTagReservado))
-        self.finalBloque = "jump l" + str(self.numeroTagReservado) + "\n"
+        finalBloque = "jump l" + str(self.numeroTagReservado) + "\n"
         self.numeroTagReservado+=1
         self.f.write("\n")
         self.f.write("t" + str(self.numeroVariableReservado) + " = " + str(ctx.getChild(2).getText()))
         self.f.write("\n")
         self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
-        self.finalBloque += "label l" + str(self.numeroTagReservado) + "\n"
+        finalBloque += "label l" + str(self.numeroTagReservado) + "\n"
         self.f.write("\n")
         self.numeroTagReservado+=1
 
 
         r = super().visitChildren(ctx)
 
-        self.f.write(str(self.finalBloque))
+        self.f.write(str(finalBloque))
 
         return r
 
@@ -471,7 +473,7 @@ class Caminante(compiladoresVisitor):
         print("")
         print("")
         print("")
-        print("+-+-+-+-+-+ FOR +-+-+-+-+-+")
+        print("+-+-+-+-+-+ visitBloquefor +-+-+-+-+-+")
         for i in range(0,ctx.getChildCount()):
             print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
             print(ctx.getChild(i).getText())
@@ -485,29 +487,29 @@ class Caminante(compiladoresVisitor):
         print(str(finFor) + "\n")
         print("+-+-+-+-+finFor+-+-+-+\n")
         if(finFor.endswith("++")):
-            self.finalBloque = finFor.split("++")[0] + " = " + finFor.split("++")[0] + " + 1" + "\n"
+            finalBloque = finFor.split("++")[0] + " = " + finFor.split("++")[0] + " + 1" + "\n"
         elif(finFor.endswith("--")):
-            self.finalBloque = finFor.split("--")[0] + " = " + finFor.split("--")[0] + " - 1" + "\n"
+            finalBloque = finFor.split("--")[0] + " = " + finFor.split("--")[0] + " - 1" + "\n"
         elif(finFor.startswith("++")):
-            self.finalBloque = finFor.split("++")[1] + " = " + finFor.split("++")[1] + " + 1" + "\n"
+            finalBloque = finFor.split("++")[1] + " = " + finFor.split("++")[1] + " + 1" + "\n"
         elif(finFor.startswith("--")):
-            self.finalBloque = finFor.split("--")[1] + " = " + finFor.split("--")[1] + " - 1" + "\n"
+            finalBloque = finFor.split("--")[1] + " = " + finFor.split("--")[1] + " - 1" + "\n"
         elif("+=" in finFor):
-            self.finalBloque = finFor.split("+=")[0] + " = " + finFor.split("+=")[0] + " + " + finFor.split("+=")[1] + "\n"
+            finalBloque = finFor.split("+=")[0] + " = " + finFor.split("+=")[0] + " + " + finFor.split("+=")[1] + "\n"
         elif("-=" in finFor):
-            self.finalBloque = finFor.split("-=")[0] + " = " + finFor.split("-=")[0] + " - " + finFor.split("-=")[1] + "\n"
+            finalBloque = finFor.split("-=")[0] + " = " + finFor.split("-=")[0] + " - " + finFor.split("-=")[1] + "\n"
         self.numeroTagReservado+=1
         self.numeroVariableReservado+=1
         self.f.write(str(ctx.getChild(2).getText()) + " " + str(ctx.getChild(3).getText()) + " " + str(ctx.getChild(4).getText()))
         self.f.write("\n")
         self.f.write("label l" + str(self.numeroTagReservado))
-        self.finalBloque += "jump l" + str(self.numeroTagReservado) + "\n"
+        finalBloque += "jump l" + str(self.numeroTagReservado) + "\n"
         self.numeroTagReservado+=1
         self.f.write("\n")
         self.f.write("t" + str(self.numeroVariableReservado) + " = " + str(ctx.getChild(6).getText()) + str(ctx.getChild(7).getText())  + str(ctx.getChild(8).getText()))
         self.f.write("\n")
         self.f.write("ifnot" +" t" + str(self.numeroVariableReservado)+ " jump l" + str(self.numeroTagReservado))
-        self.finalBloque += "label l" + str(self.numeroTagReservado) + "\n"
+        finalBloque += "label l" + str(self.numeroTagReservado) + "\n"
         self.f.write("\n")
         self.numeroTagReservado+=1
 
@@ -515,7 +517,7 @@ class Caminante(compiladoresVisitor):
 
         r = super().visitChildren(ctx)
 
-        self.f.write(str(self.finalBloque))
+        self.f.write(str(finalBloque))
 
 
 

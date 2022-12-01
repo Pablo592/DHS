@@ -169,10 +169,10 @@ instrucciones : instruccion instrucciones
               ;
 
 instruccion : bloque
+            | prototipadoFuncion PUNTOYCOMA
             | llamadoAFunciones PUNTOYCOMA
             | declaroAsigno PUNTOYCOMA
             | asignacion PUNTOYCOMA
-            | prototipadoFuncion PUNTOYCOMA
             | desarrolloFuncion
             | retorno PUNTOYCOMA
             | bloqueif
@@ -187,7 +187,7 @@ declaroAsigno : tdato itop;
 tdato : TDATO;
 
 asignacion :  itop;
-prototipadoFuncion : tdato variable PARENTESISABRE (tdato (variable|numero) (COMA|))* PARENTESISCIERRA;
+prototipadoFuncion : tdato variable PARENTESISABRE ((tdato (variable|numero) (COMA|))*|) PARENTESISCIERRA;
 llamadoAFunciones: variable PARENTESISABRE ((variable|numero) (COMA|))* PARENTESISCIERRA;
 desarrolloFuncion: tdato variable PARENTESISABRE (tdato (variable|numero) (COMA|))* PARENTESISCIERRA instruccion;
 retorno: 'return' (numero|variable|);

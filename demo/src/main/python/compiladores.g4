@@ -151,7 +151,9 @@ prefijo:RESTAUNO variable factor prefijo
 
 factor : llamadoAFunciones 
        | variable
+       | 'return'variable
        | numero
+       | 'return'numero
        | FLOTANTES
        | FLOTANTESNEGATIVOS
        | parentesis

@@ -81,9 +81,9 @@ a = 5
 j = j + 7
 jump l12
 label l13
-j = j + 7
-jump l12
-label l13
+i = i + 7
+jump l9
+label l10
 b = a+x
 t3 = i<5
 ifnot t3 jump l15

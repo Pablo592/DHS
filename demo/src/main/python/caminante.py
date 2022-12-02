@@ -54,10 +54,14 @@ class Caminante(compiladoresVisitor):
             print("")
             print("")
             print("+-+-+-+-+-+ visitTie +-+-+-+-+-+")
+            position = ""
             for i in range(0,ctx.getChildCount()):
                 print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
                 print(ctx.getChild(i).getText())
                 print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+                if('return' in ctx.getChild(i).getText()):
+                    position = str(ctx.getChild(i).getText()).split('return')[1]
+                    position = ("push " + str(position) + "\n")
             if(ctx.getChildCount() > 1):
                 if((ctx.getChild(1).getText() != "") & (ctx.getChild(0).getText() != "")):
                     if(("(" in str(ctx.getChild(1).getText())) & (")" in str(ctx.getChild(1).getText()))):
@@ -114,6 +118,7 @@ class Caminante(compiladoresVisitor):
             self.numeroVariable = self.numeroVariableReservado + 1
             self.instruccionLarga = 0
             self.signo = ""
+            self.f.write(position)
         return r
     # Visit a parse tree produced by compiladoresParser#igualOperaciones.
     def visitIgualOperaciones(self, ctx:compiladoresParser.IgualOperacionesContext):
@@ -277,7 +282,19 @@ class Caminante(compiladoresVisitor):
         return r
     # Visit a parse tree produced by compiladoresParser#variable.
     def visitVariable(self, ctx:compiladoresParser.VariableContext):
-        return self.visitChildren(ctx)
+        r = super().visitChildren(ctx)
+        if(ctx.getChildCount() > 0):
+            print("")
+            print("")
+            print("")
+            print("+-+-+-+-+-+ visitVariable +-+-+-+-+-+")
+            for i in range(0,ctx.getChildCount()):
+                print("+-+-+-+-+-+ OTRO HIJO +-+-+-+-+-+")
+                print(ctx.getChild(i).getText())
+                print("+-+-+-+-+-+-+-+ "+str(i)+" +-+-+-+-+-+-+-+-+")
+        return r
+
+    
     # Visit a parse tree produced by compiladoresParser#bloque.
     def visitBloque(self, ctx:compiladoresParser.BloqueContext):
    #     self.contexto += 1
@@ -349,15 +366,7 @@ class Caminante(compiladoresVisitor):
             
             #if(self.direccionFunciones[0].get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
             if(len(self.direccionFunciones) == 1):
-                    print("len(self.direccionFunciones)" + str(len(self.direccionFunciones)) + "len(self.direccionFunciones")
-
-                    position = str(ctx.getChild(4).getText()).split('return')[1]
-                    position = position[0:position.index(";")]
-
-                    r = super().visitChildren(ctx)
-
-                    self.f.write("push " + str(position) + "\n")
-                    return r
+                    return super().visitChildren(ctx)
 
             for funcion in self.direccionFunciones:
                 if (funcion.get(str(ctx.getChild(1).getText())+"-desarrollo") == None):
@@ -375,9 +384,8 @@ class Caminante(compiladoresVisitor):
                         self.f.write("pop " + str(ctx.getChild(m).getText()))
                         self.f.write("\n")
                         m +=3
-                position = str(ctx.getChild(ctx.getChildCount() - 1).getText()).split('return')[1]
-                position = position[0:position.index(";")]
-                finalBloque = "push " + str(position) + "\n" + "jmp " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
+
+                finalBloque = "jmp " + str(funcion.get(str(ctx.getChild(1).getText())+"-llamo")) + "\n"
 
                 r = super().visitChildren(ctx)
 

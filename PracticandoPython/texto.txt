@@ -63,4 +63,4 @@ Se puede solucionar guardando todos los finales de bloques en una lista de dicci
 
 Falta el return 0 del int main()
 
-Puede que me haya olvidado algo
+/bin/python3 /home/pablo/Escritorio/Repositorios/DHS-Cursado/demo/src/main/python/App.py > output/consolaCompleta.txt

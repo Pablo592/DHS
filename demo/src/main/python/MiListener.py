@@ -283,6 +283,12 @@ class MiListener(ParseTreeListener):
             for i in range(0,len(respuesta.getArgumentos())):
                 if((str(respuesta.getArgumentos()[i]['tipo'])) != (str(self.variables[index + 1 +  i]['tdato']))):
                     self.f.write("\n***** "+str(self.variables[index + 1 + i]['nombre'])+" deberia ser de tipo "+(str(respuesta.getArgumentos()[i]['tipo'])) +" *****\n")
+
+        #    self.f.write("\n***** "+str(len(respuesta.getArgumentos()))+" = "+str(len(self.variables) - index - 2) +" *****\n")
+            if(str(len(respuesta.getArgumentos())) != str(len(self.variables) - index - 2)):
+                self.f.write("La funcion " + str(nombreFuncion) + " utiliza "+ str(len(respuesta.getArgumentos())) + " argumentos, no " + str(len(self.variables) - index - 2) + "\n")
+
+
             if(respuesta.getTipo() != (self.variables[0]['tdato'])):
                 self.f.write("\n***** "+str(self.variables[0]['nombre'])+" deberia ser de tipo "+(str(respuesta.getTipo())) +" *****\n")
 

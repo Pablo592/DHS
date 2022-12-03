@@ -280,6 +280,12 @@ class MiListener(ParseTreeListener):
 
             m, respuesta = self.tabla.buscarId(nombreFuncion)
 
+            for i in range(0,len(respuesta.getArgumentos())):
+                if((str(respuesta.getArgumentos()[i]['tipo'])) != (str(self.variables[index + 1 +  i]['tdato']))):
+                    self.f.write("\n***** "+str(self.variables[index + 1 + i]['nombre'])+" deberia ser de tipo "+(str(respuesta.getArgumentos()[i]['tipo'])) +" *****\n")
+            if(respuesta.getTipo() != (self.variables[0]['tdato'])):
+                self.f.write("\n***** "+str(self.variables[0]['nombre'])+" deberia ser de tipo "+(str(respuesta.getTipo())) +" *****\n")
+
             if(respuesta == False):
                 self.f.write("***** La funcion \"" + str(nombreFuncion) + "\" no se encuentra declarada *****\n")
                 return

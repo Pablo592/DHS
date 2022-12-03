@@ -42,8 +42,10 @@ TDATO :INT
       |FLOAT
       |DOUBLE
       |LONG
+      |VOID
       ;
 INT: 'int';
+VOID: 'void';
 STRING: 'string';
 FLOAT: 'float';
 DOUBLE: 'double';
